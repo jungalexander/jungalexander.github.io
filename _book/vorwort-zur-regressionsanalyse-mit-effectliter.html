@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4 Vorwort zur Regressionsanalyse mit EffectLiteR | EffectLiteR Tutorial - Work In Progress</title>
+  <meta name="description" content="This is a Tutorial for the EffectLiteR package." />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4 Vorwort zur Regressionsanalyse mit EffectLiteR | EffectLiteR Tutorial - Work In Progress" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a Tutorial for the EffectLiteR package." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4 Vorwort zur Regressionsanalyse mit EffectLiteR | EffectLiteR Tutorial - Work In Progress" />
+  
+  <meta name="twitter:description" content="This is a Tutorial for the EffectLiteR package." />
+  
+
+<meta name="author" content="Alexander Jung, Christoph Kiefer &amp; Axel Mayer" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="Einlesen-Schaltflächen.html"/>
+<link rel="next" href="eins.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Index</a></li>
+<li class="chapter" data-level="2" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>2</b> Installation</a><ul>
+<li class="chapter" data-level="2.1" data-path="installation.html"><a href="installation.html#download-und-verwendung-via-r"><i class="fa fa-check"></i><b>2.1</b> Download und Verwendung via R</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="installation.html"><a href="installation.html#schritt-1-r-downloaden"><i class="fa fa-check"></i><b>2.1.1</b> Schritt 1 – R downloaden</a></li>
+<li class="chapter" data-level="2.1.2" data-path="installation.html"><a href="installation.html#schritt-2-rstudio-downloaden"><i class="fa fa-check"></i><b>2.1.2</b> Schritt 2 – RStudio downloaden</a></li>
+<li class="chapter" data-level="2.1.3" data-path="installation.html"><a href="installation.html#schritt-3-effectliter-installieren-und-öffnen"><i class="fa fa-check"></i><b>2.1.3</b> Schritt 3 – EffectLiteR installieren und öffnen</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="installation.html"><a href="installation.html#download-mit-dem-windows-installer"><i class="fa fa-check"></i><b>2.2</b> Download mit dem Windows-Installer</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="Einlesen-Schaltflächen.html"><a href="Einlesen-Schaltflächen.html"><i class="fa fa-check"></i><b>3</b> Daten einlesen und Schaltflächen</a><ul>
+<li class="chapter" data-level="3.1" data-path="Einlesen-Schaltflächen.html"><a href="Einlesen-Schaltflächen.html#aufbau-der-graphischen-oberfläche"><i class="fa fa-check"></i><b>3.1</b> Aufbau der graphischen Oberfläche</a></li>
+<li class="chapter" data-level="3.2" data-path="Einlesen-Schaltflächen.html"><a href="Einlesen-Schaltflächen.html#daten-einlesen"><i class="fa fa-check"></i><b>3.2</b> Daten einlesen</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="Einlesen-Schaltflächen.html"><a href="Einlesen-Schaltflächen.html#beispieldatensätze"><i class="fa fa-check"></i><b>3.2.1</b> Beispieldatensätze</a></li>
+<li class="chapter" data-level="3.2.2" data-path="Einlesen-Schaltflächen.html"><a href="Einlesen-Schaltflächen.html#eigene-datensätze"><i class="fa fa-check"></i><b>3.2.2</b> Eigene Datensätze</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="Einlesen-Schaltflächen.html"><a href="Einlesen-Schaltflächen.html#übungsaufgabe-dateneinlesen"><i class="fa fa-check"></i><b>3.3</b> Übungsaufgabe “Dateneinlesen”</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="vorwort-zur-regressionsanalyse-mit-effectliter.html"><a href="vorwort-zur-regressionsanalyse-mit-effectliter.html"><i class="fa fa-check"></i><b>4</b> Vorwort zur Regressionsanalyse mit EffectLiteR</a></li>
+<li class="chapter" data-level="5" data-path="eins.html"><a href="eins.html"><i class="fa fa-check"></i><b>5</b> Einfache lineare Regression</a><ul>
+<li class="chapter" data-level="5.1" data-path="eins.html"><a href="eins.html#input"><i class="fa fa-check"></i><b>5.1</b> <span id="einsinput">Input</span></a><ul>
+<li class="chapter" data-level="5.1.1" data-path="eins.html"><a href="eins.html#referenzgruppe-festlegen"><i class="fa fa-check"></i><b>5.1.1</b> Referenzgruppe festlegen</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="eins.html"><a href="eins.html#einspara"><i class="fa fa-check"></i><b>5.2</b> Parametrisierung</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="eins.html"><a href="eins.html#zweistufige-treatmentvariable-x"><i class="fa fa-check"></i><b>5.2.1</b> Zweistufige Treatmentvariable X</a></li>
+<li class="chapter" data-level="5.2.2" data-path="eins.html"><a href="eins.html#dreistufige-treatmentvariable-x"><i class="fa fa-check"></i><b>5.2.2</b> Dreistufige Treatmentvariable X</a></li>
+<li class="chapter" data-level="5.2.3" data-path="eins.html"><a href="eins.html#einsref"><i class="fa fa-check"></i><b>5.2.3</b> Referenzgruppe</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="eins.html"><a href="eins.html#hauptoutput"><i class="fa fa-check"></i><b>5.3</b> Hauptoutput</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="eins.html"><a href="eins.html#message"><i class="fa fa-check"></i><b>5.3.1</b> Message</a></li>
+<li class="chapter" data-level="5.3.2" data-path="eins.html"><a href="eins.html#einsvariables"><i class="fa fa-check"></i><b>5.3.2</b> Variables</a></li>
+<li class="chapter" data-level="5.3.3" data-path="eins.html"><a href="eins.html#regression-model"><i class="fa fa-check"></i><b>5.3.3</b> Regression Model</a></li>
+<li class="chapter" data-level="5.3.4" data-path="eins.html"><a href="eins.html#einscellcount"><i class="fa fa-check"></i><b>5.3.4</b> Cell Counts</a></li>
+<li class="chapter" data-level="5.3.5" data-path="eins.html"><a href="eins.html#main-hypotheses"><i class="fa fa-check"></i><b>5.3.5</b> Main Hypotheses</a></li>
+<li class="chapter" data-level="5.3.6" data-path="eins.html"><a href="eins.html#adjusted-means"><i class="fa fa-check"></i><b>5.3.6</b> <span id="einsadjustedmeans">Adjusted Means</span></a></li>
+<li class="chapter" data-level="5.3.7" data-path="eins.html"><a href="eins.html#einsaverageeffects"><i class="fa fa-check"></i><b>5.3.7</b> Average Effects</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="eins.html"><a href="eins.html#übungen-einfache-lineare-regression"><i class="fa fa-check"></i><b>5.4</b> Übungen “einfache lineare Regression”</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="eins.html"><a href="eins.html#a"><i class="fa fa-check"></i><b>5.4.1</b> A)</a></li>
+<li class="chapter" data-level="5.4.2" data-path="eins.html"><a href="eins.html#b"><i class="fa fa-check"></i><b>5.4.2</b> B)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="zwei.html"><a href="zwei.html"><i class="fa fa-check"></i><b>6</b> Zweifache lineare Regression</a><ul>
+<li class="chapter" data-level="6.1" data-path="zwei.html"><a href="zwei.html#input-1"><i class="fa fa-check"></i><b>6.1</b> Input</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="zwei.html"><a href="zwei.html#modell"><i class="fa fa-check"></i><b>6.1.1</b> Modell</a></li>
+<li class="chapter" data-level="6.1.2" data-path="zwei.html"><a href="zwei.html#variablen"><i class="fa fa-check"></i><b>6.1.2</b> Variablen</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="zwei.html"><a href="zwei.html#parametrisierung"><i class="fa fa-check"></i><b>6.2</b> Parametrisierung</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="zwei.html"><a href="zwei.html#parameter-interpretation-bei-kategorialer-kovariate"><i class="fa fa-check"></i><b>6.2.1</b> Parameter-Interpretation bei kategorialer Kovariate</a></li>
+<li class="chapter" data-level="6.2.2" data-path="zwei.html"><a href="zwei.html#zweikont"><i class="fa fa-check"></i><b>6.2.2</b> Parameter-Interpretation bei kontinuierlicher Kovariate</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="zwei.html"><a href="zwei.html#zweihaupt"><i class="fa fa-check"></i><b>6.3</b> Hauptoutput</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="zwei.html"><a href="zwei.html#zweivariables"><i class="fa fa-check"></i><b>6.3.1</b> Variables</a></li>
+<li class="chapter" data-level="6.3.2" data-path="zwei.html"><a href="zwei.html#regression-model-1"><i class="fa fa-check"></i><b>6.3.2</b> Regression Model</a></li>
+<li class="chapter" data-level="6.3.3" data-path="zwei.html"><a href="zwei.html#cell-counts"><i class="fa fa-check"></i><b>6.3.3</b> Cell Counts</a></li>
+<li class="chapter" data-level="6.3.4" data-path="zwei.html"><a href="zwei.html#zweimainhypo"><i class="fa fa-check"></i><b>6.3.4</b> Main Hypotheses</a></li>
+<li class="chapter" data-level="6.3.5" data-path="zwei.html"><a href="zwei.html#adjusted-means-1"><i class="fa fa-check"></i><b>6.3.5</b> Adjusted Means</a></li>
+<li class="chapter" data-level="6.3.6" data-path="zwei.html"><a href="zwei.html#average-effects"><i class="fa fa-check"></i><b>6.3.6</b> Average Effects</a></li>
+<li class="chapter" data-level="6.3.7" data-path="zwei.html"><a href="zwei.html#effects-given-a-treatment-condition"><i class="fa fa-check"></i><b>6.3.7</b> Effects given a Treatment Condition</a></li>
+<li class="chapter" data-level="6.3.8" data-path="zwei.html"><a href="zwei.html#hypotheses-given-kk-nur-bei-einer-kategorialen-kovariaten"><i class="fa fa-check"></i><b>6.3.8</b> Hypotheses given K=k (nur bei einer kategorialen Kovariaten):</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="zwei.html"><a href="zwei.html#übungen-zweifache-lineare-regression"><i class="fa fa-check"></i><b>6.4</b> Übungen “zweifache lineare Regression”</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="zwei.html"><a href="zwei.html#a-1"><i class="fa fa-check"></i><b>6.4.1</b> A)</a></li>
+<li class="chapter" data-level="6.4.2" data-path="zwei.html"><a href="zwei.html#b-1"><i class="fa fa-check"></i><b>6.4.2</b> B)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="bedingt.html"><a href="bedingt.html"><i class="fa fa-check"></i><b>7</b> Bedingte lineare Regression</a><ul>
+<li class="chapter" data-level="7.1" data-path="bedingt.html"><a href="bedingt.html#input-2"><i class="fa fa-check"></i><b>7.1</b> Input</a></li>
+<li class="chapter" data-level="7.2" data-path="bedingt.html"><a href="bedingt.html#bedingtpara"><i class="fa fa-check"></i><b>7.2</b> Parametrisierung</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="bedingt.html"><a href="bedingt.html#zweistufige-kovariate-zweistufige-treatmentvariable"><i class="fa fa-check"></i><b>7.2.1</b> Zweistufige Kovariate, zweistufige Treatmentvariable</a></li>
+<li class="chapter" data-level="7.2.2" data-path="bedingt.html"><a href="bedingt.html#kontinuierliche-kovariate-zweistufige-treatmentvariable"><i class="fa fa-check"></i><b>7.2.2</b> Kontinuierliche Kovariate, zweistufige Treatmentvariable</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="bedingt.html"><a href="bedingt.html#hauptoutput-1"><i class="fa fa-check"></i><b>7.3</b> Hauptoutput</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="bedingt.html"><a href="bedingt.html#variables"><i class="fa fa-check"></i><b>7.3.1</b> Variables</a></li>
+<li class="chapter" data-level="7.3.2" data-path="bedingt.html"><a href="bedingt.html#regression-model-2"><i class="fa fa-check"></i><b>7.3.2</b> Regression Model</a></li>
+<li class="chapter" data-level="7.3.3" data-path="bedingt.html"><a href="bedingt.html#cell-counts-1"><i class="fa fa-check"></i><b>7.3.3</b> Cell Counts</a></li>
+<li class="chapter" data-level="7.3.4" data-path="bedingt.html"><a href="bedingt.html#main-hypotheses-1"><i class="fa fa-check"></i><b>7.3.4</b> Main Hypotheses</a></li>
+<li class="chapter" data-level="7.3.5" data-path="bedingt.html"><a href="bedingt.html#adjusted-means-2"><i class="fa fa-check"></i><b>7.3.5</b> Adjusted Means</a></li>
+<li class="chapter" data-level="7.3.6" data-path="bedingt.html"><a href="bedingt.html#average-effects-1"><i class="fa fa-check"></i><b>7.3.6</b> Average Effects</a></li>
+<li class="chapter" data-level="7.3.7" data-path="bedingt.html"><a href="bedingt.html#effects-given-a-treatment-condition-1"><i class="fa fa-check"></i><b>7.3.7</b> Effects given a Treatment Condition</a></li>
+<li class="chapter" data-level="7.3.8" data-path="bedingt.html"><a href="bedingt.html#effects-given-kk-nur-bei-einer-kategorialen-kovariaten"><i class="fa fa-check"></i><b>7.3.8</b> Effects given K=k (nur bei einer kategorialen Kovariaten)</a></li>
+<li class="chapter" data-level="7.3.9" data-path="bedingt.html"><a href="bedingt.html#hypotheses-given-kk-nur-bei-kategorialen-kovariaten"><i class="fa fa-check"></i><b>7.3.9</b> Hypotheses given K=k (nur bei kategorialen Kovariaten):</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="bedingt.html"><a href="bedingt.html#übungen-bedingte-lineare-regression"><i class="fa fa-check"></i><b>7.4</b> Übungen “bedingte lineare Regression”</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="bedingt.html"><a href="bedingt.html#a-2"><i class="fa fa-check"></i><b>7.4.1</b> A)</a></li>
+<li class="chapter" data-level="7.4.2" data-path="bedingt.html"><a href="bedingt.html#b-2"><i class="fa fa-check"></i><b>7.4.2</b> B)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="exkadj.html"><a href="exkadj.html"><i class="fa fa-check"></i><b>8</b> Exkurs Adjustierte Mittelwerte</a></li>
+<li class="chapter" data-level="9" data-path="conditional-effects.html"><a href="conditional-effects.html"><i class="fa fa-check"></i><b>9</b> Conditional Effects</a><ul>
+<li class="chapter" data-level="9.1" data-path="conditional-effects.html"><a href="conditional-effects.html#conditional-effects-i"><i class="fa fa-check"></i><b>9.1</b> Conditional Effects I</a></li>
+<li class="chapter" data-level="9.2" data-path="conditional-effects.html"><a href="conditional-effects.html#conditional-effects-ii"><i class="fa fa-check"></i><b>9.2</b> Conditional Effects II</a></li>
+<li class="chapter" data-level="9.3" data-path="conditional-effects.html"><a href="conditional-effects.html#conditional-effects-iii"><i class="fa fa-check"></i><b>9.3</b> Conditional Effects III</a></li>
+<li class="chapter" data-level="9.4" data-path="conditional-effects.html"><a href="conditional-effects.html#conditional-effects-iv"><i class="fa fa-check"></i><b>9.4</b> Conditional Effects IV</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="plots.html"><a href="plots.html"><i class="fa fa-check"></i><b>10</b> Plots</a><ul>
+<li class="chapter" data-level="10.1" data-path="plots.html"><a href="plots.html#plot-1"><i class="fa fa-check"></i><b>10.1</b> Plot 1</a></li>
+<li class="chapter" data-level="10.2" data-path="plots.html"><a href="plots.html#plotzwei"><i class="fa fa-check"></i><b>10.2</b> Plot 2</a></li>
+<li class="chapter" data-level="10.3" data-path="plots.html"><a href="plots.html#plot-3"><i class="fa fa-check"></i><b>10.3</b> Plot 3</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="plots.html"><a href="plots.html#effect-function-und-regressor"><i class="fa fa-check"></i><b>10.3.1</b> Effect function und Regressor</a></li>
+<li class="chapter" data-level="10.3.2" data-path="plots.html"><a href="plots.html#colour-variable"><i class="fa fa-check"></i><b>10.3.2</b> Colour variable</a></li>
+<li class="chapter" data-level="10.3.3" data-path="plots.html"><a href="plots.html#regression-line"><i class="fa fa-check"></i><b>10.3.3</b> Regression Line</a></li>
+<li class="chapter" data-level="10.3.4" data-path="plots.html"><a href="plots.html#confidence-intervals"><i class="fa fa-check"></i><b>10.3.4</b> Confidence Intervals</a></li>
+<li class="chapter" data-level="10.3.5" data-path="plots.html"><a href="plots.html#zusammenhänge-zwischen-den-graphen-des-plot-3-und-den-regressionsparametern"><i class="fa fa-check"></i><b>10.3.5</b> Zusammenhänge zwischen den Graphen des Plot 3 und den Regressionsparametern</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="plots.html"><a href="plots.html#plot-4"><i class="fa fa-check"></i><b>10.4</b> Plot 4</a></li>
+<li class="chapter" data-level="10.5" data-path="plots.html"><a href="plots.html#übung-plots"><i class="fa fa-check"></i><b>10.5</b> Übung “Plots”</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="komplex.html"><a href="komplex.html"><i class="fa fa-check"></i><b>11</b> Komplexerer Parametrisierungen - Übungen</a><ul>
+<li class="chapter" data-level="11.1" data-path="komplex.html"><a href="komplex.html#übungen"><i class="fa fa-check"></i><b>11.1</b> Übungen</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="komplex.html"><a href="komplex.html#übung-k1"><i class="fa fa-check"></i><b>11.1.1</b> Übung K1</a></li>
+<li class="chapter" data-level="11.1.2" data-path="komplex.html"><a href="komplex.html#übung-k2"><i class="fa fa-check"></i><b>11.1.2</b> Übung K2</a></li>
+<li class="chapter" data-level="11.1.3" data-path="komplex.html"><a href="komplex.html#übung-k3"><i class="fa fa-check"></i><b>11.1.3</b> Übung K3</a></li>
+<li class="chapter" data-level="11.1.4" data-path="komplex.html"><a href="komplex.html#übung-k4"><i class="fa fa-check"></i><b>11.1.4</b> Übung K4</a></li>
+<li class="chapter" data-level="11.1.5" data-path="komplex.html"><a href="komplex.html#übung-k5"><i class="fa fa-check"></i><b>11.1.5</b> Übung K5</a></li>
+<li class="chapter" data-level="11.1.6" data-path="komplex.html"><a href="komplex.html#übung-k6"><i class="fa fa-check"></i><b>11.1.6</b> Übung K6</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="komplex.html"><a href="komplex.html#lösungenk"><i class="fa fa-check"></i><b>11.2</b> Lösungen</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="komplex.html"><a href="komplex.html#lösung-k1"><i class="fa fa-check"></i><b>11.2.1</b> Lösung K1</a></li>
+<li class="chapter" data-level="11.2.2" data-path="komplex.html"><a href="komplex.html#lösung-k2"><i class="fa fa-check"></i><b>11.2.2</b> Lösung K2</a></li>
+<li class="chapter" data-level="11.2.3" data-path="komplex.html"><a href="komplex.html#lösung-k3"><i class="fa fa-check"></i><b>11.2.3</b> Lösung K3</a></li>
+<li class="chapter" data-level="11.2.4" data-path="komplex.html"><a href="komplex.html#lösung-k4"><i class="fa fa-check"></i><b>11.2.4</b> Lösung K4</a></li>
+<li class="chapter" data-level="11.2.5" data-path="komplex.html"><a href="komplex.html#lösung-k5"><i class="fa fa-check"></i><b>11.2.5</b> Lösung K5</a></li>
+<li class="chapter" data-level="11.2.6" data-path="komplex.html"><a href="komplex.html#lösung-k6"><i class="fa fa-check"></i><b>11.2.6</b> Lösung K6</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="übungen-1.html"><a href="übungen-1.html"><i class="fa fa-check"></i><b>12</b> Übungen</a><ul>
+<li class="chapter" data-level="12.1" data-path="übungen-1.html"><a href="übungen-1.html#dateneinlesen"><i class="fa fa-check"></i><b>12.1</b> Dateneinlesen</a></li>
+<li class="chapter" data-level="12.2" data-path="übungen-1.html"><a href="übungen-1.html#einfache-lineare-regression"><i class="fa fa-check"></i><b>12.2</b> Einfache lineare Regression</a><ul>
+<li class="chapter" data-level="12.2.1" data-path="übungen-1.html"><a href="übungen-1.html#a-3"><i class="fa fa-check"></i><b>12.2.1</b> A)</a></li>
+<li class="chapter" data-level="12.2.2" data-path="übungen-1.html"><a href="übungen-1.html#b-3"><i class="fa fa-check"></i><b>12.2.2</b> B)</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="übungen-1.html"><a href="übungen-1.html#zweifache-lineare-regression"><i class="fa fa-check"></i><b>12.3</b> Zweifache lineare Regression</a><ul>
+<li class="chapter" data-level="12.3.1" data-path="übungen-1.html"><a href="übungen-1.html#a-4"><i class="fa fa-check"></i><b>12.3.1</b> A)</a></li>
+<li class="chapter" data-level="12.3.2" data-path="übungen-1.html"><a href="übungen-1.html#b-4"><i class="fa fa-check"></i><b>12.3.2</b> B)</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="übungen-1.html"><a href="übungen-1.html#bedingte-lineare-regression"><i class="fa fa-check"></i><b>12.4</b> Bedingte lineare Regression</a><ul>
+<li class="chapter" data-level="12.4.1" data-path="übungen-1.html"><a href="übungen-1.html#a-5"><i class="fa fa-check"></i><b>12.4.1</b> A)</a></li>
+<li class="chapter" data-level="12.4.2" data-path="übungen-1.html"><a href="übungen-1.html#b-5"><i class="fa fa-check"></i><b>12.4.2</b> B)</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="übungen-1.html"><a href="übungen-1.html#plots-1"><i class="fa fa-check"></i><b>12.5</b> Plots</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="lösungen.html"><a href="lösungen.html"><i class="fa fa-check"></i><b>13</b> Lösungen</a><ul>
+<li class="chapter" data-level="13.1" data-path="lösungen.html"><a href="lösungen.html#dateneinlesen-1"><i class="fa fa-check"></i><b>13.1</b> Dateneinlesen</a></li>
+<li class="chapter" data-level="13.2" data-path="lösungen.html"><a href="lösungen.html#einfache-lineare-regression-1"><i class="fa fa-check"></i><b>13.2</b> Einfache lineare Regression</a><ul>
+<li class="chapter" data-level="13.2.1" data-path="lösungen.html"><a href="lösungen.html#a-6"><i class="fa fa-check"></i><b>13.2.1</b> A)</a></li>
+<li class="chapter" data-level="13.2.2" data-path="lösungen.html"><a href="lösungen.html#b-6"><i class="fa fa-check"></i><b>13.2.2</b> B)</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="lösungen.html"><a href="lösungen.html#zweifache-lineare-regression-1"><i class="fa fa-check"></i><b>13.3</b> Zweifache lineare Regression</a><ul>
+<li class="chapter" data-level="13.3.1" data-path="lösungen.html"><a href="lösungen.html#a-7"><i class="fa fa-check"></i><b>13.3.1</b> A)</a></li>
+<li class="chapter" data-level="13.3.2" data-path="lösungen.html"><a href="lösungen.html#zstandlösung"><i class="fa fa-check"></i><b>13.3.2</b> B)</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="lösungen.html"><a href="lösungen.html#bedingte-lineare-regression-1"><i class="fa fa-check"></i><b>13.4</b> Bedingte lineare Regression</a><ul>
+<li class="chapter" data-level="13.4.1" data-path="lösungen.html"><a href="lösungen.html#a-8"><i class="fa fa-check"></i><b>13.4.1</b> A)</a></li>
+<li class="chapter" data-level="13.4.2" data-path="lösungen.html"><a href="lösungen.html#b-7"><i class="fa fa-check"></i><b>13.4.2</b> B)</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="lösungen.html"><a href="lösungen.html#plots-2"><i class="fa fa-check"></i><b>13.5</b> Plots</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">EffectLiteR Tutorial - Work In Progress</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="vorwort-zur-regressionsanalyse-mit-effectliter" class="section level1">
+<h1><span class="header-section-number">4</span> Vorwort zur Regressionsanalyse mit EffectLiteR</h1>
+<p>EffectLiteR dient nicht primär der Analyse von Regressionsmodellen, sondern in erster Linie der Schätzung durchschnittlicher und bedingter Treatment Effekte basierend auf Regressionsmodellen. Dementsprechend lassen sich nicht alle Regressionsmodelle mit EffectLiteR berechnen sondern nur solche, die mindestens eine kategoriale Variable als Prädiktor enthalten. Diese kategoriale Prädiktor-Variable sollte eine Treatment-Bedingung darstellen, ihr Effekt wird im vorliegenden Tutorial konsequent als Treatment-Effekt bezeichnet.
+Die Kapitel-Aufteilung, die von der einfachen linearen Regression über die zweifache lineare Regression hin zur bedingten linearen Regression führt, dient der schrittweisen (vorlesungsbegleitenden) Heranführung an das Verständnis der Effektschätzung auf Basis des EffectLiteR-Ansatzes.</p>
+<p><strong>Beachte:</strong> Zur inhaltlichen interpretation der Parameter der Regressionsmodelle werden im vorliegenden Tutorial viele Formeln verwendet. Was auf den ersten Blick kompliziert erscheint dient tatsächlich einer Vereinfachung des Verständnisses: Dadurch, dass jeder einzelne Rechenschritt in Formeln dargestellt wird, ist es möglich alle Formeln einfach nachzuvollziehen. Bitte tue das auch und lese nicht über die Formeln hinweg!</p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="Einlesen-Schaltflächen.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="eins.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

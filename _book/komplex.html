@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>11 Komplexerer Parametrisierungen - Übungen | EffectLiteR Tutorial - Work In Progress</title>
+  <meta name="description" content="This is a Tutorial for the EffectLiteR package." />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="11 Komplexerer Parametrisierungen - Übungen | EffectLiteR Tutorial - Work In Progress" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a Tutorial for the EffectLiteR package." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="11 Komplexerer Parametrisierungen - Übungen | EffectLiteR Tutorial - Work In Progress" />
+  
+  <meta name="twitter:description" content="This is a Tutorial for the EffectLiteR package." />
+  
+
+<meta name="author" content="Alexander Jung, Christoph Kiefer &amp; Axel Mayer" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="plots.html"/>
+<link rel="next" href="übungen-1.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Index</a></li>
+<li class="chapter" data-level="2" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>2</b> Installation</a><ul>
+<li class="chapter" data-level="2.1" data-path="installation.html"><a href="installation.html#download-und-verwendung-via-r"><i class="fa fa-check"></i><b>2.1</b> Download und Verwendung via R</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="installation.html"><a href="installation.html#schritt-1-r-downloaden"><i class="fa fa-check"></i><b>2.1.1</b> Schritt 1 – R downloaden</a></li>
+<li class="chapter" data-level="2.1.2" data-path="installation.html"><a href="installation.html#schritt-2-rstudio-downloaden"><i class="fa fa-check"></i><b>2.1.2</b> Schritt 2 – RStudio downloaden</a></li>
+<li class="chapter" data-level="2.1.3" data-path="installation.html"><a href="installation.html#schritt-3-effectliter-installieren-und-öffnen"><i class="fa fa-check"></i><b>2.1.3</b> Schritt 3 – EffectLiteR installieren und öffnen</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="installation.html"><a href="installation.html#download-mit-dem-windows-installer"><i class="fa fa-check"></i><b>2.2</b> Download mit dem Windows-Installer</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="Einlesen-Schaltflächen.html"><a href="Einlesen-Schaltflächen.html"><i class="fa fa-check"></i><b>3</b> Daten einlesen und Schaltflächen</a><ul>
+<li class="chapter" data-level="3.1" data-path="Einlesen-Schaltflächen.html"><a href="Einlesen-Schaltflächen.html#aufbau-der-graphischen-oberfläche"><i class="fa fa-check"></i><b>3.1</b> Aufbau der graphischen Oberfläche</a></li>
+<li class="chapter" data-level="3.2" data-path="Einlesen-Schaltflächen.html"><a href="Einlesen-Schaltflächen.html#daten-einlesen"><i class="fa fa-check"></i><b>3.2</b> Daten einlesen</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="Einlesen-Schaltflächen.html"><a href="Einlesen-Schaltflächen.html#beispieldatensätze"><i class="fa fa-check"></i><b>3.2.1</b> Beispieldatensätze</a></li>
+<li class="chapter" data-level="3.2.2" data-path="Einlesen-Schaltflächen.html"><a href="Einlesen-Schaltflächen.html#eigene-datensätze"><i class="fa fa-check"></i><b>3.2.2</b> Eigene Datensätze</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="Einlesen-Schaltflächen.html"><a href="Einlesen-Schaltflächen.html#übungsaufgabe-dateneinlesen"><i class="fa fa-check"></i><b>3.3</b> Übungsaufgabe “Dateneinlesen”</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="vorwort-zur-regressionsanalyse-mit-effectliter.html"><a href="vorwort-zur-regressionsanalyse-mit-effectliter.html"><i class="fa fa-check"></i><b>4</b> Vorwort zur Regressionsanalyse mit EffectLiteR</a></li>
+<li class="chapter" data-level="5" data-path="eins.html"><a href="eins.html"><i class="fa fa-check"></i><b>5</b> Einfache lineare Regression</a><ul>
+<li class="chapter" data-level="5.1" data-path="eins.html"><a href="eins.html#input"><i class="fa fa-check"></i><b>5.1</b> <span id="einsinput">Input</span></a><ul>
+<li class="chapter" data-level="5.1.1" data-path="eins.html"><a href="eins.html#referenzgruppe-festlegen"><i class="fa fa-check"></i><b>5.1.1</b> Referenzgruppe festlegen</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="eins.html"><a href="eins.html#einspara"><i class="fa fa-check"></i><b>5.2</b> Parametrisierung</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="eins.html"><a href="eins.html#zweistufige-treatmentvariable-x"><i class="fa fa-check"></i><b>5.2.1</b> Zweistufige Treatmentvariable X</a></li>
+<li class="chapter" data-level="5.2.2" data-path="eins.html"><a href="eins.html#dreistufige-treatmentvariable-x"><i class="fa fa-check"></i><b>5.2.2</b> Dreistufige Treatmentvariable X</a></li>
+<li class="chapter" data-level="5.2.3" data-path="eins.html"><a href="eins.html#einsref"><i class="fa fa-check"></i><b>5.2.3</b> Referenzgruppe</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="eins.html"><a href="eins.html#hauptoutput"><i class="fa fa-check"></i><b>5.3</b> Hauptoutput</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="eins.html"><a href="eins.html#message"><i class="fa fa-check"></i><b>5.3.1</b> Message</a></li>
+<li class="chapter" data-level="5.3.2" data-path="eins.html"><a href="eins.html#einsvariables"><i class="fa fa-check"></i><b>5.3.2</b> Variables</a></li>
+<li class="chapter" data-level="5.3.3" data-path="eins.html"><a href="eins.html#regression-model"><i class="fa fa-check"></i><b>5.3.3</b> Regression Model</a></li>
+<li class="chapter" data-level="5.3.4" data-path="eins.html"><a href="eins.html#einscellcount"><i class="fa fa-check"></i><b>5.3.4</b> Cell Counts</a></li>
+<li class="chapter" data-level="5.3.5" data-path="eins.html"><a href="eins.html#main-hypotheses"><i class="fa fa-check"></i><b>5.3.5</b> Main Hypotheses</a></li>
+<li class="chapter" data-level="5.3.6" data-path="eins.html"><a href="eins.html#adjusted-means"><i class="fa fa-check"></i><b>5.3.6</b> <span id="einsadjustedmeans">Adjusted Means</span></a></li>
+<li class="chapter" data-level="5.3.7" data-path="eins.html"><a href="eins.html#einsaverageeffects"><i class="fa fa-check"></i><b>5.3.7</b> Average Effects</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="eins.html"><a href="eins.html#übungen-einfache-lineare-regression"><i class="fa fa-check"></i><b>5.4</b> Übungen “einfache lineare Regression”</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="eins.html"><a href="eins.html#a"><i class="fa fa-check"></i><b>5.4.1</b> A)</a></li>
+<li class="chapter" data-level="5.4.2" data-path="eins.html"><a href="eins.html#b"><i class="fa fa-check"></i><b>5.4.2</b> B)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="zwei.html"><a href="zwei.html"><i class="fa fa-check"></i><b>6</b> Zweifache lineare Regression</a><ul>
+<li class="chapter" data-level="6.1" data-path="zwei.html"><a href="zwei.html#input-1"><i class="fa fa-check"></i><b>6.1</b> Input</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="zwei.html"><a href="zwei.html#modell"><i class="fa fa-check"></i><b>6.1.1</b> Modell</a></li>
+<li class="chapter" data-level="6.1.2" data-path="zwei.html"><a href="zwei.html#variablen"><i class="fa fa-check"></i><b>6.1.2</b> Variablen</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="zwei.html"><a href="zwei.html#parametrisierung"><i class="fa fa-check"></i><b>6.2</b> Parametrisierung</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="zwei.html"><a href="zwei.html#parameter-interpretation-bei-kategorialer-kovariate"><i class="fa fa-check"></i><b>6.2.1</b> Parameter-Interpretation bei kategorialer Kovariate</a></li>
+<li class="chapter" data-level="6.2.2" data-path="zwei.html"><a href="zwei.html#zweikont"><i class="fa fa-check"></i><b>6.2.2</b> Parameter-Interpretation bei kontinuierlicher Kovariate</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="zwei.html"><a href="zwei.html#zweihaupt"><i class="fa fa-check"></i><b>6.3</b> Hauptoutput</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="zwei.html"><a href="zwei.html#zweivariables"><i class="fa fa-check"></i><b>6.3.1</b> Variables</a></li>
+<li class="chapter" data-level="6.3.2" data-path="zwei.html"><a href="zwei.html#regression-model-1"><i class="fa fa-check"></i><b>6.3.2</b> Regression Model</a></li>
+<li class="chapter" data-level="6.3.3" data-path="zwei.html"><a href="zwei.html#cell-counts"><i class="fa fa-check"></i><b>6.3.3</b> Cell Counts</a></li>
+<li class="chapter" data-level="6.3.4" data-path="zwei.html"><a href="zwei.html#zweimainhypo"><i class="fa fa-check"></i><b>6.3.4</b> Main Hypotheses</a></li>
+<li class="chapter" data-level="6.3.5" data-path="zwei.html"><a href="zwei.html#adjusted-means-1"><i class="fa fa-check"></i><b>6.3.5</b> Adjusted Means</a></li>
+<li class="chapter" data-level="6.3.6" data-path="zwei.html"><a href="zwei.html#average-effects"><i class="fa fa-check"></i><b>6.3.6</b> Average Effects</a></li>
+<li class="chapter" data-level="6.3.7" data-path="zwei.html"><a href="zwei.html#effects-given-a-treatment-condition"><i class="fa fa-check"></i><b>6.3.7</b> Effects given a Treatment Condition</a></li>
+<li class="chapter" data-level="6.3.8" data-path="zwei.html"><a href="zwei.html#hypotheses-given-kk-nur-bei-einer-kategorialen-kovariaten"><i class="fa fa-check"></i><b>6.3.8</b> Hypotheses given K=k (nur bei einer kategorialen Kovariaten):</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="zwei.html"><a href="zwei.html#übungen-zweifache-lineare-regression"><i class="fa fa-check"></i><b>6.4</b> Übungen “zweifache lineare Regression”</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="zwei.html"><a href="zwei.html#a-1"><i class="fa fa-check"></i><b>6.4.1</b> A)</a></li>
+<li class="chapter" data-level="6.4.2" data-path="zwei.html"><a href="zwei.html#b-1"><i class="fa fa-check"></i><b>6.4.2</b> B)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="bedingt.html"><a href="bedingt.html"><i class="fa fa-check"></i><b>7</b> Bedingte lineare Regression</a><ul>
+<li class="chapter" data-level="7.1" data-path="bedingt.html"><a href="bedingt.html#input-2"><i class="fa fa-check"></i><b>7.1</b> Input</a></li>
+<li class="chapter" data-level="7.2" data-path="bedingt.html"><a href="bedingt.html#bedingtpara"><i class="fa fa-check"></i><b>7.2</b> Parametrisierung</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="bedingt.html"><a href="bedingt.html#zweistufige-kovariate-zweistufige-treatmentvariable"><i class="fa fa-check"></i><b>7.2.1</b> Zweistufige Kovariate, zweistufige Treatmentvariable</a></li>
+<li class="chapter" data-level="7.2.2" data-path="bedingt.html"><a href="bedingt.html#kontinuierliche-kovariate-zweistufige-treatmentvariable"><i class="fa fa-check"></i><b>7.2.2</b> Kontinuierliche Kovariate, zweistufige Treatmentvariable</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="bedingt.html"><a href="bedingt.html#hauptoutput-1"><i class="fa fa-check"></i><b>7.3</b> Hauptoutput</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="bedingt.html"><a href="bedingt.html#variables"><i class="fa fa-check"></i><b>7.3.1</b> Variables</a></li>
+<li class="chapter" data-level="7.3.2" data-path="bedingt.html"><a href="bedingt.html#regression-model-2"><i class="fa fa-check"></i><b>7.3.2</b> Regression Model</a></li>
+<li class="chapter" data-level="7.3.3" data-path="bedingt.html"><a href="bedingt.html#cell-counts-1"><i class="fa fa-check"></i><b>7.3.3</b> Cell Counts</a></li>
+<li class="chapter" data-level="7.3.4" data-path="bedingt.html"><a href="bedingt.html#main-hypotheses-1"><i class="fa fa-check"></i><b>7.3.4</b> Main Hypotheses</a></li>
+<li class="chapter" data-level="7.3.5" data-path="bedingt.html"><a href="bedingt.html#adjusted-means-2"><i class="fa fa-check"></i><b>7.3.5</b> Adjusted Means</a></li>
+<li class="chapter" data-level="7.3.6" data-path="bedingt.html"><a href="bedingt.html#average-effects-1"><i class="fa fa-check"></i><b>7.3.6</b> Average Effects</a></li>
+<li class="chapter" data-level="7.3.7" data-path="bedingt.html"><a href="bedingt.html#effects-given-a-treatment-condition-1"><i class="fa fa-check"></i><b>7.3.7</b> Effects given a Treatment Condition</a></li>
+<li class="chapter" data-level="7.3.8" data-path="bedingt.html"><a href="bedingt.html#effects-given-kk-nur-bei-einer-kategorialen-kovariaten"><i class="fa fa-check"></i><b>7.3.8</b> Effects given K=k (nur bei einer kategorialen Kovariaten)</a></li>
+<li class="chapter" data-level="7.3.9" data-path="bedingt.html"><a href="bedingt.html#hypotheses-given-kk-nur-bei-kategorialen-kovariaten"><i class="fa fa-check"></i><b>7.3.9</b> Hypotheses given K=k (nur bei kategorialen Kovariaten):</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="bedingt.html"><a href="bedingt.html#übungen-bedingte-lineare-regression"><i class="fa fa-check"></i><b>7.4</b> Übungen “bedingte lineare Regression”</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="bedingt.html"><a href="bedingt.html#a-2"><i class="fa fa-check"></i><b>7.4.1</b> A)</a></li>
+<li class="chapter" data-level="7.4.2" data-path="bedingt.html"><a href="bedingt.html#b-2"><i class="fa fa-check"></i><b>7.4.2</b> B)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="exkadj.html"><a href="exkadj.html"><i class="fa fa-check"></i><b>8</b> Exkurs Adjustierte Mittelwerte</a></li>
+<li class="chapter" data-level="9" data-path="conditional-effects.html"><a href="conditional-effects.html"><i class="fa fa-check"></i><b>9</b> Conditional Effects</a><ul>
+<li class="chapter" data-level="9.1" data-path="conditional-effects.html"><a href="conditional-effects.html#conditional-effects-i"><i class="fa fa-check"></i><b>9.1</b> Conditional Effects I</a></li>
+<li class="chapter" data-level="9.2" data-path="conditional-effects.html"><a href="conditional-effects.html#conditional-effects-ii"><i class="fa fa-check"></i><b>9.2</b> Conditional Effects II</a></li>
+<li class="chapter" data-level="9.3" data-path="conditional-effects.html"><a href="conditional-effects.html#conditional-effects-iii"><i class="fa fa-check"></i><b>9.3</b> Conditional Effects III</a></li>
+<li class="chapter" data-level="9.4" data-path="conditional-effects.html"><a href="conditional-effects.html#conditional-effects-iv"><i class="fa fa-check"></i><b>9.4</b> Conditional Effects IV</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="plots.html"><a href="plots.html"><i class="fa fa-check"></i><b>10</b> Plots</a><ul>
+<li class="chapter" data-level="10.1" data-path="plots.html"><a href="plots.html#plot-1"><i class="fa fa-check"></i><b>10.1</b> Plot 1</a></li>
+<li class="chapter" data-level="10.2" data-path="plots.html"><a href="plots.html#plotzwei"><i class="fa fa-check"></i><b>10.2</b> Plot 2</a></li>
+<li class="chapter" data-level="10.3" data-path="plots.html"><a href="plots.html#plot-3"><i class="fa fa-check"></i><b>10.3</b> Plot 3</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="plots.html"><a href="plots.html#effect-function-und-regressor"><i class="fa fa-check"></i><b>10.3.1</b> Effect function und Regressor</a></li>
+<li class="chapter" data-level="10.3.2" data-path="plots.html"><a href="plots.html#colour-variable"><i class="fa fa-check"></i><b>10.3.2</b> Colour variable</a></li>
+<li class="chapter" data-level="10.3.3" data-path="plots.html"><a href="plots.html#regression-line"><i class="fa fa-check"></i><b>10.3.3</b> Regression Line</a></li>
+<li class="chapter" data-level="10.3.4" data-path="plots.html"><a href="plots.html#confidence-intervals"><i class="fa fa-check"></i><b>10.3.4</b> Confidence Intervals</a></li>
+<li class="chapter" data-level="10.3.5" data-path="plots.html"><a href="plots.html#zusammenhänge-zwischen-den-graphen-des-plot-3-und-den-regressionsparametern"><i class="fa fa-check"></i><b>10.3.5</b> Zusammenhänge zwischen den Graphen des Plot 3 und den Regressionsparametern</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="plots.html"><a href="plots.html#plot-4"><i class="fa fa-check"></i><b>10.4</b> Plot 4</a></li>
+<li class="chapter" data-level="10.5" data-path="plots.html"><a href="plots.html#übung-plots"><i class="fa fa-check"></i><b>10.5</b> Übung “Plots”</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="komplex.html"><a href="komplex.html"><i class="fa fa-check"></i><b>11</b> Komplexerer Parametrisierungen - Übungen</a><ul>
+<li class="chapter" data-level="11.1" data-path="komplex.html"><a href="komplex.html#übungen"><i class="fa fa-check"></i><b>11.1</b> Übungen</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="komplex.html"><a href="komplex.html#übung-k1"><i class="fa fa-check"></i><b>11.1.1</b> Übung K1</a></li>
+<li class="chapter" data-level="11.1.2" data-path="komplex.html"><a href="komplex.html#übung-k2"><i class="fa fa-check"></i><b>11.1.2</b> Übung K2</a></li>
+<li class="chapter" data-level="11.1.3" data-path="komplex.html"><a href="komplex.html#übung-k3"><i class="fa fa-check"></i><b>11.1.3</b> Übung K3</a></li>
+<li class="chapter" data-level="11.1.4" data-path="komplex.html"><a href="komplex.html#übung-k4"><i class="fa fa-check"></i><b>11.1.4</b> Übung K4</a></li>
+<li class="chapter" data-level="11.1.5" data-path="komplex.html"><a href="komplex.html#übung-k5"><i class="fa fa-check"></i><b>11.1.5</b> Übung K5</a></li>
+<li class="chapter" data-level="11.1.6" data-path="komplex.html"><a href="komplex.html#übung-k6"><i class="fa fa-check"></i><b>11.1.6</b> Übung K6</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="komplex.html"><a href="komplex.html#lösungenk"><i class="fa fa-check"></i><b>11.2</b> Lösungen</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="komplex.html"><a href="komplex.html#lösung-k1"><i class="fa fa-check"></i><b>11.2.1</b> Lösung K1</a></li>
+<li class="chapter" data-level="11.2.2" data-path="komplex.html"><a href="komplex.html#lösung-k2"><i class="fa fa-check"></i><b>11.2.2</b> Lösung K2</a></li>
+<li class="chapter" data-level="11.2.3" data-path="komplex.html"><a href="komplex.html#lösung-k3"><i class="fa fa-check"></i><b>11.2.3</b> Lösung K3</a></li>
+<li class="chapter" data-level="11.2.4" data-path="komplex.html"><a href="komplex.html#lösung-k4"><i class="fa fa-check"></i><b>11.2.4</b> Lösung K4</a></li>
+<li class="chapter" data-level="11.2.5" data-path="komplex.html"><a href="komplex.html#lösung-k5"><i class="fa fa-check"></i><b>11.2.5</b> Lösung K5</a></li>
+<li class="chapter" data-level="11.2.6" data-path="komplex.html"><a href="komplex.html#lösung-k6"><i class="fa fa-check"></i><b>11.2.6</b> Lösung K6</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="übungen-1.html"><a href="übungen-1.html"><i class="fa fa-check"></i><b>12</b> Übungen</a><ul>
+<li class="chapter" data-level="12.1" data-path="übungen-1.html"><a href="übungen-1.html#dateneinlesen"><i class="fa fa-check"></i><b>12.1</b> Dateneinlesen</a></li>
+<li class="chapter" data-level="12.2" data-path="übungen-1.html"><a href="übungen-1.html#einfache-lineare-regression"><i class="fa fa-check"></i><b>12.2</b> Einfache lineare Regression</a><ul>
+<li class="chapter" data-level="12.2.1" data-path="übungen-1.html"><a href="übungen-1.html#a-3"><i class="fa fa-check"></i><b>12.2.1</b> A)</a></li>
+<li class="chapter" data-level="12.2.2" data-path="übungen-1.html"><a href="übungen-1.html#b-3"><i class="fa fa-check"></i><b>12.2.2</b> B)</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="übungen-1.html"><a href="übungen-1.html#zweifache-lineare-regression"><i class="fa fa-check"></i><b>12.3</b> Zweifache lineare Regression</a><ul>
+<li class="chapter" data-level="12.3.1" data-path="übungen-1.html"><a href="übungen-1.html#a-4"><i class="fa fa-check"></i><b>12.3.1</b> A)</a></li>
+<li class="chapter" data-level="12.3.2" data-path="übungen-1.html"><a href="übungen-1.html#b-4"><i class="fa fa-check"></i><b>12.3.2</b> B)</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="übungen-1.html"><a href="übungen-1.html#bedingte-lineare-regression"><i class="fa fa-check"></i><b>12.4</b> Bedingte lineare Regression</a><ul>
+<li class="chapter" data-level="12.4.1" data-path="übungen-1.html"><a href="übungen-1.html#a-5"><i class="fa fa-check"></i><b>12.4.1</b> A)</a></li>
+<li class="chapter" data-level="12.4.2" data-path="übungen-1.html"><a href="übungen-1.html#b-5"><i class="fa fa-check"></i><b>12.4.2</b> B)</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="übungen-1.html"><a href="übungen-1.html#plots-1"><i class="fa fa-check"></i><b>12.5</b> Plots</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="lösungen.html"><a href="lösungen.html"><i class="fa fa-check"></i><b>13</b> Lösungen</a><ul>
+<li class="chapter" data-level="13.1" data-path="lösungen.html"><a href="lösungen.html#dateneinlesen-1"><i class="fa fa-check"></i><b>13.1</b> Dateneinlesen</a></li>
+<li class="chapter" data-level="13.2" data-path="lösungen.html"><a href="lösungen.html#einfache-lineare-regression-1"><i class="fa fa-check"></i><b>13.2</b> Einfache lineare Regression</a><ul>
+<li class="chapter" data-level="13.2.1" data-path="lösungen.html"><a href="lösungen.html#a-6"><i class="fa fa-check"></i><b>13.2.1</b> A)</a></li>
+<li class="chapter" data-level="13.2.2" data-path="lösungen.html"><a href="lösungen.html#b-6"><i class="fa fa-check"></i><b>13.2.2</b> B)</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="lösungen.html"><a href="lösungen.html#zweifache-lineare-regression-1"><i class="fa fa-check"></i><b>13.3</b> Zweifache lineare Regression</a><ul>
+<li class="chapter" data-level="13.3.1" data-path="lösungen.html"><a href="lösungen.html#a-7"><i class="fa fa-check"></i><b>13.3.1</b> A)</a></li>
+<li class="chapter" data-level="13.3.2" data-path="lösungen.html"><a href="lösungen.html#zstandlösung"><i class="fa fa-check"></i><b>13.3.2</b> B)</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="lösungen.html"><a href="lösungen.html#bedingte-lineare-regression-1"><i class="fa fa-check"></i><b>13.4</b> Bedingte lineare Regression</a><ul>
+<li class="chapter" data-level="13.4.1" data-path="lösungen.html"><a href="lösungen.html#a-8"><i class="fa fa-check"></i><b>13.4.1</b> A)</a></li>
+<li class="chapter" data-level="13.4.2" data-path="lösungen.html"><a href="lösungen.html#b-7"><i class="fa fa-check"></i><b>13.4.2</b> B)</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="lösungen.html"><a href="lösungen.html#plots-2"><i class="fa fa-check"></i><b>13.5</b> Plots</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">EffectLiteR Tutorial - Work In Progress</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="komplex" class="section level1">
+<h1><span class="header-section-number">11</span> Komplexerer Parametrisierungen - Übungen</h1>
+<p>In diesem Kapitel werden aufeinander aufbauend Übungen zu immer komplexeren Regressions-Modellen präsentiert. Die Übungen sind theoretischer Natur: Durch komlexere Modelle steigen die Anforderungen an die Interpretation von Parametern und Effekten, die Eingabe der Modelle in EffectLiteR wird hingegen nicht komplizierter. Die Lösungen zu den Aufgaben befinden sich weiter unten im Kapitel.</p>
+<div id="übungen" class="section level2">
+<h2><span class="header-section-number">11.1</span> Übungen</h2>
+<div id="übung-k1" class="section level3">
+<h3><span class="header-section-number">11.1.1</span> Übung K1</h3>
+<p>Gegeben ist folgendes Regressionsmodell mit einer zweistufigen Treatmentvariablen <span class="math inline">\(\small X\)</span>, und einer dreistufigen kategorialen Kovariaten <span class="math inline">\(\small K\)</span>:</p>
+<p><span class="math display">\[\begin{align}
+E(Y|X,K) &amp;= g0(K) + g1(K) \times I_{X=1}\\
+g0(K) &amp;= g000 + g010  \times I_{K=1} + g020  \times I_{K=2} \\
+g1(K) &amp;= g100 + g110  \times I_{K=1} + g120  \times I_{K=2}
+\end{align}\]</span></p>
+<p>Drücke die Parameter mit Erwartungswerten aus und interpretiere sie in Worten.</p>
+</div>
+<div id="übung-k2" class="section level3">
+<h3><span class="header-section-number">11.1.2</span> Übung K2</h3>
+<p>Schreibe die Regressionsgleichung / das Regressionsmodell für den Fall einer dreistufigen Treatmentvariable <span class="math inline">\(\small X\)</span> und einer zweistufigen Treatmentvariable <span class="math inline">\(\small K\)</span> auf.</p>
+</div>
+<div id="übung-k3" class="section level3">
+<h3><span class="header-section-number">11.1.3</span> Übung K3</h3>
+<p>Gegeben ist folgendes Regressionsmodell mit einer dreistufigen Treatmentvariablen <span class="math inline">\(\small X\)</span>, und einer dreistufigen kategorialen Kovariaten <span class="math inline">\(\small K\)</span>:</p>
+<p><span class="math display">\[\begin{align}
+E(Y|X,K) &amp;= g0(K) + g1(K) \times I_{X=1} +  g2(K) \times I_{X=2}\\
+g0(K) &amp;= g000 + g010  \times I_{K=1} + g020  \times I_{K=2} \\
+g1(K) &amp;= g100 + g110  \times I_{K=1} + g120  \times I_{K=2}\\
+g2(K) &amp;= g200 + g210 \times I_{K=1}+ g220 \times I_{K=2}
+\end{align}\]</span></p>
+<p>Drücke die Parameter mit Erwartungswerten aus und interpretiere sie in Worten.</p>
+</div>
+<div id="übung-k4" class="section level3">
+<h3><span class="header-section-number">11.1.4</span> Übung K4</h3>
+<p>Wenn mehrere kategoriale Variable (z.B. <span class="math inline">\(\small K_1\)</span> -weiblich vs. männlich- und <span class="math inline">\(\small K_2\)</span> -Kategorie 2(K1) vs. Kategorie 1(K2)) als Prädiktoren ausgewählt wurden, so kombiniert EffectLiteR diese zu einem gemeinsamen kategorialen Prädiktor. Auf diese Art und Weise kreiert EffectLiteR für das genannte Beispiel eine vierstufige Kovariate K mit den Ausprägungen:</p>
+<ul>
+<li>K=0 männlich-K1,</li>
+<li>K=1 männlich-K2,</li>
+<li>K=2 weiblich-K1,</li>
+<li>K=3 weiblich-K2</li>
+</ul>
+<p>Durch diese Parametrisierung kommt es nicht zur Berechnung von Interaktionen der kategorialen Prädiktoren untereinander.
+Stelle das entsprechende Regressionsmodell auf und interpretiere seine Parameter inhaltlich (in Worten und Erwartungswerten).</p>
+</div>
+<div id="übung-k5" class="section level3">
+<h3><span class="header-section-number">11.1.5</span> Übung K5</h3>
+<p>Auch bei mehreren kontinuierlichen Kovariaten wird die Interaktion der Kovariaten nicht zur Aufklärung von Varianz im Prädiktor hinzugezogen. Bei einer zweistufigen Treatmentvariablen und zwei kontinuierlichen Kovariaten wird folgendes Regressionsmodell geschätzt:</p>
+<p><span class="math display">\[\begin{align}
+E(Y|X,Z_1,Z_2)&amp;= g0(Z_1,Z_2) + g1(Z_1,Z_2) \times I_{X=1}\\
+g0(Z_1,Z_2)&amp;= g000 + g001 \times Z_1 +  g002 \times Z_2\\
+g1(Z_1,Z_2)&amp;= g100 + g101 \times Z_1 +  g102 \times Z_2
+\end{align}\]</span></p>
+<p>Angenommen die abhängige Variable steht für einen Gesundheitsscore von Patienten, die Treatmentvariable steht für die Behandlung der Patienten (<span class="math inline">\(\small X=1\)</span>) vs. keine Behandlung (<span class="math inline">\(\small X=0\)</span>), die Kovariate <span class="math inline">\(\small Z_1\)</span> steht für das Alter der Patienten und die Kovariate <span class="math inline">\(\small Z_2\)</span> für die subjektiv empfundene soziale Unterstützung. Beide Kovariaten wurden z-standardisiert. Drücke die Parameter des Regressionsmodells mit Erwartungswerten aus und interpretiere sie inhaltlich.</p>
+</div>
+<div id="übung-k6" class="section level3">
+<h3><span class="header-section-number">11.1.6</span> Übung K6</h3>
+<p>Nur wenn sowohl kontinuierliche als auch kategoriale Prädiktoren in das Modell aufgenommen werden, werden Interaktionen zwischen der aggregierten Kategorienvariable <span class="math inline">\(\small K\)</span> und den verschiedenen kontinuierlichen Variablen geschätzt. In diesem Fall kann unter <em>Interactions</em> im Eingabe-Panel recht genau eingestellt werden, welche Interaktionen geschätzt werden sollen und welche nicht.<br />
+Generell gilt: Je weniger „unnötige“ Parameter geschätzt werden, desto genauer können die tatsächlich relevanten Parameter geschätzt werden. Deshalb ist sinnvoll nur inhaltlich plausible Interaktionen in seinem Modell zu belassen.<br />
+In der Abbildung unten (Figure <a href="komplex.html#fig:uebungk6">11.1</a>) siehst du ein Modell mit zwei kontinuierlichen und einer kategorialen Kovariaten, außerdem die möglichen Einstellungen zur Begrenzung des Modells unter <em>Interactions</em> im Eingabepanel.
+Überlege welche Parameter unter den verschiedenen möglichen Restriktionen nicht geschätzt würden (Welche Parameter würden unter der Einstellung <em>Only two way interactions</em> nicht geschätzt, welche unter der Einstellung <em>only X:K and X:Z interactions</em>,…).</p>
+<div class="figure"><span id="fig:uebungk6"></span>
+<img src="images/Komplexes%20Modell%206.png" alt="Übung komplexes Modell 6.png" width="100%" />
+<p class="caption">
+Figure 11.1: Übung komplexes Modell 6.png
+</p>
+</div>
+</div>
+</div>
+<div id="lösungenk" class="section level2">
+<h2><span class="header-section-number">11.2</span> Lösungen</h2>
+<p><em>Bemerke: Für Übung K1 ist ein detaillierter Lösungsweg abgebildet, während für die verwandten Übungen K3-K5 ledigliche die Ergebnisse vorliegen. Gehe zur Lösung der Übungen K3-K5 genau so vor, wie zur Lösung der Aufgabe K1.</em></p>
+<div id="lösung-k1" class="section level3">
+<h3><span class="header-section-number">11.2.1</span> Lösung K1</h3>
+<p>Schritt1) X und K auf null setzen:<br />
+<span class="math display">\[\begin{align}
+E(Y|X=0,K=0) &amp;= g_{000} + g_{010} \times 0+ g_{020} \times 0+  (g_{100} + g_{110}  \times 0 + g_{120}  \times 0) \times 0\\ 
+&amp;= g_{000}
+\end{align}\]</span></p>
+<p>g000 gibt den Erwartungswert unter der Bedingung X=0, K=0 an.</p>
+<p>Schritt 2) X auf null und K auf eins setzen, dann Erwartungswert für g000 einsetzen:</p>
+<p><span class="math display">\[\begin{align}
+E(Y|X=0,K=1) &amp;= g_{000} + g_{010} \times 1+ g_{020} \times 0+  (g_{100} + g_{110}  \times 1 + g_{120}  \times 0) \times 0\\ 
+&amp;= g_{000} + g_{010}\\
+&amp;= E(Y|X=0,K=0) + g_{010}\\
+g_{010} &amp;=E(Y|X=0,K=1)-E(Y|X=0,K=0)
+\end{align}\]</span></p>
+<p>g010 gibt den Effekt einer Veränderung der Kovariaten von 0 zu 1 unter der Bedingung X=0 an.</p>
+<p>Schritt 3) X auf null und K auf zwei setzen, dann Erwartungswert für g000 einsetzen:<br />
+<span class="math display">\[\begin{align}
+E(Y|X=0,K=2) &amp;= g_{000} + g_{010} \times 0+ g_{020} \times 1+  (g_{100} + g_{110}  \times 0 + g_{120}  \times 1) \times 0\\ 
+&amp;= g_{000} + g_{020}\\
+&amp;= E(Y|X=0,K=0) + g_{020}\\
+g_{020} &amp;=E(Y|X=0,K=2)-E(Y|X=0,K=0)
+\end{align}\]</span></p>
+<p>g020 gibt den Effekt einer Veränderung der Kovariaten von 0 zu 1 unter der Bedingung X=0 an.</p>
+<p>Schritt 4) X auf eins und K auf null setzen, dann Erwartungswert für g000 einsetzen:<br />
+<span class="math display">\[\begin{align}
+E(Y|X=1,K=0) &amp;= g_{000} + g_{010} \times 0+ g_{020} \times 0+  (g_{100} + g_{110}  \times 0 + g_{120}  \times 0) \times 1\\ &amp;= g000 + g100\\
+&amp;= E(Y|X=0,K=0) + g_{100}\\
+g_{100} &amp;=E(Y|X=1,K=0)-E(Y|X=0,K=0)
+\end{align}\]</span></p>
+<p>g100 gibt den Effekt des Treatments (X=1 vs X=0) unter der Bedingung K=0 an.</p>
+<p>Schritt 5) X auf eins und K auf eins setzen, dann Erwartungswerte für g000, g010 und g100 einsetzen, dann kürzen:</p>
+<p><span class="math display">\[\begin{align}
+E(Y|X=1,K=1) &amp;= g_{000} + g_{010} \times 1+ g_{020} \times 0+  (g_{100} + g_{110}  \times 1 + g_{120}  \times 0) \times 1\\ 
+&amp;= g_{000} + g_{010} + g_{100} + g_{110}\\
+&amp;= E(Y|X=0,K=0) + [E(Y|X=0,K=1)-E(Y|X=0,K=0)] +\\ &amp;+[E(Y|X=1,K=0)-E(Y|X=0,K=0)] + g_{110} \\
+&amp;=E(Y|X=0,K=1) + [E(Y|X=1,K=0)-E(Y|X=0,K=0)] + g_{110}\\
+g_{110}&amp;=[E(Y|X=1,K=1) - [E(Y|X=0,K=1)] – \\
+&amp;-[E(Y|X=1,K=0)-E(Y|X=0,K=0)]
+\end{align}\]</span></p>
+<p>g110 ist die Differnz des Treatmenteffektes unter der Bedingung K=1 und unter der Bedingung K=0, damit stellt er die Interaktion zwischen X und K=1 versus K=0 dar.</p>
+<p>Schritt 6) X auf eins und K auf zwei setzen, dann Erwartungswerte für g000, g010 und g100 einsetzen, dann kürzen:</p>
+<p><span class="math display">\[\begin{align}
+E(Y|X=2,K=1) &amp;= g_{000} + g_{010} \times 0+ g_{020} \times 1+  (g_{100} + g_{110}  \times 0 + g_{120}  \times 1) \times 1\\ 
+&amp;= g_{000} + g_{020} + g_{110} + g_{120}\\
+&amp;= E(Y|X=0,K=0) + [E(Y|X=0,K=2)-E(Y|X=0,K=0)] +\\ &amp;+[E(Y|X=1,K=0)-E(Y|X=0,K=0)] + g_{120} \\
+&amp;=E(Y|X=0,K=2) + [E(Y|X=1,K=0)-E(Y|X=0,K=0)] + g_{120}\\
+g_{120}&amp;=[E(Y|X=1,K=2) - [E(Y|X=0,K=2)] –\\ &amp;-[E(Y|X=1,K=0)-E(Y|X=0,K=0)]
+\end{align}\]</span></p>
+<p>g120 ist die Differnz des Treatmenteffektes von X unter der Bedingung K=2 und unter der Bedingung K=0, damit stellt er die Interaktion zwischen X und K=2 versus K=0 dar.</p>
+</div>
+<div id="lösung-k2" class="section level3">
+<h3><span class="header-section-number">11.2.2</span> Lösung K2</h3>
+<p><span class="math display">\[\begin{align}
+E(Y|X,K) &amp;= g0(K) + g1(K) \times I_{X=1}\\
+g0(K) &amp;= g_{000} + g_{010}  \times I_{K=1}  \\
+g1(K) &amp;= g_{100} + g_{110}  \times I_{K=1} \\
+g2(K) &amp;= g_{200} + g_{210}  \times I_{K=1}
+\end{align}\]</span></p>
+</div>
+<div id="lösung-k3" class="section level3">
+<h3><span class="header-section-number">11.2.3</span> Lösung K3</h3>
+<table>
+<colgroup>
+<col width="36%" />
+<col width="63%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Ewartungswert</th>
+<th>Interpreation in Worten</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\small g_{000}=E(Y|X=0,K=0)\)</span></td>
+<td>g000 gibt den Erwartungswert unter der Bedingung X=0, K=0 an.</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\small g_{010} =E(Y|X=0,K=1)-E(Y|X=0,K=0)\)</span></td>
+<td>g010 gibt den Effekt einer Veränderung der Kovariaten von 0 zu 1 unter der Bedingung X=0 an.</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\small g_{020} =E(Y|X=0,K=2)-E(Y|X=0,K=0)\)</span></td>
+<td>g020 gibt den Effekt einer Veränderung der Kovariaten von 0 zu 2 unter der Bedingung X=0 an</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\small g_{100} =E(Y|X=1,K=0)-E(Y|X=0,K=0)\)</span></td>
+<td>g100 gibt den Effekt des Treatments (X=1 vs X=0) unter der Bedingung K=0 an.</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\small g_{110}=[E(Y|X=1,K=1) - [E(Y|X=0,K=1)]-\\ \small – [E(Y|X=1,K=0)-E(Y|X=0,K=0)]\)</span></td>
+<td>g110 ist die Differnz des Treatmenteffektes unter der Bedingung K=1 und unter der Bedingung K=0, damit stellt er die Interaktion zwischen X und K=1 versus K=0 dar.</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\small g_{120} =[E(Y|X=1,K=2) - [E(Y|X=0,K=2)] –\\ \small-[E(Y|X=1,K=0)-E(Y|X=0,K=0)]\)</span></td>
+<td>g120 ist die Differnz des Treatmenteffektes von X unter der Bedingung K=2 und unter der Bedingung K=0, damit stellt er die Interaktion zwischen X und K=2 versus K=0 dar.</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\small g_{200} =E(Y|X=2,K=0)-E(Y|X=0,K=0)\)</span></td>
+<td>g200 gibt den Effekt des Treatments (X=2 vs X=0) unter der Bedingung K=0 an.</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\small g_{210} =[E(Y|X=2,K=1) - [E(Y|X=0,K=1)] –\\ \small-[E(Y|X=2,K=0)-E(Y|X=0,K=0)]\)</span></td>
+<td>g210 ist die Differnz des Treatmenteffektes (X=2 vs X=0) unter der Bedingung K=1 und unter der Bedingung K=0, damit stellt er die Interaktion zwischen X=2 vs X=0 und K=1 versus K=0 dar.</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\small g220=[E(Y|X=2,K=2) - [E(Y|X=0,K=2)] –\\ \small -[E(Y|X=2,K=0)-E(Y|X=0,K=0)]\)</span></td>
+<td>g220 ist die Differnz des Treatmenteffektes von X (X=2 vs X=0) unter der Bedingung K=2 und unter der Bedingung K=0, damit stellt er die Interaktion zwischen X=2 vs X=0 und K=2 versus K=0 dar.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="lösung-k4" class="section level3">
+<h3><span class="header-section-number">11.2.4</span> Lösung K4</h3>
+<p>Regressionsmodell:</p>
+<p><span class="math display">\[\begin{align}
+E(Y|X,K) &amp;= g0(K) + g1(K) \times I_{X=1}\\
+g0(K)&amp;=g_{000} + g_{010} \times I_{K=1} + g_{020} \times I_{K=2} + g_{030} \times I_{K=3} \\
+g1(K)&amp;=g_{100} + g_{110} \times I_{K=1} + g_{120} \times I_{K=2} + g_{130} \times I_{K=3}
+\end{align}\]</span></p>
+<table>
+<colgroup>
+<col width="36%" />
+<col width="63%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Ewartungswert</th>
+<th>Interpreation in Worten</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\small g_{000} = E(Y|X=0,K=0)\)</span></td>
+<td>g000 gibt den Erwartungswert unter der Bedingung X=0 für Männer der Kategorie 1 an.</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\small g_{010} = E(Y|X=0,K=1)-E(Y|X=0,K=0)\)</span></td>
+<td>g010 gibt den Effekt der Kovariatenausprägung K=1 vs K=0 unter der Bedingung X=0 an: Um wie viel steigert sich der Erwartungswert von Y, wenn statt Männern der Kategorie eins (K=0) Frauen der Kategorie eins (K=1) betrachtet werden.</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\small g_{020} = E(Y|X=0,K=2)-E(Y|X=0,K=0)\)</span></td>
+<td>g020 gibt den Effekt der Kovariatenausprägung K=2 vs K=0 unter der Bedingung X=0 an: Um wie viel steigert sich der Erwartungswert von Y, wenn statt Männern der Kategorie eins (K=0) Männer der Kategorie zwei (K=2) betrachtet werden.</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\small g_{030} = E(Y|X=0,K=3)-E(Y|X=0,K=0)\)</span></td>
+<td>g030 gibt den Effekt der Kovariatenausprägung K=3 vs K=0 unter der Bedingung X=0 an: Um wie viel steigert sich der Erwartungswert von Y, wenn statt Männern der Kategorie eins (K=0) Frauen der Kategorie zwei (K=3) betrachtet werden.</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\small g_{100} = E(Y|X=1,K=0)-E(Y|X=0,K=0)\)</span></td>
+<td>g100 gibt den Treatmenteffekt für Männer der Kategorie 1 an.</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\small g_{110}=[E(Y|X=1,K=1) - E(Y|X=0,K=1)] –\\ \small - [E(Y|X=1,K=0)-E(Y|X=0,K=0)]\)</span></td>
+<td>g110 gibt die Interaktion zwischen der Betrachtung von Männern der Kategorie zwei (K=0) vs. der Betrachtung von Frauen der Kategorie eins (K=1) und dem Treatment an: Um wie viel effektiver ist das Treatment bei Frauen der Kategorie 1 (K=1) als bei Männern der Kategorie 1 (K=0).</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\small g_{120}=[E(Y|X=1,K=2) - E(Y|X=0,K=2)] –\\ \small - [E(Y|X=1,K=0)-E(Y|X=0,K=0)]\)</span></td>
+<td>g120 gibt die Interaktion zwischen der Betrachtung von Männern der Kategorie zwei (K=2) vs. der Betrachtung von Männern der Kategorie eins (K=1) und dem Treatment an: Um wie viel effektiver ist das Treatment bei Männern der Kategorie 2 (K=2) als bei Männern der Kategorie 1 (K=0).</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\small g_{130}=[E(Y|X=1,K=3) - E(Y|X=0,K=3)] –\\ \small - [E(Y|X=1,K=0)-E(Y|X=0,K=0)]\)</span></td>
+<td>g130 gibt die Interaktion zwischen der Betrachtung von Frauen der Kategorie zwei (K=3) vs. der Betrachtung von Männern der Kategorie eins (K=0) und dem Treatment an: Um wie viel effektiver ist das Treatment bei Frauen der Kategorie 2 (K=3) als bei Männern der Kategorie 1 (K=0).</td>
+</tr>
+</tbody>
+</table>
+<p><em>Bemerke:</em> Hier bestimmt die Kodierung der Kovariate, welche Vergleiche geschätzt werden: K=0 ist die „Referenz-Kovariaten-Ausprägung“, ein Vergleich der Kovariaten-Ausprägungen K=1 vs K=2 wird beispielsweise nicht geschätzt. Es ist nicht möglich die „Referenz-Kovariaten-Ausprägung“ zu verändern, hier muss also von Anfang an mit einer sinnvollen Kodierung gestartet werden.</p>
+</div>
+<div id="lösung-k5" class="section level3">
+<h3><span class="header-section-number">11.2.5</span> Lösung K5</h3>
+<table>
+<colgroup>
+<col width="36%" />
+<col width="63%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Ewartungswert</th>
+<th>Interpreation in Worten</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\small g000 = E(Y|X=0, Z_1=\bar{z}_1=0, Z_2=\bar{z}_2=0)\)</span></td>
+<td>g000 zeigt den erwarteten Gesundheitsscore von Patienten in durchschnittlichem Alter mit durchschnittlich ausgeprägter sozialer Unterstützung, die keine Behandlung erhalten, an.</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\small g001 = E(Y|X=0, Z_1=\bar{z}_1+1\times SD_{Z1}=1, Z_2=\bar{z}_2=0)-\\ \small -E(Y|X=0, Z_1=\bar{z}_1=0, Z_2=\bar{z}_2=0)\)</span></td>
+<td>g010 schätzt den Einfluss der Kovariaten <span class="math inline">\(Z_1\)</span> in der Kontrollgruppe: Wie viel größer ist der Gesundheitsscore von Patienten ohne Behandlung, die eine Standardabweichung älter sind als das Mittel, im Vergleich zu durchschnittlich alten Patienten ohne Behandlung.</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\small g002 = E(Y|X=0, Z_1=\bar{z}_1=0, Z_2=\bar{z}_2+1\times SD_{Z1}=1)-\\ \small -E(Y|X=0, Z_1=\bar{z}_1=0, Z_2=\bar{z}_2=0)\)</span></td>
+<td>g002 schätzt den Einfluss der Kovariaten <span class="math inline">\(Z_2\)</span> in der Kontrollgruppe: Wie viel größer ist der Gesundheitsscore von Patienten ohne Behandlung, die subjektiv bewertet um eine Standardabweichung höhere soziale Unterstützung erfahren als das Mittel, im Vergleich zu Patienten mit subjektiv gemessen durchschnittlicher sozialer Unterstützung ohne Behandlung.</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\small g100 = E(Y|X=1, Z_1=\bar{z}_1=0, Z_2=\bar{z}_2=0)-\\ \small -E(Y|X=0, Z_1=\bar{z}_1=0, Z_2=\bar{z}_2=0)\)</span></td>
+<td>g100 gibt den durchschnittlichen Treatmenteffekt an, das heißt die geschätzte Differenz zwischen durchschnittlich alten und subjektiv durchschnittlich sozial unterstützten Patienten mit und ohne Behandlung.</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\small g101=[E(Y|X=1,Z_1=\bar{z}_1+1\times SD_{Z1}=1, Z_2=\bar{z}_2=0) -\\ \small -E(Y|X=0,Z_1=\bar{z}_1+1\times SD_{Z1}=1, Z_2=\bar{z}_2=0)] –\\ \small [E(Y|X=1,Z_1=\bar{z}_1=0, Z_2=\bar{z}_2=0)-\\ \small -E(Y|X=0,Z_1=\bar{z}_1=0, Z_2=\bar{z}_2=0)]\)</span></td>
+<td>g101 schätzt den Einfluss der Interaktion zwischen Treatment und Alter auf den Gesundheitsscore: Wie viel größer ist der Effekt des Treatments bei Patienten die eine Standardabweichung älter sind als der Durchschnitt, als bei durchschnittlich alten Patienten.</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\small g102=[E(Y|X=1,Z_1=\bar{z}_1=0, Z_2=\bar{z}_2+1\times SD_{Z2}=1) -\\ \small -E(Y|X=0,Z_1=\bar{z}_1=0, Z_2=\bar{z}_2+1\times SD_{Z2}=1)] –\\ \small -[E(Y|X=1,Z_1=\bar{z}_1=0, Z_2=\bar{z}_2=0)-\\ \small -E(Y|X=0,Z_1=\bar{z}_1=0, Z_2=\bar{z}_2=0)]\)</span></td>
+<td>g102 schätzt den Einfluss der Interaktion zwischen Treatment und subjektiver sozialer Unterstützung auf den Gesundheitsscore: Wie viel größer ist der Effekt des Treatments bei Patienten die subjektiv gemessen eine Standardabweichung höhere soziale Unterstützung erfahren als der Durchschnitt, als bei subjektiv durchschnittlich sozial unterstützten Patienten.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="lösung-k6" class="section level3">
+<h3><span class="header-section-number">11.2.6</span> Lösung K6</h3>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Restriktion</th>
+<th align="left">auf Null fixierte Parameter</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Only two-way interactions</td>
+<td align="left">g111, g112,<br>g211, g212</td>
+</tr>
+<tr class="even">
+<td align="left">Only X:K and X:Z interactions</td>
+<td align="left">g011, g012,<br>g111, g112,<br>g211, g212</td>
+</tr>
+<tr class="odd">
+<td align="left">Only X:K interactions</td>
+<td align="left">g101, g102, g111, g112,<br>g201, g202, g211, g212</td>
+</tr>
+<tr class="even">
+<td align="left">Only X:Z interactions</td>
+<td align="left">g110, g111, g112,<br>g210, g211, g212,</td>
+</tr>
+<tr class="odd">
+<td align="left">No treatment*covariate interactions</td>
+<td align="left">g101, g102, g110, g111, g112,<br>g201, g202, g210, g211, g212</td>
+</tr>
+<tr class="even">
+<td align="left">No interactions</td>
+<td align="left">g011, g012,<br>g101, g102, g110, g111, g112,<br>g201, g202, g210, g211, g212</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="plots.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="übungen-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

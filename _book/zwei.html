@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>6 Zweifache lineare Regression | EffectLiteR Tutorial - Work In Progress</title>
+  <meta name="description" content="This is a Tutorial for the EffectLiteR package." />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="6 Zweifache lineare Regression | EffectLiteR Tutorial - Work In Progress" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a Tutorial for the EffectLiteR package." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="6 Zweifache lineare Regression | EffectLiteR Tutorial - Work In Progress" />
+  
+  <meta name="twitter:description" content="This is a Tutorial for the EffectLiteR package." />
+  
+
+<meta name="author" content="Alexander Jung, Christoph Kiefer &amp; Axel Mayer" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="eins.html"/>
+<link rel="next" href="bedingt.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Index</a></li>
+<li class="chapter" data-level="2" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>2</b> Installation</a><ul>
+<li class="chapter" data-level="2.1" data-path="installation.html"><a href="installation.html#download-und-verwendung-via-r"><i class="fa fa-check"></i><b>2.1</b> Download und Verwendung via R</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="installation.html"><a href="installation.html#schritt-1-r-downloaden"><i class="fa fa-check"></i><b>2.1.1</b> Schritt 1 – R downloaden</a></li>
+<li class="chapter" data-level="2.1.2" data-path="installation.html"><a href="installation.html#schritt-2-rstudio-downloaden"><i class="fa fa-check"></i><b>2.1.2</b> Schritt 2 – RStudio downloaden</a></li>
+<li class="chapter" data-level="2.1.3" data-path="installation.html"><a href="installation.html#schritt-3-effectliter-installieren-und-öffnen"><i class="fa fa-check"></i><b>2.1.3</b> Schritt 3 – EffectLiteR installieren und öffnen</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="installation.html"><a href="installation.html#download-mit-dem-windows-installer"><i class="fa fa-check"></i><b>2.2</b> Download mit dem Windows-Installer</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="Einlesen-Schaltflächen.html"><a href="Einlesen-Schaltflächen.html"><i class="fa fa-check"></i><b>3</b> Daten einlesen und Schaltflächen</a><ul>
+<li class="chapter" data-level="3.1" data-path="Einlesen-Schaltflächen.html"><a href="Einlesen-Schaltflächen.html#aufbau-der-graphischen-oberfläche"><i class="fa fa-check"></i><b>3.1</b> Aufbau der graphischen Oberfläche</a></li>
+<li class="chapter" data-level="3.2" data-path="Einlesen-Schaltflächen.html"><a href="Einlesen-Schaltflächen.html#daten-einlesen"><i class="fa fa-check"></i><b>3.2</b> Daten einlesen</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="Einlesen-Schaltflächen.html"><a href="Einlesen-Schaltflächen.html#beispieldatensätze"><i class="fa fa-check"></i><b>3.2.1</b> Beispieldatensätze</a></li>
+<li class="chapter" data-level="3.2.2" data-path="Einlesen-Schaltflächen.html"><a href="Einlesen-Schaltflächen.html#eigene-datensätze"><i class="fa fa-check"></i><b>3.2.2</b> Eigene Datensätze</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="Einlesen-Schaltflächen.html"><a href="Einlesen-Schaltflächen.html#übungsaufgabe-dateneinlesen"><i class="fa fa-check"></i><b>3.3</b> Übungsaufgabe “Dateneinlesen”</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="vorwort-zur-regressionsanalyse-mit-effectliter.html"><a href="vorwort-zur-regressionsanalyse-mit-effectliter.html"><i class="fa fa-check"></i><b>4</b> Vorwort zur Regressionsanalyse mit EffectLiteR</a></li>
+<li class="chapter" data-level="5" data-path="eins.html"><a href="eins.html"><i class="fa fa-check"></i><b>5</b> Einfache lineare Regression</a><ul>
+<li class="chapter" data-level="5.1" data-path="eins.html"><a href="eins.html#input"><i class="fa fa-check"></i><b>5.1</b> <span id="einsinput">Input</span></a><ul>
+<li class="chapter" data-level="5.1.1" data-path="eins.html"><a href="eins.html#referenzgruppe-festlegen"><i class="fa fa-check"></i><b>5.1.1</b> Referenzgruppe festlegen</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="eins.html"><a href="eins.html#einspara"><i class="fa fa-check"></i><b>5.2</b> Parametrisierung</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="eins.html"><a href="eins.html#zweistufige-treatmentvariable-x"><i class="fa fa-check"></i><b>5.2.1</b> Zweistufige Treatmentvariable X</a></li>
+<li class="chapter" data-level="5.2.2" data-path="eins.html"><a href="eins.html#dreistufige-treatmentvariable-x"><i class="fa fa-check"></i><b>5.2.2</b> Dreistufige Treatmentvariable X</a></li>
+<li class="chapter" data-level="5.2.3" data-path="eins.html"><a href="eins.html#einsref"><i class="fa fa-check"></i><b>5.2.3</b> Referenzgruppe</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="eins.html"><a href="eins.html#hauptoutput"><i class="fa fa-check"></i><b>5.3</b> Hauptoutput</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="eins.html"><a href="eins.html#message"><i class="fa fa-check"></i><b>5.3.1</b> Message</a></li>
+<li class="chapter" data-level="5.3.2" data-path="eins.html"><a href="eins.html#einsvariables"><i class="fa fa-check"></i><b>5.3.2</b> Variables</a></li>
+<li class="chapter" data-level="5.3.3" data-path="eins.html"><a href="eins.html#regression-model"><i class="fa fa-check"></i><b>5.3.3</b> Regression Model</a></li>
+<li class="chapter" data-level="5.3.4" data-path="eins.html"><a href="eins.html#einscellcount"><i class="fa fa-check"></i><b>5.3.4</b> Cell Counts</a></li>
+<li class="chapter" data-level="5.3.5" data-path="eins.html"><a href="eins.html#main-hypotheses"><i class="fa fa-check"></i><b>5.3.5</b> Main Hypotheses</a></li>
+<li class="chapter" data-level="5.3.6" data-path="eins.html"><a href="eins.html#adjusted-means"><i class="fa fa-check"></i><b>5.3.6</b> <span id="einsadjustedmeans">Adjusted Means</span></a></li>
+<li class="chapter" data-level="5.3.7" data-path="eins.html"><a href="eins.html#einsaverageeffects"><i class="fa fa-check"></i><b>5.3.7</b> Average Effects</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="eins.html"><a href="eins.html#übungen-einfache-lineare-regression"><i class="fa fa-check"></i><b>5.4</b> Übungen “einfache lineare Regression”</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="eins.html"><a href="eins.html#a"><i class="fa fa-check"></i><b>5.4.1</b> A)</a></li>
+<li class="chapter" data-level="5.4.2" data-path="eins.html"><a href="eins.html#b"><i class="fa fa-check"></i><b>5.4.2</b> B)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="zwei.html"><a href="zwei.html"><i class="fa fa-check"></i><b>6</b> Zweifache lineare Regression</a><ul>
+<li class="chapter" data-level="6.1" data-path="zwei.html"><a href="zwei.html#input-1"><i class="fa fa-check"></i><b>6.1</b> Input</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="zwei.html"><a href="zwei.html#modell"><i class="fa fa-check"></i><b>6.1.1</b> Modell</a></li>
+<li class="chapter" data-level="6.1.2" data-path="zwei.html"><a href="zwei.html#variablen"><i class="fa fa-check"></i><b>6.1.2</b> Variablen</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="zwei.html"><a href="zwei.html#parametrisierung"><i class="fa fa-check"></i><b>6.2</b> Parametrisierung</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="zwei.html"><a href="zwei.html#parameter-interpretation-bei-kategorialer-kovariate"><i class="fa fa-check"></i><b>6.2.1</b> Parameter-Interpretation bei kategorialer Kovariate</a></li>
+<li class="chapter" data-level="6.2.2" data-path="zwei.html"><a href="zwei.html#zweikont"><i class="fa fa-check"></i><b>6.2.2</b> Parameter-Interpretation bei kontinuierlicher Kovariate</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="zwei.html"><a href="zwei.html#zweihaupt"><i class="fa fa-check"></i><b>6.3</b> Hauptoutput</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="zwei.html"><a href="zwei.html#zweivariables"><i class="fa fa-check"></i><b>6.3.1</b> Variables</a></li>
+<li class="chapter" data-level="6.3.2" data-path="zwei.html"><a href="zwei.html#regression-model-1"><i class="fa fa-check"></i><b>6.3.2</b> Regression Model</a></li>
+<li class="chapter" data-level="6.3.3" data-path="zwei.html"><a href="zwei.html#cell-counts"><i class="fa fa-check"></i><b>6.3.3</b> Cell Counts</a></li>
+<li class="chapter" data-level="6.3.4" data-path="zwei.html"><a href="zwei.html#zweimainhypo"><i class="fa fa-check"></i><b>6.3.4</b> Main Hypotheses</a></li>
+<li class="chapter" data-level="6.3.5" data-path="zwei.html"><a href="zwei.html#adjusted-means-1"><i class="fa fa-check"></i><b>6.3.5</b> Adjusted Means</a></li>
+<li class="chapter" data-level="6.3.6" data-path="zwei.html"><a href="zwei.html#average-effects"><i class="fa fa-check"></i><b>6.3.6</b> Average Effects</a></li>
+<li class="chapter" data-level="6.3.7" data-path="zwei.html"><a href="zwei.html#effects-given-a-treatment-condition"><i class="fa fa-check"></i><b>6.3.7</b> Effects given a Treatment Condition</a></li>
+<li class="chapter" data-level="6.3.8" data-path="zwei.html"><a href="zwei.html#hypotheses-given-kk-nur-bei-einer-kategorialen-kovariaten"><i class="fa fa-check"></i><b>6.3.8</b> Hypotheses given K=k (nur bei einer kategorialen Kovariaten):</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="zwei.html"><a href="zwei.html#übungen-zweifache-lineare-regression"><i class="fa fa-check"></i><b>6.4</b> Übungen “zweifache lineare Regression”</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="zwei.html"><a href="zwei.html#a-1"><i class="fa fa-check"></i><b>6.4.1</b> A)</a></li>
+<li class="chapter" data-level="6.4.2" data-path="zwei.html"><a href="zwei.html#b-1"><i class="fa fa-check"></i><b>6.4.2</b> B)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="bedingt.html"><a href="bedingt.html"><i class="fa fa-check"></i><b>7</b> Bedingte lineare Regression</a><ul>
+<li class="chapter" data-level="7.1" data-path="bedingt.html"><a href="bedingt.html#input-2"><i class="fa fa-check"></i><b>7.1</b> Input</a></li>
+<li class="chapter" data-level="7.2" data-path="bedingt.html"><a href="bedingt.html#bedingtpara"><i class="fa fa-check"></i><b>7.2</b> Parametrisierung</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="bedingt.html"><a href="bedingt.html#zweistufige-kovariate-zweistufige-treatmentvariable"><i class="fa fa-check"></i><b>7.2.1</b> Zweistufige Kovariate, zweistufige Treatmentvariable</a></li>
+<li class="chapter" data-level="7.2.2" data-path="bedingt.html"><a href="bedingt.html#kontinuierliche-kovariate-zweistufige-treatmentvariable"><i class="fa fa-check"></i><b>7.2.2</b> Kontinuierliche Kovariate, zweistufige Treatmentvariable</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="bedingt.html"><a href="bedingt.html#hauptoutput-1"><i class="fa fa-check"></i><b>7.3</b> Hauptoutput</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="bedingt.html"><a href="bedingt.html#variables"><i class="fa fa-check"></i><b>7.3.1</b> Variables</a></li>
+<li class="chapter" data-level="7.3.2" data-path="bedingt.html"><a href="bedingt.html#regression-model-2"><i class="fa fa-check"></i><b>7.3.2</b> Regression Model</a></li>
+<li class="chapter" data-level="7.3.3" data-path="bedingt.html"><a href="bedingt.html#cell-counts-1"><i class="fa fa-check"></i><b>7.3.3</b> Cell Counts</a></li>
+<li class="chapter" data-level="7.3.4" data-path="bedingt.html"><a href="bedingt.html#main-hypotheses-1"><i class="fa fa-check"></i><b>7.3.4</b> Main Hypotheses</a></li>
+<li class="chapter" data-level="7.3.5" data-path="bedingt.html"><a href="bedingt.html#adjusted-means-2"><i class="fa fa-check"></i><b>7.3.5</b> Adjusted Means</a></li>
+<li class="chapter" data-level="7.3.6" data-path="bedingt.html"><a href="bedingt.html#average-effects-1"><i class="fa fa-check"></i><b>7.3.6</b> Average Effects</a></li>
+<li class="chapter" data-level="7.3.7" data-path="bedingt.html"><a href="bedingt.html#effects-given-a-treatment-condition-1"><i class="fa fa-check"></i><b>7.3.7</b> Effects given a Treatment Condition</a></li>
+<li class="chapter" data-level="7.3.8" data-path="bedingt.html"><a href="bedingt.html#effects-given-kk-nur-bei-einer-kategorialen-kovariaten"><i class="fa fa-check"></i><b>7.3.8</b> Effects given K=k (nur bei einer kategorialen Kovariaten)</a></li>
+<li class="chapter" data-level="7.3.9" data-path="bedingt.html"><a href="bedingt.html#hypotheses-given-kk-nur-bei-kategorialen-kovariaten"><i class="fa fa-check"></i><b>7.3.9</b> Hypotheses given K=k (nur bei kategorialen Kovariaten):</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="bedingt.html"><a href="bedingt.html#übungen-bedingte-lineare-regression"><i class="fa fa-check"></i><b>7.4</b> Übungen “bedingte lineare Regression”</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="bedingt.html"><a href="bedingt.html#a-2"><i class="fa fa-check"></i><b>7.4.1</b> A)</a></li>
+<li class="chapter" data-level="7.4.2" data-path="bedingt.html"><a href="bedingt.html#b-2"><i class="fa fa-check"></i><b>7.4.2</b> B)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="exkadj.html"><a href="exkadj.html"><i class="fa fa-check"></i><b>8</b> Exkurs Adjustierte Mittelwerte</a></li>
+<li class="chapter" data-level="9" data-path="conditional-effects.html"><a href="conditional-effects.html"><i class="fa fa-check"></i><b>9</b> Conditional Effects</a><ul>
+<li class="chapter" data-level="9.1" data-path="conditional-effects.html"><a href="conditional-effects.html#conditional-effects-i"><i class="fa fa-check"></i><b>9.1</b> Conditional Effects I</a></li>
+<li class="chapter" data-level="9.2" data-path="conditional-effects.html"><a href="conditional-effects.html#conditional-effects-ii"><i class="fa fa-check"></i><b>9.2</b> Conditional Effects II</a></li>
+<li class="chapter" data-level="9.3" data-path="conditional-effects.html"><a href="conditional-effects.html#conditional-effects-iii"><i class="fa fa-check"></i><b>9.3</b> Conditional Effects III</a></li>
+<li class="chapter" data-level="9.4" data-path="conditional-effects.html"><a href="conditional-effects.html#conditional-effects-iv"><i class="fa fa-check"></i><b>9.4</b> Conditional Effects IV</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="plots.html"><a href="plots.html"><i class="fa fa-check"></i><b>10</b> Plots</a><ul>
+<li class="chapter" data-level="10.1" data-path="plots.html"><a href="plots.html#plot-1"><i class="fa fa-check"></i><b>10.1</b> Plot 1</a></li>
+<li class="chapter" data-level="10.2" data-path="plots.html"><a href="plots.html#plotzwei"><i class="fa fa-check"></i><b>10.2</b> Plot 2</a></li>
+<li class="chapter" data-level="10.3" data-path="plots.html"><a href="plots.html#plot-3"><i class="fa fa-check"></i><b>10.3</b> Plot 3</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="plots.html"><a href="plots.html#effect-function-und-regressor"><i class="fa fa-check"></i><b>10.3.1</b> Effect function und Regressor</a></li>
+<li class="chapter" data-level="10.3.2" data-path="plots.html"><a href="plots.html#colour-variable"><i class="fa fa-check"></i><b>10.3.2</b> Colour variable</a></li>
+<li class="chapter" data-level="10.3.3" data-path="plots.html"><a href="plots.html#regression-line"><i class="fa fa-check"></i><b>10.3.3</b> Regression Line</a></li>
+<li class="chapter" data-level="10.3.4" data-path="plots.html"><a href="plots.html#confidence-intervals"><i class="fa fa-check"></i><b>10.3.4</b> Confidence Intervals</a></li>
+<li class="chapter" data-level="10.3.5" data-path="plots.html"><a href="plots.html#zusammenhänge-zwischen-den-graphen-des-plot-3-und-den-regressionsparametern"><i class="fa fa-check"></i><b>10.3.5</b> Zusammenhänge zwischen den Graphen des Plot 3 und den Regressionsparametern</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="plots.html"><a href="plots.html#plot-4"><i class="fa fa-check"></i><b>10.4</b> Plot 4</a></li>
+<li class="chapter" data-level="10.5" data-path="plots.html"><a href="plots.html#übung-plots"><i class="fa fa-check"></i><b>10.5</b> Übung “Plots”</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="komplex.html"><a href="komplex.html"><i class="fa fa-check"></i><b>11</b> Komplexerer Parametrisierungen - Übungen</a><ul>
+<li class="chapter" data-level="11.1" data-path="komplex.html"><a href="komplex.html#übungen"><i class="fa fa-check"></i><b>11.1</b> Übungen</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="komplex.html"><a href="komplex.html#übung-k1"><i class="fa fa-check"></i><b>11.1.1</b> Übung K1</a></li>
+<li class="chapter" data-level="11.1.2" data-path="komplex.html"><a href="komplex.html#übung-k2"><i class="fa fa-check"></i><b>11.1.2</b> Übung K2</a></li>
+<li class="chapter" data-level="11.1.3" data-path="komplex.html"><a href="komplex.html#übung-k3"><i class="fa fa-check"></i><b>11.1.3</b> Übung K3</a></li>
+<li class="chapter" data-level="11.1.4" data-path="komplex.html"><a href="komplex.html#übung-k4"><i class="fa fa-check"></i><b>11.1.4</b> Übung K4</a></li>
+<li class="chapter" data-level="11.1.5" data-path="komplex.html"><a href="komplex.html#übung-k5"><i class="fa fa-check"></i><b>11.1.5</b> Übung K5</a></li>
+<li class="chapter" data-level="11.1.6" data-path="komplex.html"><a href="komplex.html#übung-k6"><i class="fa fa-check"></i><b>11.1.6</b> Übung K6</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="komplex.html"><a href="komplex.html#lösungenk"><i class="fa fa-check"></i><b>11.2</b> Lösungen</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="komplex.html"><a href="komplex.html#lösung-k1"><i class="fa fa-check"></i><b>11.2.1</b> Lösung K1</a></li>
+<li class="chapter" data-level="11.2.2" data-path="komplex.html"><a href="komplex.html#lösung-k2"><i class="fa fa-check"></i><b>11.2.2</b> Lösung K2</a></li>
+<li class="chapter" data-level="11.2.3" data-path="komplex.html"><a href="komplex.html#lösung-k3"><i class="fa fa-check"></i><b>11.2.3</b> Lösung K3</a></li>
+<li class="chapter" data-level="11.2.4" data-path="komplex.html"><a href="komplex.html#lösung-k4"><i class="fa fa-check"></i><b>11.2.4</b> Lösung K4</a></li>
+<li class="chapter" data-level="11.2.5" data-path="komplex.html"><a href="komplex.html#lösung-k5"><i class="fa fa-check"></i><b>11.2.5</b> Lösung K5</a></li>
+<li class="chapter" data-level="11.2.6" data-path="komplex.html"><a href="komplex.html#lösung-k6"><i class="fa fa-check"></i><b>11.2.6</b> Lösung K6</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="übungen-1.html"><a href="übungen-1.html"><i class="fa fa-check"></i><b>12</b> Übungen</a><ul>
+<li class="chapter" data-level="12.1" data-path="übungen-1.html"><a href="übungen-1.html#dateneinlesen"><i class="fa fa-check"></i><b>12.1</b> Dateneinlesen</a></li>
+<li class="chapter" data-level="12.2" data-path="übungen-1.html"><a href="übungen-1.html#einfache-lineare-regression"><i class="fa fa-check"></i><b>12.2</b> Einfache lineare Regression</a><ul>
+<li class="chapter" data-level="12.2.1" data-path="übungen-1.html"><a href="übungen-1.html#a-3"><i class="fa fa-check"></i><b>12.2.1</b> A)</a></li>
+<li class="chapter" data-level="12.2.2" data-path="übungen-1.html"><a href="übungen-1.html#b-3"><i class="fa fa-check"></i><b>12.2.2</b> B)</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="übungen-1.html"><a href="übungen-1.html#zweifache-lineare-regression"><i class="fa fa-check"></i><b>12.3</b> Zweifache lineare Regression</a><ul>
+<li class="chapter" data-level="12.3.1" data-path="übungen-1.html"><a href="übungen-1.html#a-4"><i class="fa fa-check"></i><b>12.3.1</b> A)</a></li>
+<li class="chapter" data-level="12.3.2" data-path="übungen-1.html"><a href="übungen-1.html#b-4"><i class="fa fa-check"></i><b>12.3.2</b> B)</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="übungen-1.html"><a href="übungen-1.html#bedingte-lineare-regression"><i class="fa fa-check"></i><b>12.4</b> Bedingte lineare Regression</a><ul>
+<li class="chapter" data-level="12.4.1" data-path="übungen-1.html"><a href="übungen-1.html#a-5"><i class="fa fa-check"></i><b>12.4.1</b> A)</a></li>
+<li class="chapter" data-level="12.4.2" data-path="übungen-1.html"><a href="übungen-1.html#b-5"><i class="fa fa-check"></i><b>12.4.2</b> B)</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="übungen-1.html"><a href="übungen-1.html#plots-1"><i class="fa fa-check"></i><b>12.5</b> Plots</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="lösungen.html"><a href="lösungen.html"><i class="fa fa-check"></i><b>13</b> Lösungen</a><ul>
+<li class="chapter" data-level="13.1" data-path="lösungen.html"><a href="lösungen.html#dateneinlesen-1"><i class="fa fa-check"></i><b>13.1</b> Dateneinlesen</a></li>
+<li class="chapter" data-level="13.2" data-path="lösungen.html"><a href="lösungen.html#einfache-lineare-regression-1"><i class="fa fa-check"></i><b>13.2</b> Einfache lineare Regression</a><ul>
+<li class="chapter" data-level="13.2.1" data-path="lösungen.html"><a href="lösungen.html#a-6"><i class="fa fa-check"></i><b>13.2.1</b> A)</a></li>
+<li class="chapter" data-level="13.2.2" data-path="lösungen.html"><a href="lösungen.html#b-6"><i class="fa fa-check"></i><b>13.2.2</b> B)</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="lösungen.html"><a href="lösungen.html#zweifache-lineare-regression-1"><i class="fa fa-check"></i><b>13.3</b> Zweifache lineare Regression</a><ul>
+<li class="chapter" data-level="13.3.1" data-path="lösungen.html"><a href="lösungen.html#a-7"><i class="fa fa-check"></i><b>13.3.1</b> A)</a></li>
+<li class="chapter" data-level="13.3.2" data-path="lösungen.html"><a href="lösungen.html#zstandlösung"><i class="fa fa-check"></i><b>13.3.2</b> B)</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="lösungen.html"><a href="lösungen.html#bedingte-lineare-regression-1"><i class="fa fa-check"></i><b>13.4</b> Bedingte lineare Regression</a><ul>
+<li class="chapter" data-level="13.4.1" data-path="lösungen.html"><a href="lösungen.html#a-8"><i class="fa fa-check"></i><b>13.4.1</b> A)</a></li>
+<li class="chapter" data-level="13.4.2" data-path="lösungen.html"><a href="lösungen.html#b-7"><i class="fa fa-check"></i><b>13.4.2</b> B)</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="lösungen.html"><a href="lösungen.html#plots-2"><i class="fa fa-check"></i><b>13.5</b> Plots</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">EffectLiteR Tutorial - Work In Progress</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="zwei" class="section level1">
+<h1><span class="header-section-number">6</span> Zweifache lineare Regression</h1>
+<p>Die zweifache lineare Regression erlaubt es einen zweiten Regressor zur Vorhersage des Regressanden hinzuzuziehen, ohne jedoch eine mögliche Interaktion zwischen den Regressoren zu berücksichtigen beziehungsweise zu schätzen.
+Interaktionen werden gewöhnlich nur dann aus einem Messmodell ausgeschlossen, wenn es starke theoretische oder statistische Indizien dafür gibt, dass keine Interaktionen vorliegen. Im vorliegenden Tutorial wird die zweifache lineare Interaktion an diesem Punkt hauptsächlich aus didaktischen Gründen: In der zweifachen linearen Regression werden weniger Parameter geschätzt als in der bedingten lineare Regression, somit wird das Verständnis der bedingten linearen Regression schrittweise vorbereitet.</p>
+<div id="input-1" class="section level2">
+<h2><span class="header-section-number">6.1</span> Input</h2>
+<div id="modell" class="section level3">
+<h3><span class="header-section-number">6.1.1</span> Modell</h3>
+<p>Die Default-Einstellung von EffectLiteR ist die bedingte lineare Regression, die nicht nur die Effekte der Regressoren auf den Regressanden, sondern zusätzlich noch den Einfluss der Interaktion zwischen den Regressoren auf den Regressanden schätzt. Möchte man solche Interaktionseffekt nicht schätzen, muss man dies einstellen. Das geht wie folgt:<br />
+Im Input-Panel auf <em>interactions</em> klicken und <em>no interactions</em> auswählen.</p>
+<div class="figure" style="text-align: left"><span id="fig:unnamed-chunk-22"></span>
+<img src="images/zweifache%20Regression%20-%20Input%20-%20no%20interactions.png" alt="Modell-Definition als zweifache lineare Regression" width="40%" />
+<p class="caption">
+Figure 6.1: Modell-Definition als zweifache lineare Regression
+</p>
+</div>
+</div>
+<div id="variablen" class="section level3">
+<h3><span class="header-section-number">6.1.2</span> Variablen</h3>
+<p>Wie bei der einfachen linearen Regression ist es nötig unter dem Reiter <em>Manifest Variables</em> im Input-Panel eine abhängige Variable und eine (kategoriale) Treatmentvariable zu definieren. Zusätzlich muss der zweite Regressor als Kovariate definiert werden. Ist die Kovariate kategorial sollte sie durch Auswählen der Variable unter <em>Categorical Covariates K</em> als kategorial definiert werden, ist sie kontinuierlich, sollte sie unter <em>Continous Covariates Z</em> als kontinuierlich definiert werden.</p>
+<div class="figure" style="text-align: left"><span id="fig:unnamed-chunk-23"></span>
+<img src="images/zweifache%20Regression%20-%20Input%20-%20Kovariate.png" alt="Definition der Kovariate der zweifachen linearen Regression" width="40%" />
+<p class="caption">
+Figure 6.2: Definition der Kovariate der zweifachen linearen Regression
+</p>
+</div>
+</div>
+</div>
+<div id="parametrisierung" class="section level2">
+<h2><span class="header-section-number">6.2</span> Parametrisierung</h2>
+<p>Die Interpretation der Parameter der zweifachen linearen Regression unterscheidet sich dementsprechend, ob der zweite Regressor kontinuierlich oder kategorial ist. Wir gehen beide Fälle an jeweils einem Beispiel durch.</p>
+<div id="parameter-interpretation-bei-kategorialer-kovariate" class="section level3">
+<h3><span class="header-section-number">6.2.1</span> Parameter-Interpretation bei kategorialer Kovariate</h3>
+<p>Zur modellierung der zweifachen linearen Regression werden im Fall einer zweistufigen Treatmentvariablen und einer ebenfalls zweistufigen kategorialen Kovariaten drei Parameter und zwei Indikatorvariablen genutzt:</p>
+<p><span class="math display" id="eq:zwei1">\[\begin{align}
+ E(Y|X,K) = g_{000} + g_{010} \times I_{K=1} + g_{100} \times I_{X=1}
+ \tag{6.1}
+\end{align}\]</span></p>
+<p>Die Benennung der Parameter mit g000, g010 g100 entspricht der Benennung der Parameter durch EffectLiteR und wird am <a href="zwei.html#zweibenennungpara">gegen Ende dieses Abschnitts</a> erklärt.</p>
+<p>Wir drücken die Parameter wie bereits bei der einfachen linearen Regression mit Erwartungswerten aus, um ihre Bedeutung zu verstehen. Außerdem ergänzen wir unser bereits bekanntes Beispiel für die zweifache lineare Regression um eine weitere Variable:</p>
+<p><span id="bspdrei"><strong>Beispiel 3</strong></span><br />
+<em>Abhängige Variable</em> <span class="math inline">\(\small Y\)</span><em>: Gesundheitsscore von Patienten.</em><br />
+<em>Treatmentvariable</em> <span class="math inline">\(\small X\)</span><em>: Erhalten Patienten eine (</em><span class="math inline">\(\small X=1\)</span><em>) oder erhalten sie keine (</em><span class="math inline">\(\small X=0\)</span><em>) Behandlung.</em><br />
+<em>Kovariate </em><span class="math inline">\(\small K\)</span><em>: Patient gibt an in seinem Umfeld ausreichend soziale Unterstützung zu erhalten (</em><span class="math inline">\(\small K=1\)</span><em>) bzw. nicht genug Unterstützung zu erhalten (</em><span class="math inline">\(\small K=0\)</span><em>).</em></p>
+<p><em>Beachte: Wir gehen (in diesem Fall aus didaktischen Gründen) davon aus, dass es keine Interaktion zwischen Treatmentvariable </em><span class="math inline">\(\small X\)</span> <em>und Kovariate </em><span class="math inline">\(\small K\)</span> <em>gibt und verzichten deshalb darauf diese Interaktion zu modellieren.</em></p>
+<div id="zweiparakat" class="section level4">
+<h4><span class="header-section-number">6.2.1.1</span> Parameter g000</h4>
+<p>In der Modell-Gleichung <a href="zwei.html#eq:zwei1">(6.1)</a> für dieses Beispiel gibt es drei Parameter und zwei Indikatorvariablen. Eine Indikatorvariable für die Treatmentvariable <span class="math inline">\(\small X\)</span> und eine für die kategoriale Kovariate <span class="math inline">\(\small K\)</span>. Unter der Bedingung, dass sowohl <span class="math inline">\(\small X\)</span> als auch <span class="math inline">\(\small K\)</span> die Ausprägung Null annehmen, nehmen beide Indikatorvariablen ebenfalls den Wert Null an:</p>
+<p><span class="math display" id="eq:zwei2">\[\begin{align}
+E(Y|X=0,K=0) &amp;= g_{000} + g_{010} \times I_{K=1} + g_{100} \times I_{X=1}\notag\\
+             &amp;= g_{000} + g_{010} \times 0 + g_{100} \times 0\notag\\
+g_{000}&amp;=E(Y|X=0,K=0)
+\tag{6.2}
+\end{align}\]</span></p>
+<p>Der Parameter g000 schätzt also die Ausprägung des Regressanden unter der Bedingung <span class="math inline">\(\small X = 0\)</span> und <span class="math inline">\(\small K = 0\)</span>. In unserem <a href="zwei.html#bspdrei">Beispiel 3</a> schätzt g000 den Gesundheitsscore von Patienten mit subjektiv zu geringer sozialer Unterstützung, die keine Behandlung erhalten.</p>
+</div>
+<div id="parameter-g010" class="section level4">
+<h4><span class="header-section-number">6.2.1.2</span> Parameter g010</h4>
+<p>Um den Parameter g010 interpretieren zu können betrachten wir den Fall <span class="math inline">\(\small X = 0\)</span>, <span class="math inline">\(\small K = 1\)</span>. In diesem Fall wird nämlich der Parameter g100 mit Null multipliziert und wird somit irrelevant, während der Parameter g010 erhalten bleibt (Zeile 2 der Gleichungen <a href="zwei.html#eq:zwei3">(6.3)</a>).</p>
+<p><span class="math display" id="eq:zwei3" id="eq:zwei3">\[\begin{align}
+E(Y|X=0,K=0) &amp;= g_{000} + g_{010} \times I_{K=1} + g_{100} \times I_{X=1}  \notag\\
+             &amp;= g_{000} + g_{010} \times 1 + g_{100} \times 0              \notag\\
+             &amp;= E(Y|X=0,K=0) + g_{010}                                     \notag\\
+g_{010} &amp;= E(Y|X=0,K=1) - E(Y|X=0,K=0) 
+\tag{6.3}
+\end{align}\]</span></p>
+<p>In Zeile drei der Gleichungen <a href="zwei.html#eq:zwei3">(6.3)</a> wird der Erwartungswert <span class="math inline">\(\small E(Y|X=0,K=0)\)</span> für g000 (siehe Gleichungen <a href="zwei.html#eq:zwei2">(6.2)</a>) eingesetzt, Zeile vier stellt die Gleichung nach g010 um.<br />
+Der Parameter g010 schätzt somit die Differenz des Erwartungswertes von <span class="math inline">\(Y\)</span> unter der Bedingung <span class="math inline">\(\small X = 0\)</span> und <span class="math inline">\(\small K = 0\)</span> und unter der Bedingung <span class="math inline">\(\small X = 0\)</span> und <span class="math inline">\(\small K = 1\)</span>. Damit schätzt der Parameter g010 den Effekt, den eine Veränderung von <span class="math inline">\(\small K = 0\)</span> zu <span class="math inline">\(\small K = 1\)</span> auf <span class="math inline">\(Y\)</span> ausübt. In unserem Beispiel schätzt g010 also den Effekt der subjektiven sozialen Unterstützung der Patienten auf ihren Gesundheitsscore.</p>
+<p>Wenn wir uns die letzte Zeile von Gleichung @ref\tag{6.3} etwas genauer anschauen, sehen wir, dass die Erwartungswerte, die wir hier vergleichen, zwei Bedingungen haben: Die Gleichung vergleicht den Erwartungswert von <span class="math inline">\(Y\)</span> gegeben <span class="math inline">\(K=1\)</span> <em>und</em> <span class="math inline">\(X=0\)</span> mit dem Erwartungswert von <span class="math inline">\(Y\)</span> gegeben <span class="math inline">\(K=0\)</span> <em>und</em> <span class="math inline">\(X=0\)</span>. Genau genommen müssten wir also sagen: g010 schätzt den Effekt, den eine Veränderung von <span class="math inline">\(\small K = 0\)</span> zu <span class="math inline">\(\small K = 1\)</span> <em>unter der Bedingung</em> <span class="math inline">\(X=0\)</span> auf <span class="math inline">\(Y\)</span> ausübt. Diesen kursiv geschriebenen Zusatz können wir bei der zweifachen linearen Regression allerdings weglassen: Per Definition gibt es hier keine Interaktion zwischen der Treatment-Variable <span class="math inline">\(X\)</span> und der Kovariaten <span class="math inline">\(K\)</span>, das heißt der Effekt der Kovariaten ist unter der Bedingung <span class="math inline">\(X=0\)</span> identisch mit dem unbedingten Effekt der Kovariaten. Bezogen auf unser Beispiel heiße das: Der Effekt der subjektiv berichteten sozialen Unterstützung, die Patienten erhalten, auf ihren Gesundheitsscore ist (per Definition) unabhängig davon, ob die Patienten eine Behandlung erhalten oder nicht.</p>
+</div>
+<div id="parameter-g100" class="section level4">
+<h4><span class="header-section-number">6.2.1.3</span> Parameter g100</h4>
+<p>Betrachten wir den Fall <span class="math inline">\(\small X = 1\)</span> und <span class="math inline">\(\small K = 0\)</span> um Parameter g100 zu interpretieren. In diesem Fall wird der Parameter g010 mit Null multipliziert, während der Parameter g100 erhalten bleibt:</p>
+<p><span class="math display" id="eq:zwei4">\[\begin{align}
+E(Y|X=1,K=0) &amp;= g_{000} + g_{010} \times I_{K=1} + g_{100} \times I_{X=1} \\
+             &amp;= g_{000} + g_{010}\times 0 + g_{100}\times 1 \notag\\
+             &amp;= E(Y|X=0,K=0) + g_{100} \notag\\
+g_{100} &amp;= E(Y|X=1,K=0) - E(Y|X=0,K=0) \notag
+\tag{6.4}
+\end{align}\]</span></p>
+<p>Das Vorgehen ist das selbe wie bei der Berechnung von Parameter g010.<br />
+Der Parameter g100 schätzt also die Differenz in <span class="math inline">\(\small Y\)</span> zwischen der Bedingung <span class="math inline">\(\small X = 0\)</span> und <span class="math inline">\(\small K = 0\)</span> und der Bedingung <span class="math inline">\(\small X = 1\)</span>, <span class="math inline">\(\small K = 0\)</span>. Damit schätzt der Parameter den Treatmenteffekt, den eine Veränderung von <span class="math inline">\(\small X = 0\)</span> zu <span class="math inline">\(\small X = 1\)</span> auf <span class="math inline">\(\small Y\)</span> ausübt. Genau genommen haben wir hergeleitet, dass g010 den Treatmenteffekt von <span class="math inline">\(\small X\)</span> unter der Bedingung <span class="math inline">\(\small K = 0\)</span> beschreibt. Da die zweifache lineare Regression allerdings keine Interaktion zwischen <span class="math inline">\(\small K\)</span> und <span class="math inline">\(\small X\)</span> zulässt ist der Treatmenteffekt der Variablen <span class="math inline">\(\small X\)</span> unabhängig von der Ausprägung von <span class="math inline">\(\small K\)</span>. Die Bedingung <span class="math inline">\(\small K = 0\)</span> kann in diesem Fall also weggelassen werden.
+In unserem Beispiel 3 schätzt g100 den Effekt einer Behandlung auf den Gesundheitsscore (unabhängig von der subjektiven sozialen Unterstützung der Patienten).</p>
+</div>
+<div id="zweibenennungpara" class="section level4">
+<h4><span class="header-section-number">6.2.1.4</span> Die Benennung der Parameter</h4>
+<p>Die erste der drei Ziffern der von EffectLiteR geschätzten Parameter-Indizes bezieht sich auf die Ausprägung der Treatmentvariablen <span class="math inline">\(X\)</span>, die zweite der drei Ziffern auf die Ausprägung der kategorialen Kovariaten <span class="math inline">\(K\)</span> und die dritte der drei Ziffern auf die kontinuierliche Kovariate <span class="math inline">\(Z\)</span> (Kontinuierliche Kovariaten wurden in diesem Tutorial bisher noch nicht eingeführt). Parameter g000 Bezieht sich also auf den Erwartungswert unter der Bedingung <span class="math inline">\(\small X=0,K=0\)</span>, g010 beziffert den Effekt der Kovariaten <span class="math inline">\(\small K=1\)</span> unter der Bedingung <span class="math inline">\(\small X=0\)</span> und der Parameter g100 auf den Effekt der Ausprägung <span class="math inline">\(\small X=1\)</span> der Treatmentvariable.</p>
+</div>
+<div id="von-effectliter-angezeigtes-regressionsmodell" class="section level4">
+<h4><span class="header-section-number">6.2.1.5</span> <span id="angezeigtesregressionsmodell">Von EffectLiteR angezeigtes Regressionsmodell</span></h4>
+<p>Rechnet man eine zweifache lineare Regression für eine zweistufige Treatment-Variable und eine ebenfalls zweistufige kategoriale Kovariate mit EffectLiteR, so erhält man Schätzungen für die drei bisher behandelten Parameter: g000, g010 und g100. Das Modell, dass EffectLiteR dem Nutzer anzeigt ist allerdings das „vollständige“ Modell der bedingten linearen Regression. Dies bedeutet, dass zusätzlich noch ein Parameter g110 angezeigt wird (in der bedingten linearen Regression würde dieser Parameter den Interaktionseffekt zwischen <span class="math inline">\(\small X\)</span> und <span class="math inline">\(\small K\)</span> schätzen).
+Da du für die zweifache lineare Regression allerdings unter <em>Options</em> festgelegt hast, dass es keine Interaktionen geben soll, wird der g110-Parameter von EffectLiteR auf Null festgelegt. Du kannst diesen Parameter bei der Interpretation also ignorieren. Dies soll im Folgenden verdeutlicht werden:</p>
+<p>Figure <a href="zwei.html#fig:fzwei3">6.3</a> bildet das von EffectLiteR im Hauptoutput angezeigte Regressionsmodell ab.</p>
+<div class="figure" style="text-align: center"><span id="fig:fzwei3"></span>
+<img src="images/bedingte%20lineare%20Regression,%20Modell.png" alt="Von EffectLiteR angezeigtes Regressionsmodell" width="60%" />
+<p class="caption">
+Figure 6.3: Von EffectLiteR angezeigtes Regressionsmodell
+</p>
+</div>
+<p>Durch Einsetzen der Parameter in die g0(K)- und g1(K)- Funktion erhält man Gleichung <a href="zwei.html#eq:zwei5">(6.5)</a>:</p>
+<p><span class="math display" id="eq:zwei5">\[\begin{align} 
+E(Y|X,K) = (g_{000} + g_{010} \times I_{K=1}) + (g_{100} + g_{110}\times I_{K=1}) \times I_{X=1}
+\tag{6.5}
+\end{align}\]</span></p>
+<p>Da der „Interaktions-Parameter“ g110 bei der zweifachen linearen Regression auf Null fixiert wird, ergibt sich die bekannte Regressionsgleichung der zweifachen linearen Regression, deren Parameter wir soeben interpretiert haben:</p>
+<p><span class="math display">\[\begin{align} 
+E(Y|X,K) &amp;= (g_{000} + g_{010} \times I_{K=1}) + (g_{100} + 0\times I_{K=1}) \times I_{X=1}\\
+&amp;= (g_{000} + g_{010} \times I_{K=1}) + (g_{100}) \times I_{X=1}\notag
+\end{align}\]</span></p>
+<p>Im Parameteroutput wird der auf Null fixierte Parameter wie folgt angezeigt:</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-24"></span>
+<img src="images/zweifache%20Regression%20-%20Output-%20g110%20kann%20ignoriert%20werden.png" alt="Output des auf Null fixierten 'Interaktionsparameters' g110" width="60%" />
+<p class="caption">
+Figure 6.4: Output des auf Null fixierten ‘Interaktionsparameters’ g110
+</p>
+</div>
+</div>
+</div>
+<div id="zweikont" class="section level3">
+<h3><span class="header-section-number">6.2.2</span> Parameter-Interpretation bei kontinuierlicher Kovariate</h3>
+<p>Das Regressionsmodell der zweifachen linearen Regression mit einer kontinuierlichen Kovariaten ähnelt dem Modell mit kategorialen Kovariaten stark. Hier einmal im Vergleich:</p>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>kategoriale Kovariate</th>
+<th>kontinuierliche Kovariate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(E(Y|X,K) = g_{000} + g_{010} \times I_{K=1} + g_{100} \times I_{X=1}\)</span></td>
+<td><span class="math inline">\(E(Y|X,Z_1) = g_{000} + g_{001} \times Z_1 + g_{100} \times I_{X=1}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Der Unterschied zwischen beiden Regressionsgleichungen liegt darin, dass für eine kontinuierliche Kovariaten keine Indikatorvariable gebildet werden muss, sondern der Parameter g001 direkt mit der Ausprägung der Kovariaten multipliziert wird. Dass der Parameter für die Kovariate mit g001 statt g010 bezeichnet wird, trägt der Tatsache Rechnung, dass er sich auf den Effekt einer kontinuierlichen Kovariate bezieht (zur Benennung der Parameter lese <a href="zwei.html#zweibenennungpara">hier</a>).<br />
+Kontinuierliche Kovariaten können so viele Werte annehmen, dass es nicht sinnvoll ist für jede empirisch gefundene Ausprägung eine eigene Indikatorvariable zu bilden. Um den Erwartungswert einer Person mit einer Kovariatenausprägung <span class="math inline">\(\small Z_1=z_1\)</span> gegeben <span class="math inline">\(\small X\)</span> zu errechnen, kann der Wert <span class="math inline">\(\small z_1\)</span> direkt für <span class="math inline">\(\small Z_1\)</span> in der oberen rechten Gleichung eingesetzt werden. Der Parameter g001 gibt für die kontinuierliche Kovariate also an, wie stark sich der Erwartungswert von <span class="math inline">\(\small Y\)</span> verändert, wenn die Kovariatenausprägung von <span class="math inline">\(\small Z_1\)</span> um eine Einheit steigt.</p>
+<p>Auch für den Fall einer kontinuierlichen Kovariaten möchten wie die Parameter durch Erwartungswerte ausdrücken, um sie inhaltlich zu verstehen. Zur besseren Veranschaulichung greifen wir auf folgendes Beispiel zurück:</p>
+<p><span id="bspvier"><strong>Beispiel 4</strong></span><br />
+<em>Nehmen wir an, wir erfassen, anders als in <a href="zwei.html#bspdrei">Beispiel 3</a> die Variable subjektive soziale Unterstützung statt als dichotome Variable (gegeben/nicht gegeben) als kontinuierliche Variable auf einer neun-stufigen Likert-Skala. Ansonsten nehmen wir keine Veränderungen gegenüber Beispiel 3 vor. Es ergeben sich folgende Variablen:</em><br />
+<em>Abhängige Variable Y: Gesundheitsscore von Patienten.</em><br />
+<em>Treatmentvariable X: Erhalten Patienten eine (</em><span class="math inline">\(\small X=1\)</span><em>) oder erhalten sie keine (</em><span class="math inline">\(\small X=0\)</span><em>) Behandlung.</em><br />
+<em>Kovariate</em> <span class="math inline">\(\small Z_1\)</span><em>: Beschreibt die wahrgenommene soziale Unterstützung auf einer Skala von 1-10.</em></p>
+<p><em>Beachte: Wir gehen noch immer (aus didaktischen Gründen) davon aus, dass es keine Interaktion zwischen Treatmentvariable X und Kovariate</em> <span class="math inline">\(\small Z_1\)</span> <em>gibt und verzichten deshalb darauf diese Interaktion zu modellieren.</em></p>
+<div id="zweiparameterkont" class="section level4">
+<h4><span class="header-section-number">6.2.2.1</span> Parameter g000</h4>
+<p>Um den Parameter g000 interpretieren zu können müssen die Parameter g010 und g100 aus der Modellgleichung rausfallen, d.h. sie müssen mit Null multipliziert werden.</p>
+<p>Der Parameter g010 fällt weg, wenn die Kovariate <span class="math inline">\(\small\ Z_1\)</span> den Wert Null annimmt. In unserem Beispiel kann die Kovariate (gefühlte soziale Unterstützung) nicht direkt den Wert Null annehmen, da ihre Skala von 1-10 reicht. Es wäre also wünschenswert die Kovariate so zu Transformieren, dass sie einen Wert Null bekommt.</p>
+<p><span id="zweizstand"><strong>Einschub: Transformation der Kovariaten</strong></span><br />
+<em>Eine mögliche Transformation für die Kovariate aus unserem Beispiel wäre von jedem Skalenwert (</em><span class="math inline">\(\small 1-10\)</span><em>) jeweils eins abzuziehen, sodass die transformierte Skala von</em> <span class="math inline">\(\small 0-9\)</span> <em>reichen würde(</em><span class="math inline">\(\small Z_1 &#39;=Z_1-1\)</span><em>). Zur besseren Interpretierbarkeit des Einflusses der Kovariaten wird die Skala allerdings z-transformiert, das heißt die Skala der Kovariaten wird so transformiert, dass sie einen Mittelwert von</em> <span class="math inline">\(\small \bar{z_1} =0\)</span> <em>und einer Standardabweichung von</em> <span class="math inline">\(\small SD_{Z1}=1\)</span> <em>erhält. Der Vorteil der z-Standardisierung ist der, dass der Parameter g010 nun den Einfluss einer Steigerung der Kovariaten um eine Standardabweichung angibt und nicht mehr den Einfluss der Steigerung um einen Skalenpunkt. Ein weiterer Vorteil liegt darin, dass die Parameter g000 und g100 durch diese z-Transformation der Kovariaten als durchschnittliche Effekte interpretierbar werden. Lese hierzu weiter im Text.</em><br />
+<em>Eine Variable kann mit folgender Formel z-standardisiert werden:</em> <span class="math inline">\(\small X_{z-stand.}=\frac{X-\bar{x}}{SD_X}\)</span><em>, wobei</em> <span class="math inline">\(\small\bar{x}\)</span> <em>den Mittelwert der zu transformierenden Variable und</em> <span class="math inline">\(\small SD_X\)</span> <em>ihre Standardabweichung bezeichnet.</em></p>
+<p>Betrachten wir also den Erwartungswert von <span class="math inline">\(Y\)</span> unter der Bedingung <span class="math inline">\(\small Z_1=\bar{z}_1 =0\)</span> und <span class="math inline">\(\small X=0\)</span>:</p>
+<p><span class="math display" id="eq:zwei6">\[\begin{align}
+E(Y|X=0,Z_1=\bar{z}_1=0) &amp;= g_{000} + g_{001} \times Z_1 + g_{100} \times I_{X=0}\notag\\
+                         &amp;= g_{000} + g_{001} \times 0 + g_{100} \times 0\notag\\
+g_{000} &amp;= E(Y|X=0,Z_1= \bar{z}_1=0)
+\tag{6.6}
+\end{align}\]</span></p>
+<p>Der Parameter g000 schätzt bei einer z-standardisierten Skala also den von Z unabhängigen oder auch durchschnittlichen Erwartungswert von <span class="math inline">\(\small Y\)</span> (unter der Bedingung <span class="math inline">\(\small X=0\)</span>, weil es bei der zweifachen linearen Regression keine Interaktionen zwischen Treatment-Variable und Kovariaten gibt kann diese Bedingung ignoriert werden).
+In unserem Beispiel schätzt g000 den erwarteten Gesundheitsscore von Personen mit einer durchschnittlichen Ausprägung der Kovariaten „gefühlte soziale Unterstützung“ (unter der Bedingung, dass keine Behandlung erfolgt). Damit schätzt der Parameter auch den Durchschnitt der Effekte von <span class="math inline">\(\small X=1\)</span>, die für alle Personen der Stichprobe einzeln geschätzt werden.</p>
+</div>
+<div id="parameter-g001" class="section level4">
+<h4><span class="header-section-number">6.2.2.2</span> Parameter g001</h4>
+<p>Um den Parameter g001 interpretieren zu können, muss der Parameter g100 aus der Modellgleichung rausfallen, d.h. mit Null multipliziert werden, während der Parameter g001 erhalten bleibt.<br />
+Ist die Ausprägung der Kovariaten <span class="math inline">\(\small Z_1\)</span> genau eine Standardabweichung größer als ihr Mittelwert <span class="math inline">\(\small \bar{z}\)</span> so nimmt sie aufgrund der z-Standardisierung den Wert <span class="math inline">\(\small 1\)</span> an. der Parameter g001 wird unter der Bedingung <span class="math inline">\(\small Z_1=\bar{z}_1+SD_{Z1}=1\)</span> also mit Eins multipliziert, was seine Interpretation erleichtert. Der Parameter g100 wird unter der Bedingung <span class="math inline">\(\small X \neq 1\)</span> (in unserem Beispiel <span class="math inline">\(\small X=0\)</span>) mit Null multipliziert. In Gleichungen ausgedrückt:</p>
+<p><span class="math display" id="eq:zwei7">\[\begin{align}
+E(Y|X=0,Z_1= \bar{z}_1+SD_{Z1}=1) = g_{000} + g_{001} \times 1 + g_{100} \times 0
+\tag{6.7}
+\end{align}\]</span></p>
+<p>Durch Einsetzen von <span class="math inline">\(\small E(Y|X=0,Z_1= \bar{z}_1 = 0)\)</span> für g000 in Gleichung <a href="zwei.html#eq:zwei7">(6.7)</a> erhalten wir:</p>
+<p><span class="math display" id="eq:zwei8">\[\begin{align}
+E(Y|X=0,Z_1= \bar{z}_1+ SD_{Z1}=1) = E(Y|X=0,Z_1= \bar{z}_1=0) + g_{001}\notag\\
+g_{001} = E(Y|X=0,Z_1= \bar{z}_1+ SD_{Z1}) - E(Y|X=0,Z_1= \bar{z}_1)
+\tag{6.8}
+\end{align}\]</span></p>
+<p>Dies Bedeutet: Der Parameter g001 schätzt die Differenz in <span class="math inline">\(\small Y\)</span> für Personen mit einer durchschnittlichen Kovariaten-Ausprägung und solchen mit einer um eine Standardabweichung größeren Kovariatenausprägung (unter der Bedingung <span class="math inline">\(\small X=0\)</span>). Die Bedingung <span class="math inline">\(\small X=0\)</span> hat, wie schon für das Beispiel mit der kategorialen Kovariaten erklärt, keine Bedeutung, weil in der zweifachen linearen Regression Interaktionen ausgeschlossen werden.
+In unserem Beispiel drückt der Parameter also die erwartete Differenz im Gesundheitsscore für Personen mit durchschnittlicher Ausprägung in der Kovariaten „gefühlter sozialer Unterstützung“ und solchen mit um eine Standardabweichung überdurchschnittlicher „gefühlter sozialer Unterstützung“ aus.</p>
+</div>
+<div id="parameter-g100-1" class="section level4">
+<h4><span class="header-section-number">6.2.2.3</span> Parameter g100</h4>
+<p>Für die Interpretation des Parameters g100 betrachten wir den Erwartungswert von <span class="math inline">\(\small Y\)</span> unter der Bedingung <span class="math inline">\(\small X=1\)</span> (damit die Indikatorvariable <span class="math inline">\(\small I_{X=1}\)</span> den Wert Eins annimmt) und <span class="math inline">\(\small Z_1= \bar{z}_1=0\)</span> (damit der Parameter g001 mit Null multipliziert wird):</p>
+<p><span class="math display" id="eq:zwei9">\[\begin{align}
+E(Y|X=1,Z_1= \bar{z}_1=0) = g_{000} + g_{001} \times 0 + g_{100} \times 1
+\tag{6.9}
+\end{align}\]</span></p>
+<p>Durch Einsetzen von <span class="math inline">\(\small E(Y|X=0,Z_1=\bar{z}_1=0)\)</span> für g000 in Gleichung <a href="zwei.html#eq:zwei9">(6.9)</a> erhalten wir:</p>
+<p><span class="math display" id="eq:zwei10">\[\begin{align}
+E(Y|X=1,Z_1= \bar{z}_1=0) &amp;= E(Y|X=0,Z_1=\bar{z}_1=0) + g_{100}\\
+g_{100} &amp;= E(Y|X=1,Z_1= \bar{z}_1) - E(Y|X=0,Z_1=\bar{z}_1)
+\tag{6.10}
+\end{align}\]</span></p>
+<p>Der Parameter g100 schätzt also (wie auch bei der zweifachen linearen Regression mit kategorialer Kovariaten) die Abweichung zwischen der Ausprägung von <span class="math inline">\(\small Y\)</span> im Fall <span class="math inline">\(\small X=0\)</span> und im Fall <span class="math inline">\(\small X=1\)</span> (unter der Bedingung <span class="math inline">\(\small Z_1 = \bar{z}_1=0\)</span>, die in der zweifachen linearen Regression nicht beachtet werden muss, da keine Interaktionen zugelassen werden). Der Parameter g100 schätzt damit den Effekt den das Treatment (in unserem Beispiel eine Behandlung) auf die abhängige Variable (in unserem Beispiel den Gesundheitsscore) ausübt.</p>
+</div>
+<div id="von-effectliter-angezeigtes-regressionsmodell-1" class="section level4">
+<h4><span class="header-section-number">6.2.2.4</span> Von EffectLiteR angezeigtes Regressionsmodell</h4>
+<p>Wie schon im Beispiel mit der kategorialen Kovariaten wird auch bei Verwendung einer kontinuierlichen Kovariaten das „vollständige Modell“ der bedingten linearen Regression mit einem auf Null fixierten Interaktionsparameter angezeigt, synonym wie <a href="zwei.html#angezeigtesregressionsmodell">oben</a> beschrieben, kann hergeleitet werden, dass der auf Null fixierte Parameter keine Auswirkungen auf die Schätzung der anderen Parameter hat und im Output ignoriert werden kann.</p>
+</div>
+</div>
+</div>
+<div id="zweihaupt" class="section level2">
+<h2><span class="header-section-number">6.3</span> Hauptoutput</h2>
+<p>In der Beschreibung des Hauptoutputs der zweifachen linearen Regression wird an mehreren Stellen auf die Beschreibung des Hauptoutputs der einfachen linearen Regression verwiesen. Es ist von Vorteil sich zuerst mit dem Output der einfachen linearen Regression vertraut zu machen.</p>
+<div id="zweivariables" class="section level3">
+<h3><span class="header-section-number">6.3.1</span> Variables</h3>
+<p>Hier wird angezeigt, welche Variablen im Modell als Prädiktor bzw. Regressor berücksichtigt wurden. Außerdem wird wieder die Zuordnung der ursprünglichen Variablenkodierung zu den umkodierten Variablenlevels und der entsprechenden Indikatorvariable angezeigt. Auch hier wird dargestellt, welche Gruppe als Referenzgruppe verwendet wird.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-25"></span>
+<img src="images/zweifache%20Regression,%20Hauptoutput%20Variables%20kont.png" alt="Variables-Output: Umkodierung der Treatmentvariablen" width="60%" />
+<p class="caption">
+Figure 6.5: Variables-Output: Umkodierung der Treatmentvariablen
+</p>
+</div>
+<p>In der Beispielgraphik oben kann abgelesen werden, dass die Kategorie „control“ mit <span class="math inline">\(\small 0\)</span> kodiert ist. Die Indikatorvariable <span class="math inline">\(\small I_{X=0}\)</span> nimmt also für Probanden der Kontrollgruppe den Wert Eins und für anderen Probanden den Wert Null an.</p>
+<p>Im Falle einer kategorialen Kovariaten wird eine vergleichbare Umkodierung auch für die Kovariate vorgenommen und ist ebenfalls unter Variables <span id="zweivariablescells">nachvollziehbar</span>:</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-26"></span>
+<img src="images/zweifache%20Regression,%20Hauptoutput2.png" alt="Variables-Output: Umkodierung der kategorialen Kovariaten" width="60%" />
+<p class="caption">
+Figure 6.6: Variables-Output: Umkodierung der kategorialen Kovariaten
+</p>
+</div>
+<p>In diesem Beispiel kann also abgelesen werden, dass die Kategorie „male“ von EffectLiteR mit <span class="math inline">\(\small 0\)</span> kodiert wird. Die Indikatorvariable <span class="math inline">\(\small I_{K=0}\)</span> nimmt also für männliche Probanden den Wert Eins und für nicht männliche Probanden den Wert Null an.</p>
+<p>Ebenfalls nur bei kategorialen Kovariaten ist eine Bezeichnung verschiedener Zellen zu finden. Für jede Kombination der verschiedenen Ausprägungskombinationen aus Treatmentvariable und Kovariate wird eine Zelle gebildet und mit einer Zahl benannt. Unter <em>Cells</em>, weiter unten im Hauptoutput, kann dann die Anzahl an Beobachtungen pro Zelle nachgesehen werden, auch einige <a href="plots.html#plots">Plots</a> beziehen sich auf einzelne Zellen.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-27"></span>
+<img src="images/zweifache%20Regression,%20Hauptoutput2.2.png" alt="Anzahl an Beobachtungen pro Zelle unter *Cells*" width="60%" />
+<p class="caption">
+Figure 6.7: Anzahl an Beobachtungen pro Zelle unter <em>Cells</em>
+</p>
+</div>
+</div>
+<div id="regression-model-1" class="section level3">
+<h3><span class="header-section-number">6.3.2</span> Regression Model</h3>
+<p>Im Output des Regressionsmodells und der Paramter gibt es keine größeren Unterschiede zum Output der einfachen linearen Regression, bis auf den Fakt, dass natürlich mehr Parameter geschätzt werden und dementsprechend auch für mehr Parameter Schätzwert, Standardfehler und p-Wert angegeben werden.
+Wie bereits im Abschnitt <em><a href="zwei.html#angezeigtesregressionsmodell">Von EffectLiteR angezeigtes Regressionsmodell</a></em> beschreiben, wird auch ein oder mehrer auf Null fixierter Interaktions-Parameter angezeigt, die bei der Interpretation ignoriert werden können:</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-28"></span>
+<img src="images/zweifache%20Regression%20-%20Output-%20g110%20kann%20ignoriert%20werden.png" alt="Variables-Output: Output mit einem auf Null fixierten Interaktions-Parameter" width="60%" />
+<p class="caption">
+Figure 6.8: Variables-Output: Output mit einem auf Null fixierten Interaktions-Parameter
+</p>
+</div>
+</div>
+<div id="cell-counts" class="section level3">
+<h3><span class="header-section-number">6.3.3</span> Cell Counts</h3>
+<p>Im Falle einer kategorialen Kovariaten wird eine Tabelle mit Beobachtungen in einer Kombination aller möglichen Variablenausprägungskombinationen angezeigt, im Falle einer kontinuierlichen Kovariaten werden nur die Beobachtungen für die Ausprägungen der Treatmentvariable gezählt:</p>
+<div class="figure"><span id="fig:unnamed-chunk-29"></span>
+<img src="images/zweifache%20Regression,%20Hauptoutput%20Cells.png" alt="Cell Counts: Output bei kontinuierlicher und kategorialer Kovariate" width="100%" />
+<p class="caption">
+Figure 6.9: Cell Counts: Output bei kontinuierlicher und kategorialer Kovariate
+</p>
+</div>
+<p>Der Output (bei kategorialer Kovariate) ist wie folgt zu lesen: Es wurden 333 Fälle mit der Ausprägung <span class="math inline">\(\small X= 0\)</span> und <span class="math inline">\(\small K=0\)</span> beobachtet. Unter <a href="zwei.html#zweivariablescells"><em>Variables-Cells</em></a> kann nachgelesen werden, wofür diese Ausprägungen stehen: Es wurden 333 Männer unter der Bedingung „control“ beobachtet.</p>
+</div>
+<div id="zweimainhypo" class="section level3">
+<h3><span class="header-section-number">6.3.4</span> Main Hypotheses</h3>
+<p>Betrachten wir mehr als nur einen Prädiktor, gibt es auch mehr Möglichkeiten Hypothesen über mehrere Parameter zugleich zu testen. Dabei gilt: Die Tests im Bereich <em>Main Hypotheses</em> können ohne Bedenken bezüglich etwaiger <span class="math inline">\(\alpha\)</span>-Fehler-Kumulierung interpretiert werden.
+Im Fall der zweifachen linearen Regression lassen sich die Hypothesen 1,2 und 4 interpretieren. Die dritte Hypothese, die sich auf Interaktionen bezieht, gewinnt erst bei der bedingten linearen Regression Bedeutung.</p>
+<div class="figure" style="text-align: center"><span id="fig:zweihypo"></span>
+<img src="images/zweifache%20Regression,%20Hauptoutput6%20main%20hypotheses.png" alt="Haupthypothesen-Tests" width="70%" />
+<p class="caption">
+Figure 6.10: Haupthypothesen-Tests
+</p>
+</div>
+<div id="hypothesentest-1" class="section level4">
+<h4><span class="header-section-number">6.3.4.1</span> <span id="zweihypothesentesteins">Hypothesentest 1</span></h4>
+<p>Getestet wird die Nullhypothese, dass die Erwartungswerte für alle Effektfunktionen gleich Null sind. Im Screenshot hat die Treatment-Variable drei Ausprägungen, dementsprechend gibt es zwei Effektfunktionen [<span class="math inline">\(\small g1(K)\)</span> und <span class="math inline">\(\small g2(K)\)</span>]. Die Nullhypothese besagt, dass die Effekte beider Effektfunktionen für alle Fälle des Beispiels im Durchschnitt den Wert Null annehmen bzw. dass weder das mit Eins noch das mit Zwei kodierte Treatment einen Effekt über das mit Null kodierte Treatment hinaus haben. Dies könnte auch wie folgt ausgedrückt werden: <span class="math inline">\(\small E[g0(K)] = E[g1(K)] = E[g2(K)]\)</span>. In dieser Schreibweise ist leichter nachvollziehbar, woraus sich die Anzahl der Freiheitsgrade (<span class="math inline">\(\small df=2\)</span>) ergibt: Die Freiheitsgerade errechnen sich durch die Anzahl miteinander verglichener Gruppen minus <span class="math inline">\(\small 1\)</span>.<br />
+Wird der Test signifikant (<span class="math inline">\(\small p &lt; 0.05\)</span>) muss die Hypothese verworfen werden und man kann davon ausgehen, dass durchschnittliche Effekt des Treatments vorhanden sind, wird der Test nicht signifikant kann die Nullhypothese angenommen werden (unter der Annahme, dass die Power der getesteten Regressions-Analyse ausreichend groß ist).</p>
+<p><strong>Bemerke:</strong><br />
+<em>Dass die Effektfunktionen im Durchschnitt den Wert Null annehmen, bedeutet im Fall der zweifachen linearen Regression, dass es keine Treatment-Effekte gibt. Für die zweifache lineare Regression gibt es dementsprechend keine Unterschiede zwischen Hypothesentest 1 und Hypothesentest 4. Eine Unterscheidung zwischen diesen beiden Hypothesentests macht erst dann Sinn, wenn Interaktionen zwischen Treatment und Kovariaten geschätzt werden (wie in der bedingten linearen Regression). Dann kann es nämlich vorkommen, dass ein Treatment zwar unter bestimmten Bedingungen einen Effekt hat (getestet von Hypothese 4), im Durchschnitt aber keinen Effekt hat (Hypothesentest 1). Bei der zweifachen linearen Regression gibt es keine Interaktionen, somit ist der Effekt des Treatments unter allen Bedingungen von K identisch und der durchschnittliche Effekt gleicht den bedingten Effekten.</em></p>
+</div>
+<div id="hypothesentest-2" class="section level4">
+<h4><span class="header-section-number">6.3.4.2</span> Hypothesentest 2</h4>
+<p>Getestet wird hier, ob es in der Kontrollgruppe Einflüsse der Kovariaten gibt. Da es bei der zweifachen linearen Regression keine Interaktionen zwischen Tretment-Variable und Kovariate gibt, testet dieser Test defacto ob die Kovariate überhaupt Einflüsse auf die abhängige Variable hat (wenn die Kovariate in der Kontrollgruppe keinen Einfluss auf die abhängige Variable hat und es keine Interaktionen gibt, dann hat die Kovariate auch in allen anderen Bedingungen keinen Einfluss auf die abhängige Variable).
+Hat die Kovariate keinen Einfluss auf die abhängige Variable (dies entspräche der getesteten Nullhypothese) so ist der Erwartungswert der Referenzgruppe unter allen Bedingungen von K identisch.<br />
+Für den im Screenshot oben (Figure <a href="zwei.html#fig:zweihypo">6.10</a>) abgebildeten Fall mit zwei Kovariaten-Ausprägungen ließe sich die Nullhypothese in der Kontrollgruppe (<span class="math inline">\(\small X=0\)</span>) formal wie folgt aufschreiben: <span class="math inline">\(\small E(Y|X=0,K=0) = E(Y|X=0,K=1)\)</span>. Da der Einfluss von K auf den Erwartungswert von Y unter allen Bedingungen von X jedoch gleich ist, wenn keine Interaktionen vorliegen, kann in der zweifachen linearen Regression verallgemeinert werden: <span class="math inline">\(\small E(Y|X,K=0) = E(Y|X,K=1)\)</span>. Da zwei Gruppen miteinander verglichen werden (die Gruppe mit der Ausprägung <span class="math inline">\(\small K = 0\)</span> und die mit der Ausprägung <span class="math inline">\(\small K=1\)</span>) haben wir (<span class="math inline">\(\small 2-1=1\)</span>) einen Freiheitsgrad.
+Alternativ könnte man die Gleichung auch wie folgt ausdrücken: <span class="math inline">\(\small g_{010} = 0\)</span>. Der Parameter g010 drückt den Effekt der Kovariaten aus.
+Im Fall des Screenshots (siehe Abbildung oben) wird der Hypothesentest signifikant, das heißt die Nullhypothese kann verworfen werden: Mit einer Wahrscheinlichkeit von 98,96% (1 minus p-value) verändert sich der der Wert der abhängigen Variable auf Populationsebene in Abhängigkeit der Ausprägung der Kovariaten.</p>
+</div>
+<div id="hypothesentest-3" class="section level4">
+<h4><span class="header-section-number">6.3.4.3</span> Hypothesentest 3</h4>
+<p>Da es bei der zweifachen linearen Regression keine Interaktionen zwischen Treatment und Kovariate gibt, kann der Test über Interaktionsparameter nicht berechnet werden.</p>
+</div>
+<div id="hypothesentest-4" class="section level4">
+<h4><span class="header-section-number">6.3.4.4</span> Hypothesentest 4</h4>
+<p>Wie bereits unter <a href="zwei.html#zweihypothesentesteins">Hypothesentest 1</a> beschrieben unterscheidet sich der Hypothesentest 4 bei der zweifachen linearen Regression nicht von Hypothesentest 1.</p>
+</div>
+</div>
+<div id="adjusted-means-1" class="section level3">
+<h3><span class="header-section-number">6.3.5</span> Adjusted Means</h3>
+<p>Wie bei der einfachen linearen Regression werden Mittelwerte für die Ausprägung der abhängigen Y-Variablen unter verschiedenen Bedingungen von <span class="math inline">\(\small X\)</span> angezeigt. Die adjustierten Mittelwerte lassen sich im Fall der zweifaktoriellen Regression genauso interpretieren, wie im Fall der <a href="eins.html#einsadjustedmeans">einfachen linearen Regression</a>, da über die verschiednen Kovariaten-Ausprägungen gemittelt wird.
+Dass es sich um adjustierte Mittelwerte handelt bedeutet, dass bedingte Erwartungswerte (zum Beispiel der Erwartungswert von <span class="math inline">\(\small X=0\)</span> unter der Bedingung <span class="math inline">\(\small K=0\)</span>) für alle Zellen (siehe <a href="zwei.html#zweivariablescells"><em>Variables – Cells</em></a>) gebildet werden und dann entsprechend der proportionalen Häufigkeit der Ausprägungen der Kovariaten im Datensatz gewichtet werden. Da es bei der zweifachen linearen Regression per Definition keine Interaktion zwischen Kovariate und Treatmentvariable gibt, gibt es keine Unterschiede zwischen den verschiedenen bedingten Erwartungswerten und es tritt kein Effekt der Adjustierung zu Tage. Eine tiefergehende Erklärung zu adjustierten Mittelwerten findet sich im <a href="exkadj.html#exkadj">Exkurs adjustierte Mittelwerte</a>.</p>
+</div>
+<div id="average-effects" class="section level3">
+<h3><span class="header-section-number">6.3.6</span> Average Effects</h3>
+<p>Die durchschnittlichen Effekte lassen sich im Fall der zweifaktoriellen Regression genauso interpretieren, wie im Fall der einfaktoriellen Regression, da über den zweiten Faktor, die Kovariate, gemittelt wird: Es werden die (durchschnittlichen) Effekte der Treatmentvarible geschätzt.
+EffectLiteR nutzt adjustierte Mittelwerte (adjusted means) um Effekte zu berechnen, viele andere Programme (u. a. SPSS) nutzen ungewichtete bedingte Randmittelwerte (marginal means) um Effekte zu berechnen. In unbalancierten Designs können die adjustierten Mittelwerte von den bedingte Randmittelwerten abweichen und sich somit auch die gefundenen Effekte zwischen EffectLiteR (durchschnittliche Effekte) und SPSS (Haupteffekte) unterscheiden. Dies ist ein Vorteil von EffectLiteR gegenüber SPSS. Siehe hierzu auch den <a href="exkadj.html#exkadj">Exkurs Adjustierte Mittelwerte</a>.
+Durch das hinzufügen varianzaufklärender Kovariaten wird generell die Genauigkeit der Effektschätzung verbessert, das heißt der Standardfehler wird geringer.</p>
+</div>
+<div id="effects-given-a-treatment-condition" class="section level3">
+<h3><span class="header-section-number">6.3.7</span> Effects given a Treatment Condition</h3>
+<p>Bei der zweifachen linearen Regression weichen die hier angezeigten Effekte nicht von den durchschnittlichen Effekten ab. Eine Erklärung des statistischen Konstruktes findet im Rahmen der bedingten linearen Regression statt.</p>
+</div>
+<div id="hypotheses-given-kk-nur-bei-einer-kategorialen-kovariaten" class="section level3">
+<h3><span class="header-section-number">6.3.8</span> Hypotheses given K=k (nur bei einer kategorialen Kovariaten):</h3>
+<p>Hier wird der durchschnittliche Effekt von <span class="math inline">\(\small X\)</span> auf <span class="math inline">\(\small Y\)</span> unter den verschiedenen Bedingungen von <span class="math inline">\(\small K\)</span> getestet.
+Da die zweifache lineare Regression keine Interaktionen zwischen <span class="math inline">\(\small K\)</span> und <span class="math inline">\(\small X\)</span> zulässt, ist der durchschnittliche Effekt von <span class="math inline">\(\small X\)</span> unter allen Bedingungen von <span class="math inline">\(\small K\)</span> identisch und somit auch mit dem unbedingten durchschnittlichen Effekt identisch, der durch den Haupthypothesentest 1 getestet wird.
+Für die zweifache lineare Regression gibt es also keine Unterschiede zwischen den bedingten durchschnittlichen Effekten, die unter <em>Hypotheses given K=k</em> getestet werden und dem Hypothesentest 1 der unter <a href="zwei.html#zweimainhypo"><em>Main Hypotheses</em></a> getestet wird.</p>
+</div>
+</div>
+<div id="übungen-zweifache-lineare-regression" class="section level2">
+<h2><span class="header-section-number">6.4</span> Übungen “zweifache lineare Regression”</h2>
+<div id="a-1" class="section level3">
+<h3><span class="header-section-number">6.4.1</span> A)</h3>
+<p>Der <a href="../Datensätze/EffectLiteR_Tutorial_Übungsdatensatz2.csv">Übungsdatensatz 2</a> enthält (unteranderem) simulierte Daten für das <a href="zwei.html#bspdrei">Beispiel 3</a> (allerdings mit drei statt zwei Treatment-Bedingungen). Lese den Datensatz ein, wähle Gesundheitsscore als abhängige Variable, Behandlungsart als Treatmentvariable und subjektiv ausreichend soziale Unterstützung als kategoriale Kovariate.
+Interpretiere den Hauptoutput:</p>
+<ol style="list-style-type: decimal">
+<li>Wie groß ist der Erwartete Gesundheitsscore unter folgenden Bedingungen:</li>
+</ol>
+<ul>
+<li>Behandlungsart = 0, subj_ausreichend_soz_Unterstützung = 0</li>
+<li>Behandlungsart = 0, subj_ausreichend_soz_Unterstützung = 1</li>
+<li>Behandlungsart = 1, subj_ausreichend_soz_Unterstützung = 0</li>
+<li>Behandlungsart = 1, subj_ausreichend_soz_Unterstützung = 1</li>
+<li>Behandlungsart = 2, subj_ausreichend_soz_Unterstützung = 0</li>
+<li>Behandlungsart = 2, subj_ausreichend_soz_Unterstützung = 1</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Wie groß ist der Effekt von Behandlungsart 1 im Vergleich zu Behandlungsart 0 und ist er signifikant?</li>
+<li>Wie groß ist der Effekt von Behandlungsart 2 im Vergleich zu Behandlungsart 0 und ist er signifikant?</li>
+<li>Wie groß ist der Effekt von subjektiv ausreichender sozialer Unterstützung und ist er signifikant?</li>
+</ol>
+</div>
+<div id="b-1" class="section level3">
+<h3><span class="header-section-number">6.4.2</span> B)</h3>
+<p>Nutze nun subjektive soziale Unterstützung als kontinuierliche Kovariate (entferne die kategoriale Kovariate), ansonsten belasse alle Variablen wie in Teil A) der Übung. Die verwendeten Variablen entsprechen nun <a href="zwei.html#bspvier">Beispiel 4</a>.
+Berechne eine zweifache lineare Regression von Behandlungsart und subjektiv gemessener sozialer Unterstützung (kontinuierlich) auf den Gesundheitsscore.<br />
+<em>Beachte:</em> Zur Lösung der Aufgabe ist es hilfreich, wenn die kontinuierliche Kovariate z-standardisiert ist. Die z-Standardisierung muss vor dem Einlesen in EffectLiteR erfolgen.<br />
+Interpretiere den Hauptoutput:</p>
+<ol style="list-style-type: decimal">
+<li>Wie groß ist der erwartete Gesundheitsscore unter den verschiedenen Ausprägungen von X a) bei durchschnittlicher Ausprägung der Kovariate und b) bei einer Kovariaten-Ausprägung von einer Standardabweichung über dem Durchschnitt.</li>
+<li>Wie groß ist der Effekt von Behandlungsart 1 im Vergleich zu Behandlungsart 0 und ist er signifikant?</li>
+<li>Wie groß ist der Effekt von Behandlungsart 2 im Vergleich zu Behandlungsart 0 und ist er signifikant?</li>
+<li>Hat subjektive soziale Unterstützung einen signifikanten Einfluss auf den Gesundheitsscore? Welchen Effekt hat die Steigerung von subjektiver sozialer Unterstützung um anderthalb Standardabweichung auf den Gesundheitsscore?</li>
+</ol>
+<p>Lösungen und Videos zur Berechnung der Aufgaben sowie zur z-Standardisierung von Variablen findest du <a href="lösungen.html#lösungen">hier</a>.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="eins.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="bedingt.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
