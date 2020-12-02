@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>EffectLiteR Tutorial - Work In Progress</title>
+  <title>2 Installation | EffectLiteR Tutorial - Work In Progress</title>
   <meta name="description" content="This is a Tutorial for the EffectLiteR package." />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="EffectLiteR Tutorial - Work In Progress" />
+  <meta property="og:title" content="2 Installation | EffectLiteR Tutorial - Work In Progress" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="EffectLiteR Tutorial - Work In Progress" />
+  <meta name="twitter:title" content="2 Installation | EffectLiteR Tutorial - Work In Progress" />
   
   <meta name="twitter:description" content="This is a Tutorial for the EffectLiteR package." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="installation.html"/>
+<link rel="prev" href="index.html"/>
+<link rel="next" href="Einlesen-Schaltflächen.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -238,27 +238,97 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">EffectLiteR Tutorial - Work In Progress</h1>
-<p class="author"><em>Alexander Jung, Christoph Kiefer &amp; Axel Mayer</em></p>
+<div id="installation" class="section level1">
+<h1><span class="header-section-number">2</span> Installation</h1>
+<p>Das (kostenfreie!) EffectLiteR kann auf zwei verschiedenen Wegen installiert und genutzt werden:
+Zum einen ist es möglich EffectLiteR über die Statistik-Software R zu verwenden, zum anderen ist es für Windows auch möglich EffectLiteR über einen Stand-Alone-Installer zu downloaden. Auch der Stand-Alone-Installer installiert im Hintergrund R.</p>
+<div id="download-und-verwendung-via-r" class="section level2">
+<h2><span class="header-section-number">2.1</span> Download und Verwendung via R</h2>
+<p>R ist eine kostenfreie Open-Source-Statistiksoftware. Open Source bedeutet, dass verschiedene Wissenschaftler/Programmierer zusätzliche Pakete schreiben können, mit denen zusätzliche Rechenoperationen auf R ermöglicht werden. EffectLiteR ist ein solches zusätzliches Paket.
+Das Download läuft in drei Schritten ab.</p>
+<div id="schritt-1-r-downloaden" class="section level3">
+<h3><span class="header-section-number">2.1.1</span> Schritt 1 – R downloaden</h3>
+<p>Die Installation von R ist in einigen Screenshots sowie in einem kurzen Video weiter unten dokumentiert.
+Unter dem Link <a href="https://cran.r-project.org/mirrors.html" class="uri">https://cran.r-project.org/mirrors.html</a> findest du verschiedene „Mirrors“ für R, das heißt du findest Links zum Download von R, die von verschiedenen Institutionen bereitgestellt werden. Es wird empfohlen den Link der geographisch am nächsten liegenden Institution zu verwenden.
+Klicke auf einen Mirror, Wähle das von dir verwendete Betriebssystem aus, dann downloade R.</p>
+<div class="figure"><span id="fig:unnamed-chunk-2"></span>
+<img src="images/Download_R.png" alt="Download von R" width="100%" />
+<p class="caption">
+Figure 2.1: Download von R
+</p>
 </div>
-<div id="index" class="section level1">
-<h1><span class="header-section-number">1</span> Index</h1>
-<p>EffectLiteR ist eine auf der Statistiksoftware R (und dem R-Paket lavaan) basierende Applikation, die zur Analyse bedingter und durchschnittlicher Treatment-Effekte vorgesehen ist. Unter bedingten Treatment-Effekten versteht man die Wirkung einer Treatment-Bedingung im Vergleich zu einer Kontroll-Bedingung und unter bestimmten Kovariaten-Ausprägungen. Eine Besonderheit von EffectLiteR ist dabei, dass es grundsätzlich bedingte und durchschnittliche Effekte schätzt, die sich im Falle unbalancierter Designs von Haupteffekten (wie sie etwa SPSS ausgibt) unterscheiden.
-EffectLiteR unterscheidet sich von den meisten anderen R-Paketen dadurch, dass es über eine eigene Benutzeroberfläche verfügt: Man kann (anstatt selbst R-Code zu schreiben) per Mausklick auf dieser Benutzeroberfläche Befehle spezifizieren, diese werden in R-Code übersetzt, in R berechnet und die Ergebnisse der Analysen werden in der Benutzeroberfläche darstellt. Das bedeutet: alles was EffectLiteR kann (und noch vieles mehr) ist auch mit R möglich, die Verwendung von EffectLiteR vereinfacht die Anwendung allerdings deutlich.</p>
-<p>Das vorliegende Tutorial führt schrittweise in das Denken in bedingten Effekten und die Verwendung der EffectLiteR-Oberfläche ein. Das erste inhaltliche Kapitel beschreibt, wie einfache Modelle, in denen eine abhängige Variable lediglich durch eine Treatment-Variable vorhergesagt wird, in einer <a href="eins.html#eins">einfachen linearen Regression</a> parametrisiert und ausgewertet werden können. Im Kapitel <a href="zwei.html#zwei">zweifache lineare Regression</a> werden die Modelle um eine zusätzliche Kovariate erweitert, im Kapitel <a href="bedingt.html#bedingt">bedingte lineare Regression</a> wird schließlich auch der Effekt der Interaktion aus Treatment-Variable und Kovariate auf die abhängige Variable berücksichtigt. Sobald du das Grundprinzip der bedingten linearen Regression verstanden hast gibt es ein weiteres <a href="komplex.html#komplex">Kapitel</a>, mit Übungen zur Interpretation immer komplexer werdender Modelle mit mehreren Kovariaten.</p>
-<p>Das Tutorial ist voller Screenshots, die zeigen wo, was eingegeben werden kann und voller praktischer Übungen, die meist an einem bereitgestellten simulierten Datensatz durchgeführt werden können. Zu allen praktischen Übungen gibt es Lösungsvideos. Die Idee hinter den Übungen und Lösungsvideos ist es, euch die Möglichkeit zu geben neben dem theoretischen Verständnis der Materie auch die „Mechanik“ der Applikation durch ausprobieren und durch Lernen am Modell zu verinnerlichen.
-Das nächste Kapitel startet direkt mit Screenshots und Videos zum Download der Applikation.<br />
-In diesem Sinne: Viel Spaß und Erfolg beim Lesen, Üben und Erlernen der Software!</p>
+<p>Nach Klick auf <em>install R for the first time</em> downloadet eine .exe-Datei, die ausgeführt werden muss um R zu installieren. Öffnest du die Datei wirst du durch einen Installer geführt. In den meisten Fällen empfiehlt es sich die 64-Bit-Version von R herunterzuladen und den Haken bei der 32-Bit-Version zu entfernen.</p>
+<p>Wenn du Schwierigkeiten bei der Installation von R hast, schaue dir folgendes Video an:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/BxQx0HgjU14" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</div>
+<div id="schritt-2-rstudio-downloaden" class="section level3">
+<h3><span class="header-section-number">2.1.2</span> Schritt 2 – RStudio downloaden</h3>
+<p>Mit R hast du das Programm heruntergeladen, das die Rechenoperationen im Hintergrund ausführt, R selbst hat aber keine benutzerfreundliche Oberfläche. Eine Oberfläche, mit der R bedient werden kann, ist RStudio.<br />
+RStudio kann unter dem Link <a href="https://www.rstudio.com/products/rstudio/download/" class="uri">https://www.rstudio.com/products/rstudio/download/</a> heruntergeladen werden.
+Scrolle etwas herunter und wähle die RStudio-Desktop-Version aus (1), dann klicke auf den Download-Button der Version, die dir passend für dein Betriebssystem vorgeschlagen wird (2).</p>
+<div class="figure"><span id="fig:unnamed-chunk-3"></span>
+<img src="images/Download_RStudio.png" alt="Download von RStudio" width="100%" />
+<p class="caption">
+Figure 2.2: Download von RStudio
+</p>
+</div>
+<p>Durch den Klick auf <em>Download RStudio</em> downloadet eine weitere .exe-Datei, die zur Installation ausgeführt werden muss. Hierbei können alle Voreinstellungen übernommen werden.</p>
+<p>Download von RStudio im Video:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/thamp7fE82U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</div>
+<div id="schritt-3-effectliter-installieren-und-öffnen" class="section level3">
+<h3><span class="header-section-number">2.1.3</span> Schritt 3 – EffectLiteR installieren und öffnen</h3>
+<p>Hast du RStudio installiert kannst du damit R bedienen und auf EffectLiteR zugreifen. EffectLiteR ist ein Packet, dass in R installiert, geladen und ausgeführt werden kann. Dafür öffne RStudio, klicke auf das kleine grüne Plus oben links und öffne durch Klick auf <em>R Script</em> ein neues R-Dokument, in das du Anweisungen schreiben kannst.</p>
+<div class="figure"><span id="fig:unnamed-chunk-4"></span>
+<img src="images/OpenRFile.png" alt="Öffnen eines neuen R-Dokumentes" width="100%" />
+<p class="caption">
+Figure 2.3: Öffnen eines neuen R-Dokumentes
+</p>
+</div>
+<p>Nun kannst du EffecLiteR installieren, indem du den Befehl <em>install.packages(“EffectLiteR”)</em> ausführst (siehe Figure <a href="installation.html#fig:fig1">2.4</a>). Achte darauf, dass die Schreibweise exakt der angegebenen Schreibweise entspricht (du kannst auch auf die Vorschläge klicken, die dir RStudio macht sobald du zu schreiben anfängst). Zum Ausführen des Befehls klicke auf <em>Run</em>, während sich der Cursor in der Zeile befindet, die du ausführen möchtest. Wenn du den Befehl korrekt ausgeführt hast, wird das Paket installiert, dies kann einige Zeit dauern. Die Installation ist abgeschlossen, sobald das kleine Stop-Symbol am oberen rechten Rand des unteren Fensters von RStudio verschwunden ist.<br />
+<strong>Nachdem</strong> du das Paket installiert hast lade es, indem du den Befehl <em>library(EffectLiteR)</em> ausführst (auf korrekte Schreibweise achten, Cursor in die entsprechende Zeile, <em>run</em> klicken), <strong>danach</strong> öffne EffectLiteR durch ausführen von <em>EffectLiteGUI()</em>.<br />
+Die beiden unteren Befehle (<em>library(EffectLiteR)</em> und <em>EffectLiteGUI()</em>) musst du zum Öffnen der Applikation jedes Mal neu ausführen. Speichere die Datei also um EffectLiteR in Zukunft schneller aufrufen zu können.</p>
+<div class="figure"><span id="fig:fig1"></span>
+<img src="images/Install_and_open_ELR.png" alt="EffectLiteR installieren und öffnen" width="100%" />
+<p class="caption">
+Figure 2.4: EffectLiteR installieren und öffnen
+</p>
+</div>
+<p>Installation und Öffnen von EffectLiteR im Video:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/CM5xfqWU4Ac" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</div>
+</div>
+<div id="download-mit-dem-windows-installer" class="section level2">
+<h2><span class="header-section-number">2.2</span> Download mit dem Windows-Installer</h2>
+<p><strong>Beachte:</strong> Nutze diese Funktion nicht, wenn du R bereits auf deinem PC installiert hast.</p>
+<p>Gelegentlich treten bei der Installation mit dem EffectLiteR-Standalone Installer Fehlermeldungen auf.</p>
+<p>Unter <a href="https://www.metheval.uni-jena.de/projekte/book_causal-effects/tools.php" class="uri">https://www.metheval.uni-jena.de/projekte/book_causal-effects/tools.php</a> kann der EffectLiteR-Standalone-Installer heruntergeladen werden.</p>
+<div class="figure"><span id="fig:unnamed-chunk-5"></span>
+<img src="images/Installation2.1.png" alt="Download EffectLiteR Stand-Alone-Installer" width="100%" />
+<p class="caption">
+Figure 2.5: Download EffectLiteR Stand-Alone-Installer
+</p>
+</div>
+<p>Extrahiere den Zip-Compremierten Ordner und starte den msiinstaller/<strong>oder Setup?</strong>, folge den Anweisungen des Installers</p>
+<div class="figure"><span id="fig:unnamed-chunk-6"></span>
+<img src="images/Installation2.2.png" alt="Installieren von EffectLiteR mit dem msiinstaller" width="100%" />
+<p class="caption">
+Figure 2.6: Installieren von EffectLiteR mit dem msiinstaller
+</p>
+</div>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="installation.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="Einlesen-Schaltflächen.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

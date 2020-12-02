@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>EffectLiteR Tutorial - Work In Progress</title>
+  <title>4 Vorwort zur Regressionsanalyse mit EffectLiteR | EffectLiteR Tutorial - Work In Progress</title>
   <meta name="description" content="This is a Tutorial for the EffectLiteR package." />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="EffectLiteR Tutorial - Work In Progress" />
+  <meta property="og:title" content="4 Vorwort zur Regressionsanalyse mit EffectLiteR | EffectLiteR Tutorial - Work In Progress" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="EffectLiteR Tutorial - Work In Progress" />
+  <meta name="twitter:title" content="4 Vorwort zur Regressionsanalyse mit EffectLiteR | EffectLiteR Tutorial - Work In Progress" />
   
   <meta name="twitter:description" content="This is a Tutorial for the EffectLiteR package." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="installation.html"/>
+<link rel="prev" href="Einlesen-Schaltflächen.html"/>
+<link rel="next" href="eins.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -238,18 +238,11 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">EffectLiteR Tutorial - Work In Progress</h1>
-<p class="author"><em>Alexander Jung, Christoph Kiefer &amp; Axel Mayer</em></p>
-</div>
-<div id="index" class="section level1">
-<h1><span class="header-section-number">1</span> Index</h1>
-<p>EffectLiteR ist eine auf der Statistiksoftware R (und dem R-Paket lavaan) basierende Applikation, die zur Analyse bedingter und durchschnittlicher Treatment-Effekte vorgesehen ist. Unter bedingten Treatment-Effekten versteht man die Wirkung einer Treatment-Bedingung im Vergleich zu einer Kontroll-Bedingung und unter bestimmten Kovariaten-Ausprägungen. Eine Besonderheit von EffectLiteR ist dabei, dass es grundsätzlich bedingte und durchschnittliche Effekte schätzt, die sich im Falle unbalancierter Designs von Haupteffekten (wie sie etwa SPSS ausgibt) unterscheiden.
-EffectLiteR unterscheidet sich von den meisten anderen R-Paketen dadurch, dass es über eine eigene Benutzeroberfläche verfügt: Man kann (anstatt selbst R-Code zu schreiben) per Mausklick auf dieser Benutzeroberfläche Befehle spezifizieren, diese werden in R-Code übersetzt, in R berechnet und die Ergebnisse der Analysen werden in der Benutzeroberfläche darstellt. Das bedeutet: alles was EffectLiteR kann (und noch vieles mehr) ist auch mit R möglich, die Verwendung von EffectLiteR vereinfacht die Anwendung allerdings deutlich.</p>
-<p>Das vorliegende Tutorial führt schrittweise in das Denken in bedingten Effekten und die Verwendung der EffectLiteR-Oberfläche ein. Das erste inhaltliche Kapitel beschreibt, wie einfache Modelle, in denen eine abhängige Variable lediglich durch eine Treatment-Variable vorhergesagt wird, in einer <a href="eins.html#eins">einfachen linearen Regression</a> parametrisiert und ausgewertet werden können. Im Kapitel <a href="zwei.html#zwei">zweifache lineare Regression</a> werden die Modelle um eine zusätzliche Kovariate erweitert, im Kapitel <a href="bedingt.html#bedingt">bedingte lineare Regression</a> wird schließlich auch der Effekt der Interaktion aus Treatment-Variable und Kovariate auf die abhängige Variable berücksichtigt. Sobald du das Grundprinzip der bedingten linearen Regression verstanden hast gibt es ein weiteres <a href="komplex.html#komplex">Kapitel</a>, mit Übungen zur Interpretation immer komplexer werdender Modelle mit mehreren Kovariaten.</p>
-<p>Das Tutorial ist voller Screenshots, die zeigen wo, was eingegeben werden kann und voller praktischer Übungen, die meist an einem bereitgestellten simulierten Datensatz durchgeführt werden können. Zu allen praktischen Übungen gibt es Lösungsvideos. Die Idee hinter den Übungen und Lösungsvideos ist es, euch die Möglichkeit zu geben neben dem theoretischen Verständnis der Materie auch die „Mechanik“ der Applikation durch ausprobieren und durch Lernen am Modell zu verinnerlichen.
-Das nächste Kapitel startet direkt mit Screenshots und Videos zum Download der Applikation.<br />
-In diesem Sinne: Viel Spaß und Erfolg beim Lesen, Üben und Erlernen der Software!</p>
+<div id="vorwort-zur-regressionsanalyse-mit-effectliter" class="section level1">
+<h1><span class="header-section-number">4</span> Vorwort zur Regressionsanalyse mit EffectLiteR</h1>
+<p>EffectLiteR dient nicht primär der Analyse von Regressionsmodellen, sondern in erster Linie der Schätzung durchschnittlicher und bedingter Treatment Effekte basierend auf Regressionsmodellen. Dementsprechend lassen sich nicht alle Regressionsmodelle mit EffectLiteR berechnen sondern nur solche, die mindestens eine kategoriale Variable als Prädiktor enthalten. Diese kategoriale Prädiktor-Variable sollte eine Treatment-Bedingung darstellen, ihr Effekt wird im vorliegenden Tutorial konsequent als Treatment-Effekt bezeichnet.
+Die Kapitel-Aufteilung, die von der einfachen linearen Regression über die zweifache lineare Regression hin zur bedingten linearen Regression führt, dient der schrittweisen (vorlesungsbegleitenden) Heranführung an das Verständnis der Effektschätzung auf Basis des EffectLiteR-Ansatzes.</p>
+<p><strong>Beachte:</strong> Zur inhaltlichen interpretation der Parameter der Regressionsmodelle werden im vorliegenden Tutorial viele Formeln verwendet. Was auf den ersten Blick kompliziert erscheint dient tatsächlich einer Vereinfachung des Verständnisses: Dadurch, dass jeder einzelne Rechenschritt in Formeln dargestellt wird, ist es möglich alle Formeln einfach nachzuvollziehen. Bitte tue das auch und lese nicht über die Formeln hinweg!</p>
 
 </div>
             </section>
@@ -257,8 +250,8 @@ In diesem Sinne: Viel Spaß und Erfolg beim Lesen, Üben und Erlernen der Softwa
           </div>
         </div>
       </div>
-
-<a href="installation.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="Einlesen-Schaltflächen.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="eins.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

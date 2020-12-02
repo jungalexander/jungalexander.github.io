@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>EffectLiteR Tutorial - Work In Progress</title>
+  <title>3 Daten einlesen und Schaltflächen | EffectLiteR Tutorial - Work In Progress</title>
   <meta name="description" content="This is a Tutorial for the EffectLiteR package." />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="EffectLiteR Tutorial - Work In Progress" />
+  <meta property="og:title" content="3 Daten einlesen und Schaltflächen | EffectLiteR Tutorial - Work In Progress" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="EffectLiteR Tutorial - Work In Progress" />
+  <meta name="twitter:title" content="3 Daten einlesen und Schaltflächen | EffectLiteR Tutorial - Work In Progress" />
   
   <meta name="twitter:description" content="This is a Tutorial for the EffectLiteR package." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="installation.html"/>
+<link rel="prev" href="installation.html"/>
+<link rel="next" href="vorwort-zur-regressionsanalyse-mit-effectliter.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -238,27 +238,103 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">EffectLiteR Tutorial - Work In Progress</h1>
-<p class="author"><em>Alexander Jung, Christoph Kiefer &amp; Axel Mayer</em></p>
+<div id="Einlesen_Schaltflächen" class="section level1">
+<h1><span class="header-section-number">3</span> Daten einlesen und Schaltflächen</h1>
+<div id="aufbau-der-graphischen-oberfläche" class="section level2">
+<h2><span class="header-section-number">3.1</span> Aufbau der graphischen Oberfläche</h2>
+<p>EffectLiteR hat zwei Panels mit verschiedenen Reitern. Das Input-Panel am linken Rand dient der Spezifikation der Daten und der statistischen Tests, das Output-Panel am oberen Rand erlaubt die Betrachtung verschiedener Outputs. Unter dem Output-Panel werden die gewählten Ergebnisse dann angezeigt.</p>
+<div class="figure"><span id="fig:unnamed-chunk-8"></span>
+<img src="images/aufbau_graphische_oberflaeche.png" alt="EffectLiteR Panels" width="100%" />
+<p class="caption">
+Figure 3.1: EffectLiteR Panels
+</p>
 </div>
-<div id="index" class="section level1">
-<h1><span class="header-section-number">1</span> Index</h1>
-<p>EffectLiteR ist eine auf der Statistiksoftware R (und dem R-Paket lavaan) basierende Applikation, die zur Analyse bedingter und durchschnittlicher Treatment-Effekte vorgesehen ist. Unter bedingten Treatment-Effekten versteht man die Wirkung einer Treatment-Bedingung im Vergleich zu einer Kontroll-Bedingung und unter bestimmten Kovariaten-Ausprägungen. Eine Besonderheit von EffectLiteR ist dabei, dass es grundsätzlich bedingte und durchschnittliche Effekte schätzt, die sich im Falle unbalancierter Designs von Haupteffekten (wie sie etwa SPSS ausgibt) unterscheiden.
-EffectLiteR unterscheidet sich von den meisten anderen R-Paketen dadurch, dass es über eine eigene Benutzeroberfläche verfügt: Man kann (anstatt selbst R-Code zu schreiben) per Mausklick auf dieser Benutzeroberfläche Befehle spezifizieren, diese werden in R-Code übersetzt, in R berechnet und die Ergebnisse der Analysen werden in der Benutzeroberfläche darstellt. Das bedeutet: alles was EffectLiteR kann (und noch vieles mehr) ist auch mit R möglich, die Verwendung von EffectLiteR vereinfacht die Anwendung allerdings deutlich.</p>
-<p>Das vorliegende Tutorial führt schrittweise in das Denken in bedingten Effekten und die Verwendung der EffectLiteR-Oberfläche ein. Das erste inhaltliche Kapitel beschreibt, wie einfache Modelle, in denen eine abhängige Variable lediglich durch eine Treatment-Variable vorhergesagt wird, in einer <a href="eins.html#eins">einfachen linearen Regression</a> parametrisiert und ausgewertet werden können. Im Kapitel <a href="zwei.html#zwei">zweifache lineare Regression</a> werden die Modelle um eine zusätzliche Kovariate erweitert, im Kapitel <a href="bedingt.html#bedingt">bedingte lineare Regression</a> wird schließlich auch der Effekt der Interaktion aus Treatment-Variable und Kovariate auf die abhängige Variable berücksichtigt. Sobald du das Grundprinzip der bedingten linearen Regression verstanden hast gibt es ein weiteres <a href="komplex.html#komplex">Kapitel</a>, mit Übungen zur Interpretation immer komplexer werdender Modelle mit mehreren Kovariaten.</p>
-<p>Das Tutorial ist voller Screenshots, die zeigen wo, was eingegeben werden kann und voller praktischer Übungen, die meist an einem bereitgestellten simulierten Datensatz durchgeführt werden können. Zu allen praktischen Übungen gibt es Lösungsvideos. Die Idee hinter den Übungen und Lösungsvideos ist es, euch die Möglichkeit zu geben neben dem theoretischen Verständnis der Materie auch die „Mechanik“ der Applikation durch ausprobieren und durch Lernen am Modell zu verinnerlichen.
-Das nächste Kapitel startet direkt mit Screenshots und Videos zum Download der Applikation.<br />
-In diesem Sinne: Viel Spaß und Erfolg beim Lesen, Üben und Erlernen der Software!</p>
+<p>Dieses Kapitel widmet sich dem Input-Panel, die relevantesten Reiter des Output-Panels werden im Laufe des Tutorials nach und nach eingeführt, hier nur in Kürze für den besseren Überblick:</p>
+<ul>
+<li><em>Data</em> zeigt die momentan eingelesenen Daten an.</li>
+<li><em>EffectLiteR</em> zeigt das geschätzte Regressionsmodell sowie die Effektgrößenschätzer an.</li>
+<li><em>Syntax</em> zeigt die lavaan-Syntax an, die im Hintergrund von R berechnet wird (lavvan ist ebenfalls ein R-Paket).</li>
+<li><em>Results</em> gibt den originalen lavvan-Output aus.</li>
+<li><em>Conditional Effects I</em> zeigt Effektgrößenschätzer für jede Person des Datensatzes an (geschätzt anhand der Kovariaten-Ausprägungen der einzelnen Personen).</li>
+<li><em>Conditional Effects II</em> - <em>IV</em> erlauben die Schätzung von Effekten unter selbst spezifizierten Kovariaten-Ausprägungen (CE II wenn die Ausprägungen aller Kovariaten spezifiziert werden sollen, CE III wenn nur einige Kovariaten-Ausprägungen spezifiziert werden sollen, CE IV wenn nur eine einzige Kovariaten-Ausprägung spezifiziert werden soll).</li>
+<li><em>User-Specified Tests</em> werden in diesem Tutorial aktuell nicht behandelt.</li>
+<li><em>Plot 1</em> - <em>4</em> zeigen einige informative, interaktive Graphiken zum Datensatz und den</li>
+</ul>
+</div>
+<div id="daten-einlesen" class="section level2">
+<h2><span class="header-section-number">3.2</span> Daten einlesen</h2>
+<div id="beispieldatensätze" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> Beispieldatensätze</h3>
+<p>EffectLiteR hat verschiedene Beispieldatensätze integriert, an denen Funktionen des Programmes getestet werden können. Die Beispieldatensätze können im Input-Panel unter dem Reiter <em>Data</em> durch Klick auf <em>choose example data</em> ausgewählt und geladen werden. Ist ein Datensatz geladen beziehen sich auch alle durchgeführten Tests auf diesen Datensatz.
+Hast du in der aktuellen Sitzung bereits einen eigene Datensatz geladen kannst du zwar weitere eigene Datensätze, aber keine Beispieldatensätze mehr neu laden. Schließe die Anwendung hierfür und öffne Sie dann erneut.</p>
+</div>
+<div id="eigene-datensätze" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> Eigene Datensätze</h3>
+<p>Ebenfalls unter dem Eingabe-Reiter <em>Data</em> gibt es die Möglichkeit unter <em>Data File</em> eigene Datensätze auszuwählen und zu laden. Folgende Dateitypen werden von EffectLiteR erkannt: .csv, .dat, .txt, .sav, .xpt und .rds.
+Excel-Files können (unter <em>speichern unter</em>) im .csv-Format gespeichert werden, das .sav-Format wird von SPSS verwendet.</p>
+<p>Beachte: Mit EffectLiteR können Datensätze ausgewertet, nicht aber bearbeitet werden. Es ist nicht möglich einzelne Datenpunkte zu ändern oder zu löschen, es ist nicht möglich existente Variablen zu löschen oder neue Variablen zu berechnen. Die Datenaufbereitung sollte also vor der Analyse mit EffectLiteR in einem anderen Programm, z.B. in R, erfolgen.</p>
+<p>Zum Laden eines eigenen Datensatzes durchsuche deinen Computer nach der gewünschten Datei durch einen Klick auf <em>Browse</em>. Wenn du eine Datei ausgewählt hast, sollte EffectLiteR die gewünschten Daten automatisch laden und anzeigen (sofern du im Output-Panel am oberen Rand den Reiter <em>Data</em> ausgewählt hast. Wenn die Daten gar nicht angezeigt werden hast du eventuell eine Datei mit einem nicht unterstütztem Dateiformat ausgewählt.
+Überprüfe, ob die Daten von EffectLiteR korrekt gelesen werden. Bei fehlerhafter Darstellung passe die Default-Einstellung unter <em>Additional Options to Read Data</em> an.</p>
+<div id="änderungen-der-default-einstellungen" class="section level4">
+<h4><span class="header-section-number">3.2.2.1</span> Änderungen der Default-Einstellungen</h4>
+<p>Zum ändern der Default-Einstellungen scrolle im Input-Panel herunter bis du zu <em>Additional Options to Read Data</em> kommst (siehe Figure <a href="Einlesen-Schaltflächen.html#fig:datenfig1">3.2</a>).</p>
+<div class="figure"><span id="fig:datenfig1"></span>
+<img src="images/Dateneinlesen%20-%20Erweiterte%20Funktionen.png" alt="Änderungen der Default-Einstellungen" width="40%" />
+<p class="caption">
+Figure 3.2: Änderungen der Default-Einstellungen
+</p>
+</div>
+<p>Die verschiedenen Einstellungsmöglichkeiten werden nun eine nach der anderen beschrieben.</p>
+<div id="use-value-labels-spss-data" class="section level5">
+<h5><span class="header-section-number">3.2.2.1.1</span> Use value labels (SPSS Data)</h5>
+<p>In SPSS können value labels definiert werden (bspw. „male“ für sex = 0 und „female“ für sex = 1). Unter <em>Use value labels (SPSS Data)</em> kann definiert werden, ob die value labels oder die Zahlencodes von EffectLiteR angezeigt werden sollen. Wenn du die Option <em>yes</em> oder <em>default</em> eingestellt hast, kann es vorkommen dass du bei der Berechnung bestimmter Regressionen im Hauptoutput Fehlermeldung wie die folgende erhältst:</p>
+<div class="figure"><span id="fig:unnamed-chunk-9"></span>
+<img src="images/Dateneinlesen%20-%20Fehlermeldung.png" alt="Fehlermeldung 'unordered faktor(s): variable name'" width="100%" />
+<p class="caption">
+Figure 3.3: Fehlermeldung ‘unordered faktor(s): variable name’
+</p>
+</div>
+<p>Erhältst du eine solche Fehlermeldung ändere die Einstellung auf <em>no</em> und die Berechnung wird möglich. Du kannst zwischen den Einstellungen auch flexibel hin und her wechseln.</p>
+</div>
+<div id="file-contains-variable-names-csv-dat-and-txt-data" class="section level5">
+<h5><span class="header-section-number">3.2.2.1.2</span> File contains Variable names (csv, dat and txt data)</h5>
+<p>Hier gibst du an ob die erste Zeile deines Datensatzes Daten oder Variablennamen enthält. Wenn du hier <em>yes</em> auswählst werden die Zellen der erste Zeile des Datensatzes von EffectLiteR als Variablennamen übernommen.</p>
+</div>
+<div id="character-seperating-colums" class="section level5">
+<h5><span class="header-section-number">3.2.2.1.3</span> Character seperating colums</h5>
+Hier gibst du an, wodurch die Spalten im Datensatz voneinander abgegrenzt werden. An den dargestellten Beispielen erkennst du, welche Einstellung (<em>default</em>, <em>semicolon</em> oder <em>white space</em>) du bei welcher Art der Spaltentrennung in deiner Daten-Datei wählen solltest.
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-10"></span>
+<img src="images/Dateneinlesen1.png" alt="Character seperating colums" width="80%" />
+<p class="caption">
+Figure 3.4: Character seperating colums
+</p>
+</div>
+</div>
+<div id="decimal-character" class="section level5">
+<h5><span class="header-section-number">3.2.2.1.4</span> Decimal character</h5>
+<p>Wähle aus, ob in deinen Dateien Kommas oder Punkte die Abgrenzung zwischen ganzen Zahlen und Nachkommastellen markieren.</p>
+</div>
+<div id="missing-value-code" class="section level5">
+<h5><span class="header-section-number">3.2.2.1.5</span> Missing value code</h5>
+<p>Hier kannst du, wenn nötig, einstellen, womit in deinem Datensatz fehlende Werte dargestellt werden. Falls beispielsweise „999“ für einen fehlenden Messwert steht, kannst du dies hier eingeben, damit EffectLiteR die Zahl als fehlenden Wert erkennt und ihn bei Berechnungen nicht als Zahlenwert mit einbezieht. Fehlende Werte, die das Programm als solche erkennt, werden von EffectLiteR grundsätzlich mit „NA“ dargestellt.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="übungsaufgabe-dateneinlesen" class="section level2">
+<h2><span class="header-section-number">3.3</span> Übungsaufgabe “Dateneinlesen”</h2>
+<p>Downloade den <a href="../Datensätze/EffectLiteR_Tutorial_Übungsdatensatz1.csv">Übungsdatensatz 1</a> und lese ihn mit EffectLiteR ein. Der Datensatz entspricht nicht den Default-Einstellungen von EffectLiteR, du musst Änderungen an den <em>Additional Options to Read Data</em> vornehmen, insgesamt sind drei Änderungen notwendig, bevor du anfangen könntest Berechnungen am Datensatz vorzunehmen. Führe diese drei Änderungen durch, gehe Schrittweise vor und achte dabei auf Plausibilität der angezeigten Daten.</p>
+<p>Lösungen (mit Lösungsvideo) findest du <a href="lösungen.html#lösungen">hier</a>.</p>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="installation.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="installation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="vorwort-zur-regressionsanalyse-mit-effectliter.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

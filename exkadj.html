@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>EffectLiteR Tutorial - Work In Progress</title>
+  <title>8 Exkurs Adjustierte Mittelwerte | EffectLiteR Tutorial - Work In Progress</title>
   <meta name="description" content="This is a Tutorial for the EffectLiteR package." />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="EffectLiteR Tutorial - Work In Progress" />
+  <meta property="og:title" content="8 Exkurs Adjustierte Mittelwerte | EffectLiteR Tutorial - Work In Progress" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="EffectLiteR Tutorial - Work In Progress" />
+  <meta name="twitter:title" content="8 Exkurs Adjustierte Mittelwerte | EffectLiteR Tutorial - Work In Progress" />
   
   <meta name="twitter:description" content="This is a Tutorial for the EffectLiteR package." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="installation.html"/>
+<link rel="prev" href="bedingt.html"/>
+<link rel="next" href="conditional-effects.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -238,18 +238,63 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">EffectLiteR Tutorial - Work In Progress</h1>
-<p class="author"><em>Alexander Jung, Christoph Kiefer &amp; Axel Mayer</em></p>
+<div id="exkadj" class="section level1">
+<h1><span class="header-section-number">8</span> Exkurs Adjustierte Mittelwerte</h1>
+<p>Bei der bedingten linearen Regression macht das Verfahren der Mittelwertsbildung einen Unterschied für den Fall, dass das Design bezüglich der Kovariaten nicht vollständig balanciert ist. Wie adjustierte Mittelwerte von <span class="math inline">\(\small Y\)</span> für die verschiedenen Ausprägungen von <span class="math inline">\(\small X\)</span> gebildet werden wird im Folgenden an einem Beispiel demonstriert:</p>
+<p>(#bspfünf) zu unserem Beispieldatensatz demonstriert <em>(Treatmentvariable: Behandlungsart ist</em> <span class="math inline">\(\small 0\)</span>,<span class="math inline">\(\small 1\)</span> <em>oder</em> <span class="math inline">\(\small 2\)</span><em>, Kovariaten: Subjektiv ausreichend soziale Unterstützungist </em> <span class="math inline">\(\small 0\)</span> oder <span class="math inline">\(\small 1\)</span><em>)</em>.</p>
+<p><span id="bspacht"><strong>Beispiel 8</strong></span><br />
+<em>Abhängige Variable</em> <span class="math inline">\(\small Y\)</span><em>: Gesundheitsscore von Patienten.</em><br />
+<em>Treatmentvariable</em> <span class="math inline">\(\small X\)</span><em>: Erhalten Patienten Behandlungsart 1 (</em><span class="math inline">\(\small X=1\)</span><em>) oder Behandlungsart 2 (</em><span class="math inline">\(\small X=1\)</span><em>) oder erhalten sie keine Behandlung (</em><span class="math inline">\(\small X=0\)</span><em>).</em><br />
+<em>Kovariate </em><span class="math inline">\(\small K\)</span><em>: Patient gibt an in seinem Umfeld ausreichend soziale Unterstützung zu erhalten (</em><span class="math inline">\(\small K=1\)</span><em>) bzw. nicht genug Unterstützung zu erhalten (</em><span class="math inline">\(\small K=0\)</span><em>).</em><br />
+<em>Die entsprechenden Daten finden sich auch in unserem <a href="../Datensätze/Übungsdatensatz_effectLiteR_Tutorial.csv">Beispieldatensatz</a>.</em></p>
+<p>Dem Output unter <em>Cell Counts</em> im Hauptoutput (siehe Figure <a href="exkadj.html#fig:exka1">8.1</a>) ist zu entnehmen, dass das Design im Beispiel unbalanciert ist: Unter der Bedingung <span class="math inline">\(\small K=0\)</span> liegen 116 Beobachtungen vor, unter der Bediungung <span class="math inline">\(\small K=1\)</span> liegen 184 Beobachtungen vor:</p>
+<div class="figure" style="text-align: center"><span id="fig:exka1"></span>
+<img src="images/Exkurs%20adjustierte%20Mittelwerte%202.png" alt="Unbalanciertes Design" width="60%" />
+<p class="caption">
+Figure 8.1: Unbalanciertes Design
+</p>
 </div>
-<div id="index" class="section level1">
-<h1><span class="header-section-number">1</span> Index</h1>
-<p>EffectLiteR ist eine auf der Statistiksoftware R (und dem R-Paket lavaan) basierende Applikation, die zur Analyse bedingter und durchschnittlicher Treatment-Effekte vorgesehen ist. Unter bedingten Treatment-Effekten versteht man die Wirkung einer Treatment-Bedingung im Vergleich zu einer Kontroll-Bedingung und unter bestimmten Kovariaten-Ausprägungen. Eine Besonderheit von EffectLiteR ist dabei, dass es grundsätzlich bedingte und durchschnittliche Effekte schätzt, die sich im Falle unbalancierter Designs von Haupteffekten (wie sie etwa SPSS ausgibt) unterscheiden.
-EffectLiteR unterscheidet sich von den meisten anderen R-Paketen dadurch, dass es über eine eigene Benutzeroberfläche verfügt: Man kann (anstatt selbst R-Code zu schreiben) per Mausklick auf dieser Benutzeroberfläche Befehle spezifizieren, diese werden in R-Code übersetzt, in R berechnet und die Ergebnisse der Analysen werden in der Benutzeroberfläche darstellt. Das bedeutet: alles was EffectLiteR kann (und noch vieles mehr) ist auch mit R möglich, die Verwendung von EffectLiteR vereinfacht die Anwendung allerdings deutlich.</p>
-<p>Das vorliegende Tutorial führt schrittweise in das Denken in bedingten Effekten und die Verwendung der EffectLiteR-Oberfläche ein. Das erste inhaltliche Kapitel beschreibt, wie einfache Modelle, in denen eine abhängige Variable lediglich durch eine Treatment-Variable vorhergesagt wird, in einer <a href="eins.html#eins">einfachen linearen Regression</a> parametrisiert und ausgewertet werden können. Im Kapitel <a href="zwei.html#zwei">zweifache lineare Regression</a> werden die Modelle um eine zusätzliche Kovariate erweitert, im Kapitel <a href="bedingt.html#bedingt">bedingte lineare Regression</a> wird schließlich auch der Effekt der Interaktion aus Treatment-Variable und Kovariate auf die abhängige Variable berücksichtigt. Sobald du das Grundprinzip der bedingten linearen Regression verstanden hast gibt es ein weiteres <a href="komplex.html#komplex">Kapitel</a>, mit Übungen zur Interpretation immer komplexer werdender Modelle mit mehreren Kovariaten.</p>
-<p>Das Tutorial ist voller Screenshots, die zeigen wo, was eingegeben werden kann und voller praktischer Übungen, die meist an einem bereitgestellten simulierten Datensatz durchgeführt werden können. Zu allen praktischen Übungen gibt es Lösungsvideos. Die Idee hinter den Übungen und Lösungsvideos ist es, euch die Möglichkeit zu geben neben dem theoretischen Verständnis der Materie auch die „Mechanik“ der Applikation durch ausprobieren und durch Lernen am Modell zu verinnerlichen.
-Das nächste Kapitel startet direkt mit Screenshots und Videos zum Download der Applikation.<br />
-In diesem Sinne: Viel Spaß und Erfolg beim Lesen, Üben und Erlernen der Software!</p>
+<p>Zur Bildung der adjustierten Mittelwerte werden zuerst bedingte Erwartungswerte für alle Ausprägungen von <span class="math inline">\(\small X\)</span> unter allen Ausprägungen der Kovariaten gebildet. Diesen Schritt haben die Berechnung von Randmittelwerten und adjustierten Mittelwerten noch gemeinsam.<br />
+Die bedingten Erwartungswerte werden zur Veranschaulichung für alle Zellen, für die gilt <span class="math inline">\(\small X=0\)</span>, berechnet (die bedingten Erwartungswerte unter der Bedingung <span class="math inline">\(\small X=1\)</span> werden nach dem selben Prinzip gebildet). Die Zahlenwerte für die Parameter g000 und g010 stammen aus der Analyse des Beispieldatensatzes für das Beispiel 8. Es ergeben sich:</p>
+<p><span class="math display" id="eq:exk1">\[\begin{align}
+E(Y|X=0,K=1)&amp;= g000 + g010 \notag\\  
+&amp;= 28,895 + 3,826\notag\\   
+&amp;= 32,721
+\tag{8.1}
+\end{align}\]</span></p>
+<p>und
+<span class="math display" id="eq:exk2">\[\begin{align}
+E(Y|X=0,K=0)&amp;= g000\\                  &amp;= 28,895
+\tag{8.2}
+\end{align}\]</span></p>
+<p>Der zweite Schritt bei der Bildung adjustierter Mittelwerte ist die bedingten Erwartungswerte für die Ausprägungen der Treatmentvariable zu mitteln. Dabei werdein die bedingten Erwartungswerte an der proportionalen Häufigkeit der Beobachtung der Ausprägungen der Kovariate gewichtet.<br />
+Zur Veranschaulichung wird der adjustierten Mitteslwert für die Bedingung <span class="math inline">\(\small X=0\)</span> aus den oben berechneten bedingten Erwartungswerten (Gleichungen <a href="exkadj.html#eq:exk1">(8.1)</a> und<a href="exkadj.html#eq:exk2">(8.2)</a>) und den Informationen zur Anzahl an Beobachtungen unter den Bedingugne <span class="math inline">\(\small K=0\)</span> und <span class="math inline">\(\small K=1\)</span> aus Figure <a href="exkadj.html#fig:exka1">8.1</a> berechnet:</p>
+<p><span class="math display" id="eq:exk3">\[\begin{align}
+Adj.Mean0 &amp;= E(Y|X=0,K=1) \times \frac{N_{K=0}}{N} + E(Y|X=0,K=0) \times \frac{N_{K=1}}{N}\\
+          &amp;= 32,721 \times \frac{116}{116+184} + 28,895 \times \frac{184}{116+184}\\
+&amp;= 30,374
+\tag{8.3}
+\end{align}\]</span></p>
+<p>Bei der Berechnung von Randmittelwerten würde eine Gewichtung der bedingten Erwartungswerte ausbleiben, das Randmittel für die Bedingung <span class="math inline">\(\small X=0\)</span> wäre also:</p>
+<p><span class="math display" id="eq:exk4">\[\begin{align}
+Marginal.Mean0 &amp;= E(Y|X=0,K=1) \times \frac{1}{2} + E(Y|X=0,K=0) \times \frac{1}{2}\\
+               &amp;= 32,721 \times \frac{1}{2} + 28,895 \times \frac{1}{2}\\
+               &amp;= 31,5475
+\tag{8.4}
+\end{align}\]</span></p>
+<p>Vergleiche den so berechneten adjustierten Mittelwert mit dem Output in der folgenden Abbildung:</p>
+<div class="figure" style="text-align: center"><span id="fig:exka2"></span>
+<img src="images/Exkurs%20adjustierte%20Mittelwerte%203.png" alt="Output Adjusted Means" width="60%" />
+<p class="caption">
+Figure 8.2: Output Adjusted Means
+</p>
+</div>
+<p>Die durchschnittlichen Effekte, die EffectLiteR ausgibt, basieren auf adjustierten Mittelwerten. Der durchschnittliche Effekt von Treatment <span class="math inline">\(\small X=1\)</span> ist also <span class="math inline">\(\small 46,0-30,4=15,6\)</span> (die gerundeten Zahlen stammen aus dem Output für adjustierte Mittelwerte (Figure <a href="exkadj.html#fig:exka2">8.2</a>), EffectLiteR nutzt zur Berechnung der adjustierten Effekte weniger stark gerundete Zahelnwerte). Haupteffekte, wie sie etwa von einer ANOVA geschätzt werden, basieren hingegen auf der Differenz der marginal Means.</p>
+<p>Wann ist die Verwendung adjustierter Mittelwerte angemessen und wann sind marginal Means vorzuziehen?
+Adjustierte Mittelwerte sollten immer dann den marginal Means vorgezogen werden, wenn der Anteil der Personen mit einer bestimmten Kovariatenausprägung <span class="math inline">\(\small K=k\)</span> in unserem Datensatz den Anteil der Personen mit der gleichen Kovariatenausprägung <span class="math inline">\(\small K=k\)</span> in der Gesamtpopulation widerspiegelt und somit durchschnittliche Treatment-Effekte berechnet werden können. In unserem Beispiel nehmen wir an 300 zufällige ausgewählte Patienten danach befragt zu haben, ob sie genügend soziale Unterstützung erhalten. Wenn 184 der Patienten berichten nicht genügend Unterstützung zu erhalten, so enthält dies eine Information, die wir abbilden, indem wir adjustierte Mittelwerte berechnen.
+Wenn wir uns ein Experimental-Design vorstellen, in dem wir probieren möglichst gleich viele Personen mit den Kovariaten-Ausprägung <span class="math inline">\(\small K=k_1\)</span> und <span class="math inline">\(\small K=k_2\)</span> zu erheben (Beispielsweise wenn wir den Effekt einer Behandlung gegen Krebs bei normalgewichtigen Patienten und bei anorektischen Patienten vergleichen), aber auf Grund eines Dropouts ungleich große große Gruppen erhalten, so haben wir zum einen nicht das Ziel einen durchschnittlichen Treatment-Effekt zu berechnen, zum anderen enthält unsere Gruppengröße keine relevanten Informationen. In diesem Fall sollten wir marginal Means zur Effektgrößen-Berechnung verwenden (passiert automatisch wenn die Berechnung etwa mit SPSS vorgenommen wird, SPSS hat bisher keine Funktion zur berechnung adjustierter Mittelwerte).</p>
+<p>Zusammengefasst: Entspricht das Verhältnis der Anzahl der Beobachtungen unter den verschiedenen Ausprägungen der Kovariaten in etwa dem Verhältnis in der Population, so können mit den von EffectLiteR berechneten, auf adjustierten Mittelwerten beruhenden, durchschnittlichen Effekten die Konsequenzen von Treatment-Maßnahmen auf die Gesamtpopulation besser abgeschätzt werden als mit Analysemethoden, die auf marginal Means beruhen.</p>
+<p><strong>Beachte:</strong> In Studien, in denen evtl. Einflüsse der Kovariaten auf die Zuordnung zu den Treatmentbedingungen vorliegen (wenn sich z.B. vermehrt ältere Leute für die Treatmentbedingung zum Hörgeräte-Test und vermehrt jüngere Leute für die Kontrollbedingung melden und das Alter der Probanden Einflüsse auf die abhängige Variable aufweist), hat das hinzufügen konfundierter Kovariaten (in diesem Fall des Alters der Probanden) ebenfalls einen Einfluss auf die adjustierten Mittelwerte. Solche Kovariaten (das Alter) sollten also unbedingt als zusätzliche Kovariaten in die Regression aufgenommen werden, um fehlerhafte Effekt-Schätzungen zu vermeiden.</p>
 
 </div>
             </section>
@@ -257,8 +302,8 @@ In diesem Sinne: Viel Spaß und Erfolg beim Lesen, Üben und Erlernen der Softwa
           </div>
         </div>
       </div>
-
-<a href="installation.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="bedingt.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="conditional-effects.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

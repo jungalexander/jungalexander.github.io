@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>EffectLiteR Tutorial - Work In Progress</title>
+  <title>13 Lösungen | EffectLiteR Tutorial - Work In Progress</title>
   <meta name="description" content="This is a Tutorial for the EffectLiteR package." />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="EffectLiteR Tutorial - Work In Progress" />
+  <meta property="og:title" content="13 Lösungen | EffectLiteR Tutorial - Work In Progress" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="EffectLiteR Tutorial - Work In Progress" />
+  <meta name="twitter:title" content="13 Lösungen | EffectLiteR Tutorial - Work In Progress" />
   
   <meta name="twitter:description" content="This is a Tutorial for the EffectLiteR package." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="übungen-1.html"/>
 
-<link rel="next" href="installation.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -238,27 +238,138 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">EffectLiteR Tutorial - Work In Progress</h1>
-<p class="author"><em>Alexander Jung, Christoph Kiefer &amp; Axel Mayer</em></p>
+<div id="lösungen" class="section level1">
+<h1><span class="header-section-number">13</span> Lösungen</h1>
+<div id="dateneinlesen-1" class="section level2">
+<h2><span class="header-section-number">13.1</span> Dateneinlesen</h2>
+<p>Folgende Einstellungen müssen unter <em>Additional Options to Read Data</em> vorgenommen werden:</p>
+<div class="figure"><span id="fig:unnamed-chunk-48"></span>
+<img src="images/Lösung_Daten_Einlesen.png" alt="Nötige Veränderungen unter Additionl Options to Read Data" width="38%" />
+<p class="caption">
+Figure 13.1: Nötige Veränderungen unter Additionl Options to Read Data
+</p>
 </div>
-<div id="index" class="section level1">
-<h1><span class="header-section-number">1</span> Index</h1>
-<p>EffectLiteR ist eine auf der Statistiksoftware R (und dem R-Paket lavaan) basierende Applikation, die zur Analyse bedingter und durchschnittlicher Treatment-Effekte vorgesehen ist. Unter bedingten Treatment-Effekten versteht man die Wirkung einer Treatment-Bedingung im Vergleich zu einer Kontroll-Bedingung und unter bestimmten Kovariaten-Ausprägungen. Eine Besonderheit von EffectLiteR ist dabei, dass es grundsätzlich bedingte und durchschnittliche Effekte schätzt, die sich im Falle unbalancierter Designs von Haupteffekten (wie sie etwa SPSS ausgibt) unterscheiden.
-EffectLiteR unterscheidet sich von den meisten anderen R-Paketen dadurch, dass es über eine eigene Benutzeroberfläche verfügt: Man kann (anstatt selbst R-Code zu schreiben) per Mausklick auf dieser Benutzeroberfläche Befehle spezifizieren, diese werden in R-Code übersetzt, in R berechnet und die Ergebnisse der Analysen werden in der Benutzeroberfläche darstellt. Das bedeutet: alles was EffectLiteR kann (und noch vieles mehr) ist auch mit R möglich, die Verwendung von EffectLiteR vereinfacht die Anwendung allerdings deutlich.</p>
-<p>Das vorliegende Tutorial führt schrittweise in das Denken in bedingten Effekten und die Verwendung der EffectLiteR-Oberfläche ein. Das erste inhaltliche Kapitel beschreibt, wie einfache Modelle, in denen eine abhängige Variable lediglich durch eine Treatment-Variable vorhergesagt wird, in einer <a href="eins.html#eins">einfachen linearen Regression</a> parametrisiert und ausgewertet werden können. Im Kapitel <a href="zwei.html#zwei">zweifache lineare Regression</a> werden die Modelle um eine zusätzliche Kovariate erweitert, im Kapitel <a href="bedingt.html#bedingt">bedingte lineare Regression</a> wird schließlich auch der Effekt der Interaktion aus Treatment-Variable und Kovariate auf die abhängige Variable berücksichtigt. Sobald du das Grundprinzip der bedingten linearen Regression verstanden hast gibt es ein weiteres <a href="komplex.html#komplex">Kapitel</a>, mit Übungen zur Interpretation immer komplexer werdender Modelle mit mehreren Kovariaten.</p>
-<p>Das Tutorial ist voller Screenshots, die zeigen wo, was eingegeben werden kann und voller praktischer Übungen, die meist an einem bereitgestellten simulierten Datensatz durchgeführt werden können. Zu allen praktischen Übungen gibt es Lösungsvideos. Die Idee hinter den Übungen und Lösungsvideos ist es, euch die Möglichkeit zu geben neben dem theoretischen Verständnis der Materie auch die „Mechanik“ der Applikation durch ausprobieren und durch Lernen am Modell zu verinnerlichen.
-Das nächste Kapitel startet direkt mit Screenshots und Videos zum Download der Applikation.<br />
-In diesem Sinne: Viel Spaß und Erfolg beim Lesen, Üben und Erlernen der Software!</p>
+<p>Siehe die Lösung im Video an:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/K_UWilUA6z8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</div>
+<div id="einfache-lineare-regression-1" class="section level2">
+<h2><span class="header-section-number">13.2</span> Einfache lineare Regression</h2>
+<div id="a-6" class="section level3">
+<h3><span class="header-section-number">13.2.1</span> A)</h3>
+<p>Erwartungswerte unter den verschiedenen Behandlungsarten:
+<span class="math inline">\(\small E(Y|X=0)=30.5\)</span><br />
+<span class="math inline">\(\small E(Y|X=1)=45.9\)</span><br />
+<span class="math inline">\(\small E(Y|X=2)=52.3\)</span></p>
+<p>Unterschiede zwischen den Behandlungsarten:
+<span class="math inline">\(\small E(Y|X=1)\)</span> vs. <span class="math inline">\(\small E(Y|X=0)\)</span> entspricht g100: 15.36
+<span class="math inline">\(\small E(Y|X=2)\)</span> vs. <span class="math inline">\(\small E(Y|X=0)\)</span> entspricht g200: 21.78
+<span class="math inline">\(\small E(Y|X=2)\)</span> vs. <span class="math inline">\(\small E(Y|X=1)\)</span> entspricht g200 nach Wechsel der Referenzgruppe: 6.42</p>
+<p>Siehe die Lösung im Video an:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/R5Eii6rIvco" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</div>
+<div id="b-6" class="section level3">
+<h3><span class="header-section-number">13.2.2</span> B)</h3>
+<p>Unter <em>Average Effects</em> im Hauptoutput finden sich die absoluten und die (an der Standardabweichung der AV in der Kontrollgruppe) standardisierten durchschnittlichen Effekte.</p>
+<p><span class="math inline">\(\small Effect Size = \frac{Estimate}{SD_{YinKontrollgruppe}}\)</span></p>
+<p><span class="math inline">\(\small 1.63 \approx \frac{15.4}{9.44}\)</span> oder <span class="math inline">\(\small 2.31 \approx \frac{21.8}{9.44}\)</span>
+Daraus Folgt: <span class="math inline">\(\small SD_{YinKontrollgruppe} \approx 9.44\)</span></p>
+</div>
+</div>
+<div id="zweifache-lineare-regression-1" class="section level2">
+<h2><span class="header-section-number">13.3</span> Zweifache lineare Regression</h2>
+<div id="a-7" class="section level3">
+<h3><span class="header-section-number">13.3.1</span> A)</h3>
+<ol style="list-style-type: decimal">
+<li>Bedingte Erwartungswerte:</li>
+</ol>
+<ul>
+<li><span class="math inline">\(\small E(Y|X=0,K=0)=29.228\)</span></li>
+<li><span class="math inline">\(\small E(Y|X=0,K=1)=32.3\)</span></li>
+<li><span class="math inline">\(\small E(Y|X=1,K=0)=44.608\)</span></li>
+<li><span class="math inline">\(\small E(Y|X=1,K=1)=47.679\)</span></li>
+<li><span class="math inline">\(\small E(Y|X=2,K=0)=51.102\)</span></li>
+<li><span class="math inline">\(\small E(Y|X=2,K=1)=54.173\)</span></li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Effekt von Behandlungsart 1 im Vergleich zu Behandlungsart 0: <span class="math inline">\(\small g_{100}=15.38\)</span>, <span class="math inline">\(\small p&lt;0.05\)</span></li>
+<li>Effekt von Behandlungsart 2 im Vergleich zu Behandlungsart 0: <span class="math inline">\(\small g_{200}=21.874\)</span>, <span class="math inline">\(\small p&lt;0.05\)</span></li>
+<li>Effekt der Kovariaten: <span class="math inline">\(\small g_{010}=3.072\)</span>, <span class="math inline">\(\small p&lt;0.05\)</span></li>
+</ol>
+<p>Siehe die Lösung im Video an:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/uuoMXqSLs3s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</div>
+<div id="zstandlösung" class="section level3">
+<h3><span class="header-section-number">13.3.2</span> B)</h3>
+<p><em>Subjektive soziale Unterstützung</em> z-standardisieren: <span class="math inline">\(\small X_{z-stand.}=\frac{X-\bar{X}}{SD_X}\)</span><br />
+Wie du eine Variable z-standardisierst kannst dir auch in folgenden Videos ansehen:</p>
+<p>Detaillierte Erläuterung zur z-Standardisierung von Variablen mit R:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ewbItIs3upQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<p>Video zur z-Standardisierung von Variablen mit Excel:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/wGtxw5KbB5Q" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<p>Ansonsten ist die Aufgabe äquivalent zu lösen wie Aufgabe 1 zur zweifachen linearen Regression. Achte darauf, die z-standardisierte Variable unter <em>Continuous Covariates Z</em> einzugeben und unter Interactions <em>No interactions</em> auszuwählen.</p>
+<ol style="list-style-type: decimal">
+<li>Bedingte Erwartungswerte:</li>
+</ol>
+<ul>
+<li>$E(Y|X=0,Z_1={Z_1}=0)=30.673 $</li>
+<li>$E(Y|X=0,Z_1={Z_1}+SD_{Z_1}=1)=33.582 $</li>
+<li>$E(Y|X=1,Z_1={Z_1}=0)=45.531 $</li>
+<li>$E(Y|X=1,Z_1={Z_1}+SD_{Z_1}=1)=48.441 $</li>
+<li><span class="math inline">\(\small E(Y|X=2,Z_1=\bar{Z_1}=0)=52.556\)</span></li>
+<li><span class="math inline">\(\small E(Y|X=2,Z_1=\bar{Z_1}+SD_{Z_1}=1)=55.466\)</span></li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Der Effekt von Behandlungsart 1 im Vergleich zu Behandlungsart 0: <span class="math inline">\(\small g_{100}=14.859\)</span>, signifikant da <span class="math inline">\(\small p&lt;0.05\)</span></li>
+<li>Der Effekt von Behandlungsart 2 im Vergleich zu Behandlungsart 0: <span class="math inline">\(\small g_{200}=21.884\)</span>, signifikant da <span class="math inline">\(\small p&lt;0.05\)</span></li>
+<li>Der Effekt einer Änderung der Kovariaten um plus 1,5 Standardabweichungen berechnet sich durch <span class="math inline">\(\small g_{001}\times 1.5=4,3635\)</span> (Aufgrund der z-Standardisierung der Kovariate entspricht g001 dem Effekt der Steigerung um eine Standardabweichung). Der Effekt ist signifikant, da <span class="math inline">\(\small p_{g_{001}}&lt;0.05\)</span></li>
+</ol>
+</div>
+</div>
+<div id="bedingte-lineare-regression-1" class="section level2">
+<h2><span class="header-section-number">13.4</span> Bedingte lineare Regression</h2>
+<div id="a-8" class="section level3">
+<h3><span class="header-section-number">13.4.1</span> A)</h3>
+<ol style="list-style-type: decimal">
+<li>Es gibt eine signifikante Interaktion, der Parameter g101 wird signifikant, der Parameter g201 wird allerdings nicht signifikant. Dies bedeutet: Bei Behandlungsart 1 hat die Kovariaten Ausprägung einen Effekt auf den Gesundheitsscore, der über den Effekt der Kovariate in der Kontrollgruppe hinausgeht, der Effekt der Kovariaten bei Behandlungsart 2 weicht nicht signifikant vom Effekt der Kovariaten in der Kontrollbedingung ab. Ein Patient, der mit Behandlungsart 1 behandelt wird und eine Kovariaten ausprägung von <span class="math inline">\(\small z_1 = \bar{Z_1}+SD_{Z1}\)</span> hat, hat geschätzt einen um <span class="math inline">\(\small g_{001}+g_{101}=4.789\)</span> Punkte höheren Gesundheitsscore, als ein Patient mit durchschnittlicher Kovariaten-Ausprägung, der mit der selben Behandlungsmethode behandelt wurde.</li>
+<li>Der Intercept-Parameter g000 ist in beiden Fällen identisch, die Parameter, die die Effekte von Treatment und/oder Kovariate abbilden verändern sich aber abhängig davon, ob eine Interaktion zwischen Treatment und Kovariate geschätzt wird. Da eine Interaktion vorliegt (die Kovariate hat unter Behandlungsart 1 größere Auswirkungen auf den Gesundheitsscore als in der Kontrollgruppe), macht die zweifache lineare Regression falsche Annahmen, ihre Parameter sind dementsprechend weniger Vertrauenswürdig als die der bedingten linearen Regression.</li>
+</ol>
+<p>Siehe die Lösung im Video an:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/pS3yenevO38" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</div>
+<div id="b-7" class="section level3">
+<h3><span class="header-section-number">13.4.2</span> B)</h3>
+<ol start="3" style="list-style-type: decimal">
+<li><span class="math inline">\(\small E(Y|X=1,Z&#39;_1=1.784)=53.837\)</span><br />
+</li>
+<li><span class="math inline">\(\small E(Y|X=0,Z&#39;_1=1.784)=34.455 &lt; E(Y|X=1,Z&#39;_1=1.784)=53.837 &lt;l E(Y|X=2,Z&#39;_1=1.784)=55.273\)</span>: Wir würden dem Patienten Behandlungsart 2 empfehlen, da diese den höchsten Erwartungswert erwarten lässt.</li>
+</ol>
+<p>Siehe die Lösung im Video an:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Po3g3OdLcfA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</div>
+</div>
+<div id="plots-2" class="section level2">
+<h2><span class="header-section-number">13.5</span> Plots</h2>
+<p>Die bedingte lineare Regression erlaubt einen linearen Einfluss der Kovariaten auf die Effektfunktion: Behandlungsart 1 wirkt um so stärker, je höher die Ausprägung der Kovariaten bei behandelten Patienten ist. Die zweifache lineare Regression erlaubt lediglich einen konstanten Einfluss der Kovariaten auf die Behandlungsart. Die Effektfunktion verändert sich nicht in Abhängigkeit der Kovariaten-Ausprägung, sondern wird für alle Patienten gleich geschätzt.</p>
+<p>Höre dir die Erklärung im Video an:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XdLHvwQvnv8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
+<a href="übungen-1.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="installation.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

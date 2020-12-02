@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>EffectLiteR Tutorial - Work In Progress</title>
+  <title>9 Conditional Effects | EffectLiteR Tutorial - Work In Progress</title>
   <meta name="description" content="This is a Tutorial for the EffectLiteR package." />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="EffectLiteR Tutorial - Work In Progress" />
+  <meta property="og:title" content="9 Conditional Effects | EffectLiteR Tutorial - Work In Progress" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="EffectLiteR Tutorial - Work In Progress" />
+  <meta name="twitter:title" content="9 Conditional Effects | EffectLiteR Tutorial - Work In Progress" />
   
   <meta name="twitter:description" content="This is a Tutorial for the EffectLiteR package." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="installation.html"/>
+<link rel="prev" href="exkadj.html"/>
+<link rel="next" href="plots.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -238,27 +238,85 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">EffectLiteR Tutorial - Work In Progress</h1>
-<p class="author"><em>Alexander Jung, Christoph Kiefer &amp; Axel Mayer</em></p>
+<div id="conditional-effects" class="section level1">
+<h1><span class="header-section-number">9</span> Conditional Effects</h1>
+<p>Es gibt insgesamt vier Reiter im Output-Panel, die dabei helfen Bedingte Effekte unter verschiedenen Ausprägungen von Kovariaten zu interpretieren.</p>
+<div class="figure"><span id="fig:unnamed-chunk-35"></span>
+<img src="images/bedingte%20lineare%20Regression,%20Hypotheses%20given%20Z=z.png" alt="Vier Conditional-Effects-Reiter" width="100%" />
+<p class="caption">
+Figure 9.1: Vier Conditional-Effects-Reiter
+</p>
 </div>
-<div id="index" class="section level1">
-<h1><span class="header-section-number">1</span> Index</h1>
-<p>EffectLiteR ist eine auf der Statistiksoftware R (und dem R-Paket lavaan) basierende Applikation, die zur Analyse bedingter und durchschnittlicher Treatment-Effekte vorgesehen ist. Unter bedingten Treatment-Effekten versteht man die Wirkung einer Treatment-Bedingung im Vergleich zu einer Kontroll-Bedingung und unter bestimmten Kovariaten-Ausprägungen. Eine Besonderheit von EffectLiteR ist dabei, dass es grundsätzlich bedingte und durchschnittliche Effekte schätzt, die sich im Falle unbalancierter Designs von Haupteffekten (wie sie etwa SPSS ausgibt) unterscheiden.
-EffectLiteR unterscheidet sich von den meisten anderen R-Paketen dadurch, dass es über eine eigene Benutzeroberfläche verfügt: Man kann (anstatt selbst R-Code zu schreiben) per Mausklick auf dieser Benutzeroberfläche Befehle spezifizieren, diese werden in R-Code übersetzt, in R berechnet und die Ergebnisse der Analysen werden in der Benutzeroberfläche darstellt. Das bedeutet: alles was EffectLiteR kann (und noch vieles mehr) ist auch mit R möglich, die Verwendung von EffectLiteR vereinfacht die Anwendung allerdings deutlich.</p>
-<p>Das vorliegende Tutorial führt schrittweise in das Denken in bedingten Effekten und die Verwendung der EffectLiteR-Oberfläche ein. Das erste inhaltliche Kapitel beschreibt, wie einfache Modelle, in denen eine abhängige Variable lediglich durch eine Treatment-Variable vorhergesagt wird, in einer <a href="eins.html#eins">einfachen linearen Regression</a> parametrisiert und ausgewertet werden können. Im Kapitel <a href="zwei.html#zwei">zweifache lineare Regression</a> werden die Modelle um eine zusätzliche Kovariate erweitert, im Kapitel <a href="bedingt.html#bedingt">bedingte lineare Regression</a> wird schließlich auch der Effekt der Interaktion aus Treatment-Variable und Kovariate auf die abhängige Variable berücksichtigt. Sobald du das Grundprinzip der bedingten linearen Regression verstanden hast gibt es ein weiteres <a href="komplex.html#komplex">Kapitel</a>, mit Übungen zur Interpretation immer komplexer werdender Modelle mit mehreren Kovariaten.</p>
-<p>Das Tutorial ist voller Screenshots, die zeigen wo, was eingegeben werden kann und voller praktischer Übungen, die meist an einem bereitgestellten simulierten Datensatz durchgeführt werden können. Zu allen praktischen Übungen gibt es Lösungsvideos. Die Idee hinter den Übungen und Lösungsvideos ist es, euch die Möglichkeit zu geben neben dem theoretischen Verständnis der Materie auch die „Mechanik“ der Applikation durch ausprobieren und durch Lernen am Modell zu verinnerlichen.
-Das nächste Kapitel startet direkt mit Screenshots und Videos zum Download der Applikation.<br />
-In diesem Sinne: Viel Spaß und Erfolg beim Lesen, Üben und Erlernen der Software!</p>
+<p>Diese vier Reiter werden nun einer nach dem anderen besprochen.</p>
+<div id="conditional-effects-i" class="section level2">
+<h2><span class="header-section-number">9.1</span> Conditional Effects I</h2>
+<p>Unter Conditional Effects I werden für jeden Fall des Datensatzes alle beobachteten Prädiktoren aufgelistet und die erwarteten Effekte unter diesen Bedingungen geschätzt.</p>
+<div class="figure"><span id="fig:CEI"></span>
+<img src="images/CEI1.PNG" alt="Conditional Effects I - Output" width="100%" />
+<p class="caption">
+Figure 9.2: Conditional Effects I - Output
+</p>
+</div>
+<p>Der erste beobachtete Fall ist also in der Treatmentgruppe <span class="math inline">\(\small X=2\)</span>, hat auf der kategorialen Kovariate <span class="math inline">\(\small k1\)</span> die Ausprägung <span class="math inline">\(\small 0\)</span> und auf der kontinuierlichen Kovariaten <span class="math inline">\(\small z_1\)</span> die Ausprägung <span class="math inline">\(\small 0.576647\)</span> (<span class="math inline">\(\small K\)</span> ist dann relevant, wenn mehrere kategoriale Kovariaten vorliegen und von EffectLiteR automatisch zu einer kategorialen Variablen <span class="math inline">\(\small K\)</span> zusammengefasst werden). Unter diesen Prädiktor-Ausprägungen liegt der Erwartungswert der Effektfunktion <span class="math inline">\(\small g2(K)\)</span> bei <span class="math inline">\(\small -0.0555\)</span> und der Standardfehler bei <span class="math inline">\(\small 0.0869\)</span>. Der Erwartungswert der abhängigen Variablen liegt bei <span class="math inline">\(\small ExpOutc2 = 0.0743\)</span>.<br />
+Die Angaben zur Effektfunktion <span class="math inline">\(\small g1(K)\)</span> und dem Expected Outcome unter den Bedingungen <span class="math inline">\(\small X=0\)</span> (ExpOutc0) und <span class="math inline">\(\small X=1\)</span> (Exp.Outc1) sind mehr theoretischer Natur, da der erste angezeigte Fall nun mal der Treatmentgruppe <span class="math inline">\(\small X=2\)</span> zugeordnet ist. Man kann die beiden Effektgrößen-Schätzer wie folgt interpretieren: Eine Person der Treatmentbedi</p>
+</div>
+<div id="conditional-effects-ii" class="section level2">
+<h2><span class="header-section-number">9.2</span> Conditional Effects II</h2>
+<p>Unter dem zweiten Conditional Effects Reiter hat man die Möglichkeit die Kombination aus Kovariatenausprägungen, unter der die bedingten Treatmenteffekte geschätzt werden, selbst auszuwählen.
+Wählt man für die kontinuierlichen Kovariaten den unter <em>Descriptive Statistics for Continous Covariates</em> angegebenen Mittelwert aus (in Figure <a href="conditional-effects.html#fig:CEII">9.3</a> beispielsweise <span class="math inline">\(\small z_1=0.0036\)</span>), so erhält man als Effekt den Schätzer des durchschnittlichen bedingten Treatment-Effektes unter den gewählten Bedingungen der kategorialen Kovariaten (in Figure <a href="conditional-effects.html#fig:CEII">9.3</a> den Treatmenteffekt unter der Bedingung <span class="math inline">\(\small k1=male\)</span>).</p>
+<div class="figure"><span id="fig:CEII"></span>
+<img src="images/CEII1.PNG" alt="Conditional Effects II" width="100%" />
+<p class="caption">
+Figure 9.3: Conditional Effects II
+</p>
+</div>
+</div>
+<div id="conditional-effects-iii" class="section level2">
+<h2><span class="header-section-number">9.3</span> Conditional Effects III</h2>
+<p>Dieser Reiter ist dann hilfreich, wenn Vorhersagen für einzelne Fälle getroffen werden sollen, für die nicht alle Daten vorhanden sind.</p>
+<p>Angenommen wir haben einen großen Datensatz mit vielen Kovariaten, der erfasst für welche Patienten welche Therapieform wie effektiv ist. Wir wollen entscheiden, ob für einen bestimmten Patienten Therapie <span class="math inline">\(\small X=0\)</span>, Therapie <span class="math inline">\(\small X=1\)</span> oder Therapie <span class="math inline">\(\small X=2\)</span> am effektivsten zu sein scheint.<br />
+Der uns vorliegende Datensatz sagt Therapieerfolg anhand der Kovariaten <span class="math inline">\(\small k1\)</span>, <span class="math inline">\(\small kateg2\)</span>, <span class="math inline">\(\small Z_1\)</span>, <span class="math inline">\(\small Z_2\)</span> und <span class="math inline">\(\small Z_3\)</span> vorher. Für den Patienten, für den wir die nach Möglichkeit erfolgreichste Therapie auswählen wollen, sind allerdings nur die Variablen für <span class="math inline">\(\small k1\)</span>, <span class="math inline">\(\small Z_1\)</span> und <span class="math inline">\(\small Z_3\)</span> bekannt (<span class="math inline">\(\small k1 = male\)</span>, <span class="math inline">\(\small Z_1\)</span> = 1.75, <span class="math inline">\(\small Z_3\)</span> = 1.75, siehe Figure <a href="conditional-effects.html#fig:CEIII">9.4</a>).<br />
+Im Reiter <em>Conditional Effects III</em> können die drei bekannten Kovariaten eingegeben werden, während für die unbekannten Kovariaten (<span class="math inline">\(\small kateg2\)</span> und <span class="math inline">\(\small Z_2\)</span> ) <span class="math inline">\(\small NA\)</span> angegeben werden kann. EffectLiteR mittelt dann die Effekte der ähnlichsten Fälle um Effekte für den gewählten Einzelfall zu schätzen.</p>
+<div class="figure"><span id="fig:CEIII"></span>
+<img src="images/CEIII1.PNG" alt="Conditional Effects III" width="100%" />
+<p class="caption">
+Figure 9.4: Conditional Effects III
+</p>
+</div>
+<p>Gehen wir davon aus, dass eine hohe Ausprägung der abhängigen Variablen wünschenswert ist, so sollten wir für den Patienten die Therapieform <span class="math inline">\(\small X=0\)</span> wählen, denn <span class="math inline">\(\small ExpOutc0 &gt; ExpOutc2 &gt; ExpOutc1\)</span>. Die Angabe der Standardfehler der aggregierten Effekte hilft dabei abzuschätzen, inwieweit der Vergleich der ausgegebenen Erwartungswerte bei inferenzstatistischer Testung signifikant würde. Ein t-Test wird beispielsweise dann signifikant, wenn die Mittelwerts-Differenz größer als 1.96 Standardfehler (gemittelt über beide Gruppen) ist.</p>
+<p>Es ist hilfreich zu verstehen, wie die dem gewählten Fall „ähnlichen“ Fälle ermittelt werden, deren gemittelte Effekte als Schätzer für die gesuchten Effekte genutzt werden. Aus dem Datensatz werden Fälle herausgesucht, die die gleichen kategorialen Kovariaten-Ausprägungen haben, wie der Fall, auf den geschlussfolgert werden soll. Unser Patient ist männlich (<span class="math inline">\(\small k1=0\)</span>), deshalb werden nur Daten von Männern betrachtet (siehe Kovariatenausprägungen unter <span class="math inline">\(\small k1\)</span> in Figure <a href="conditional-effects.html#fig:CEIII2">9.5</a>.<br />
+Für kontinuierliche Kovariaten muss die Betrachtung von Fällen mit ähnlichen Kovariaten-Ausprägungen ausreichen, da identische Ausprägungen in der Regel selten sind. Unser Patient hat die Kovariaten-Ausprägungen <span class="math inline">\(\small z_1=1.75\)</span> und <span class="math inline">\(\small z_3=1.75\)</span>. Im Beispiel (Figure <a href="conditional-effects.html#fig:CEIII2">9.5</a>) wurden also die Fälle von Männern ausgesucht, die dem ausgewählten Fall auf den Variablen <span class="math inline">\(\small Z_1\)</span> und <span class="math inline">\(\small Z_3\)</span> am ähnlichsten sind, die Ausgewählten Fälle haben auf der Variable <span class="math inline">\(\small Z_1\)</span> Ausprägungen zwischen <span class="math inline">\(\small 1,33\)</span> und <span class="math inline">\(\small 1,90\)</span> und auf der Variable <span class="math inline">\(\small Z_3\)</span> Ausprägungen zwischen <span class="math inline">\(\small 1,17\)</span> und <span class="math inline">\(\small 2,21\)</span>.</p>
+<div class="figure"><span id="fig:CEIII2"></span>
+<img src="images/CEIII2.PNG" alt="Conditional Effects III - Ähnliche Fälle" width="100%" />
+<p class="caption">
+Figure 9.5: Conditional Effects III - Ähnliche Fälle
+</p>
+</div>
+<p>Dass insgesamt 10 Fälle als ähnlich ausgewählt wurden, entspricht der Default-Einstellung, kann allerdings unter <em>Number of rows</em> frei ausgewählt werden. Wenn die Kovariaten-Ausprägungen der ausgewählten Fälle den Kovariaten-Ausprägungen des Falles, auf den geschlossen werden soll, stark ähneln, kann die Anzahl ausgewählter Fälle erhöht werden, weichen sie hingegen stark von den Kovariaten-Ausprägungen des Falles, auf den geschlossen werden soll, ab, sollte die Anzahl verringert werden.</p>
+<p>Die Auswahl der angegebenen Kovariaten sollte mit Bedacht geschehen. In unserem Beispiel betrachten wir einen männlichen Patienten. Da wir uns dazu entschieden das Geschleicht unter dem <em>Conditional Effects III</em>-Reiter anzugeben, werden nur Fälle anderer Männer in Betracht gezogen. Es ist also nur sinnvoll anzugeben, dass der Fall, auf den geschlossen werden soll, ein Mann ist, wenn das Geschlecht oder die Interaktion von Geschlecht und anderen Prädiktoren die abhängige Variable auch zu einem angemessenen Grad vorhersagen. Wenn das Geschlecht die abhängige Variable hingegen kaum vorhersagt, gibt man es besser nicht an, weil man damit die Zahl der Fälle, in denen nach ähnlichen Kovariaten-Ausprägungen gesucht wird, stark einschränkt. Das selbe Prinzip gilt auch für die Auswahl von kontinuierlichen Kovariaten.</p>
+</div>
+<div id="conditional-effects-iv" class="section level2">
+<h2><span class="header-section-number">9.4</span> Conditional Effects IV</h2>
+<p>Der Reiter <em>Conditional Effects IV</em> kann dann verwendet werden, wenn lediglich eine einzige abhängige Variable bekannt ist. In diesem Reiter wird eine Regression der gewünschten Kovariate auf eine Effektfunktion geschätzt.</p>
+<div class="figure"><span id="fig:unnamed-chunk-36"></span>
+<img src="images/CEIV1.PNG" alt="Conditional Effects III - Output" width="100%" />
+<p class="caption">
+Figure 9.6: Conditional Effects III - Output
+</p>
+</div>
+<p>Der Output wird wie folgt interpretiert: Der geschätzte Effekt einer Veränderung von <span class="math inline">\(\small X=0\)</span> zu <span class="math inline">\(\small X=1\)</span> unter der Bedingung <span class="math inline">\(\small k=k0\)</span> ist <span class="math inline">\(\small 3,288\)</span>, unter der Bedingung <span class="math inline">\(\small k=k1\)</span> ist der geschätzte Effekt um <span class="math inline">\(\small 1,409\)</span> kleiner als unter der Bedingung <span class="math inline">\(\small k=k0\)</span> und somit <span class="math inline">\(\small E[g1(x)|k1=1]=3,288-1,409=1,879\)</span> und unter der Bedingung <span class="math inline">\(\small k=k2\)</span> ist der geschätzte Effekt um <span class="math inline">\(\small -0,337\)</span> kleiner als unter der Bedingung <span class="math inline">\(\small k=k0\)</span> und somit <span class="math inline">\(\small E[g1(x)|k1=2]=3,288-0,337=2,951\)</span>.<br />
+Dir wird aufgefallen sein, dass unter <em>Conditional Effects IV</em> nicht von vornherein Standardfehler für die geschätzten Effekte berechnet werden. Zur formalen Berechnung von Standardfehlern müssen generell bestimmte Annahmen getroffen werden (beispielsweise ob der Zusammenhang zwischen Prädiktor und Regressand linear oder quadratisch ist, Annahmen über die Form der Verteilung, …). Für die Regression einer Kovariaten auf eine Effektfunktion sind solche Verteilungsannahmen nicht generell bekannt, deshalb wird von EffektLiteR kein Standardfehler geschätzt.<br />
+Will man dennoch einen Standardfehler interpretieren kann man auf das Bootstrap-Verfahren zurückgreifen. Dabei werden auf Grundlage der Stichprobe verwandte Stichproben simuliert (durch zufälliges ziehen von Fällen „mit zurücklegen“, das heißt einige Fälle der Stichprobe werden gar nicht beachtet, andere Fälle mehrfach). Für jede simulierte Stichprobe wird die Regression der Kovariaten auf die Effektfunktion gerechnet, die Standardabweichung der so gefundenen Effektgrößenschätzer wird als Standardfehler interpretiert. Die Anzahl an Stichproben, die gezogen werden soll, kann der Nutzer unter <em>Number of bootstrap draws</em> frei angeben. Natürlich wird die Schätzung des Standardfehlers um so genauer, je mehr simulierte Stichproben gezogen werden, jedoch (<em>Vorsicht!</em>) dauert die Berechnung bei einer großen Zahl an Bootstraps auch entsprechend länger und kann nicht so einfach abgebrochen werden.</p>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="installation.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="exkadj.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="plots.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
